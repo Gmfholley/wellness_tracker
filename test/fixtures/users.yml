@@ -13,6 +13,9 @@
 #  reset_password_token            :string
 #  reset_password_token_expires_at :datetime
 #  reset_password_email_sent_at    :datetime
+#  first_name                      :string
+#  last_name                       :string
+#  profile_picture                 :string
 #
 # Indexes
 #

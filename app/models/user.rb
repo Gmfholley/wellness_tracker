@@ -13,6 +13,9 @@
 #  reset_password_token            :string
 #  reset_password_token_expires_at :datetime
 #  reset_password_email_sent_at    :datetime
+#  first_name                      :string
+#  last_name                       :string
+#  profile_picture                 :string
 #
 # Indexes
 #
@@ -24,8 +27,8 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   validates :password_confirmation, presence: true
-  validates :password, presence: true
-  validates :email, presence: true, email: true
+  validates :password, confirmation: true, length: {minimum: 5}
+  validates :email, presence: true, email: true, uniqueness: true
   
   
 end
