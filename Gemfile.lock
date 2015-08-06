@@ -76,6 +76,8 @@ GEM
     date_validator (0.8.1)
       activemodel
     debug_inspector (0.0.2)
+    email_validator (1.6.0)
+      activemodel
     erubis (2.7.0)
     execjs (2.5.2)
     extlib (0.9.16)
@@ -226,6 +228,7 @@ DEPENDENCIES
   clockwork (~> 1.2.0)
   coffee-rails (~> 4.1.0)
   date_validator (~> 0.8.1)
+  email_validator (~> 1.6.0)
   figaro (~> 1.1.0)
   google_drive (~> 1.0.1)
   jbuilder (~> 2.0)

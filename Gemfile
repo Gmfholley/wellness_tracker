@@ -33,6 +33,7 @@ gem 'date_validator', '~> 0.8.1'
 gem 'clockwork', '~> 1.2.0'
 # for documentation
 gem 'carrierwave', '~> 0.10.0'
+gem 'email_validator', '~> 1.6.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
