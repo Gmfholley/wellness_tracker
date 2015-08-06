@@ -21,9 +21,11 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = current_user
   end
   
   def update
+    @user = current_user
     if @user.update(user_params)
       redirect_to profile_path, :notice => "Account updated!"
     else
@@ -35,6 +37,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
+    @user = current_user
     if @user.destroy
       redirect_to login_path, :notice => "Your account was deleted."
     else
