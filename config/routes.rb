@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   get 'users/new' => 'users#new', as: :new_user
   post 'users' => 'users#create'
   get 'users/:user_name' => 'users#show', as: :user
-  # post 'login' => 'user_sessions#create', as: :login
+  post 'login' => 'user_sessions#create', as: :login
   get 'login' => 'user_sessions#new'
-  # delete 'logout' => 'user_sessions#destroy', as: :logout
+  delete 'logout' => 'user_sessions#destroy', as: :logout
   get '/' => 'users#show', as: :root
   
   
