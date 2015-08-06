@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get 'edit_profile' => 'users#edit', as: :edit_profile
   put 'edit_profile' => 'users#update' 
   patch 'edit_profile' => 'users#update'
-  delete 'delete_profile' => 'users#destroy', :as :delete_profile
-  get 'friends_feed' => 'users#index', :as :friends_feed 
-  get 'users/:user_name' => 'users#show', :as :user
+  delete 'delete_profile' => 'users#destroy', as: :delete_profile
+  get 'friends_feed' => 'users#index', as: :friends_feed 
+  get 'users/:user_name' => 'users#show', as: :user
   get 'users/new' => 'users#new', as: :new_user
   post 'users' => 'users#create'
   
