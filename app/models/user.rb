@@ -23,4 +23,9 @@
 
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
+  validates :password_confirmation, presence: true
+  validates :password, presence: true
+  validates :email, presence: true
+  
+  
 end
