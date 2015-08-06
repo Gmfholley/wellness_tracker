@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   
   
-  get 'password_resets/create'
+  post 'password_resets' => 'password_resets#create', as: :password_resets
+  get 'password_resets/:id/edit' => 'password_resets#edit', as: :edit_password_resets
+  put 'password_resets/:id' => 'passwords_resets#update'
+  patch 'password_resets/:id' => 'passwords_resets#update'
 
-  get 'password_resets/edit'
-
-  get 'password_resets/update'
 
   get '/' => 'users#show', as: :root
   get 'profile' => 'users#show', as: :profile
