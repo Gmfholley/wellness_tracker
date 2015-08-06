@@ -7,21 +7,21 @@ Rails.application.routes.draw do
   patch 'password_resets/:id' => 'passwords_resets#update'
 
 
-  get '/' => 'users#show', as: :root
+
   get 'profile' => 'users#show', as: :profile
   get 'edit_profile' => 'users#edit', as: :edit_profile
   put 'edit_profile' => 'users#update' 
   patch 'edit_profile' => 'users#update'
   delete 'delete_profile' => 'users#destroy', as: :delete_profile
   get 'friends_feed' => 'users#index', as: :friends_feed 
-  get 'users/:user_name' => 'users#show', as: :user
+
   get 'users/new' => 'users#new', as: :new_user
   post 'users' => 'users#create'
-  
-  post 'login' => 'user_sessions#create', as: :login
+  get 'users/:user_name' => 'users#show', as: :user
+  # post 'login' => 'user_sessions#create', as: :login
   get 'login' => 'user_sessions#new'
-  delete 'logout' => 'user_sessions#destroy', as: :logout
-  
+  # delete 'logout' => 'user_sessions#destroy', as: :logout
+  get '/' => 'users#show', as: :root
   
   
   # The priority is based upon order of creation: first created -> highest priority.
