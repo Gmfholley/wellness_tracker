@@ -32,4 +32,21 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   
+  
+  # returns the total points from all this person's exercise events
+  #
+  # returns an Integer
+  def total_points
+    ExerciseEvent.points_for_person(id)
+  end
+  
+  # returns the total points from all this person's exercise events between the start and end dates
+  #
+  # date_start - Date to start  (I believe SQL treats dates as a straight Integer)
+  # date_end   - Date to end (again, SQL treats as an Integer)  
+  #
+  # returns an Integer
+  def points(date_start, date_end)
+    ExerciseEvent.points_for_person_within_dates(id, date_start, date_end)
+  end
 end
