@@ -32,11 +32,14 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   
+  has_many :exercise_events
+  has_many :exercise_types, through: :exercise_events
+  
   
   # returns the total points from all this person's exercise events
   #
   # returns an Integer
-  def total_points 
+  def total_points
     ExerciseEvent.points_for_person(id)
   end
   
