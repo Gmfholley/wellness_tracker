@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   # returns the total points from all this person's exercise events
   #
   # returns an Integer
-  def total_points
+  def total_points 
     ExerciseEvent.points_for_person(id)
   end
   
