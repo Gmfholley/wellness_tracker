@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :intensities
   resources :exercise_types
   resources :exercise_events
   post 'password_resets' => 'password_resets#create', as: :password_resets
