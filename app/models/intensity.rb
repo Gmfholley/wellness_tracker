@@ -10,4 +10,8 @@
 #
 
 class Intensity < ActiveRecord::Base
+  validates :name, presence: true
+  validates :point_adjustment, numericality: true, presence: true
+  
+  has_many :exercise_events
 end
