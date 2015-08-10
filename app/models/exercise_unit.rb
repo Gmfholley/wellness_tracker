@@ -9,4 +9,5 @@
 #
 
 class ExerciseUnit < ActiveRecord::Base
+  validates :name, presenece: true
 end
