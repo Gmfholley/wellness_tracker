@@ -13,11 +13,11 @@
               <%# TODO - display team information %>
             </div>
             <div class="card-action">
-              <a href="#"><i class="material-icons">person</i>Profile</a>
+              <a href="<%= user_path(user.id) %>"><i class="material-icons">person</i>Profile</a>
               <% if @user.friends.exists?(user) %>
-                <a href="#">Friend</a>
+                <%= link_to "Friend", friend_path(user.id), method: "delete" %>
               <% else %>
-                <a href="#"><i class="material-icons">add</i>Send Friend Request</a>
+                <%= link_to '<i class="material-icons">add</i>Send Friend Request'.html_safe, add_friend_path(user.id), method: "post"  %>
               <% end %>              
             </div>
           </div>
