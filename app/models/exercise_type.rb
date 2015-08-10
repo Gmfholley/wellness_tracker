@@ -9,4 +9,5 @@
 #
 
 class ExerciseType < ActiveRecord::Base
+  validates :name, presence: true
 end
