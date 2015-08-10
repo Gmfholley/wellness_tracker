@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Intensity.find_or_create_by(name: "Low")
+Intensity.find_or_create_by(name: "Medium")
+Intensity.find_or_create_by(name: "High")
