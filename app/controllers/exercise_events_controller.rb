@@ -69,6 +69,6 @@ class ExerciseEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_event_params
-      params.require(:exercise_event).permit(:exercise_type_id, :exercise_unit_id, :intensity_id, :date)
+      params.require(:exercise_event).permit(:exercise_type_id, :exercise_unit_id, :intensity_id, :date, :num_units)
     end
 end
