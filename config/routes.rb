@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :friends
+  resources :friends, except: [:update, :edit, :create]
+  
+  post 'friends/new/:user_id' => 'friends#create', as: :add_friend
+  
   resources :exercise_types
   resources :exercise_events
   post 'password_resets' => 'password_resets#create', as: :password_resets
