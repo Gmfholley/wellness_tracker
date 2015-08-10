@@ -21,6 +21,9 @@ class ExerciseEvent < ActiveRecord::Base
   validates :exercise_unit, presence: true
   validates :num_units, presence: true, numericality: {greater_than: 0}
   
+  has_many :comments
+  has_many :cheers
+  
   
   belongs_to :exercise_type
   belongs_to :intensity
