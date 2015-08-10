@@ -3,6 +3,8 @@ class FriendsController < ApplicationController
   
   def new
     @users = @user.not_friends
+    @message = "Here are some people you might know."
+    render "index"
   end
 
   def create
@@ -18,7 +20,8 @@ class FriendsController < ApplicationController
   end
   
   def index
-    @friends = @user.friends
+    @users = @user.friends
+    @message = "These are your friends."
   end
   
   def destroy
