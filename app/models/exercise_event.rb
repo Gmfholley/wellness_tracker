@@ -14,4 +14,13 @@
 #
 
 class ExerciseEvent < ActiveRecord::Base
+  validates :user, presence: true
+  validates :date, presence: true, date: true
+  validates :exercise_type, presence: true
+  validates :intensity, presence: true
+  
+  
+  belongs_to :exercise_type
+  belongs_to :intensity
+  belongs_to :user
 end
