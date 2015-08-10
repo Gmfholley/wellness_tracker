@@ -34,7 +34,11 @@ class User < ActiveRecord::Base
   
   has_many :exercise_events
   has_many :exercise_types, through: :exercise_events
-  has_many :friends
+  
+  has_and_belongs_to_many :friends, :class_name => "User",
+                                      :foreign_key => "user_id",
+                                      :association_foreign_key => "friend_id"
+  
   
   
   # returns the total points from all this person's exercise events
