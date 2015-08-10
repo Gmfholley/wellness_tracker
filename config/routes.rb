@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'friends_activities/index'
+
+  get 'friends_activities/show'
+
   resources :friends, except: [:update, :edit, :create]
   
   post 'friends/new/:user_id' => 'friends#create', as: :add_friend
