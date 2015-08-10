@@ -41,6 +41,15 @@ class User < ActiveRecord::Base
   
   
   
+  
+  # returns an Array of Users that are not my friends
+  #
+  # returns an Array of Users
+  def not_friends
+    not_my_friends = User.all.includes(:friends).where.not(:users_users => {:friend_id => self.id}).where.not(id: self.id)
+    no_friends = User.all.includes(:friends).where(:users_users => {:user_id => nil})
+    not_my_friends + no_friends
+  end
   # returns the total points from all this person's exercise events
   #
   # returns an Integer
