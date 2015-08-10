@@ -4,7 +4,7 @@ class ExerciseEventsController < ApplicationController
   # GET /exercise_events
   # GET /exercise_events.json
   def index
-    @exercise_events = ExerciseEvent.all
+    @exercise_events = @user.exercise_events
   end
 
   # GET /exercise_events/1
@@ -14,7 +14,7 @@ class ExerciseEventsController < ApplicationController
 
   # GET /exercise_events/new
   def new
-    @exercise_event = ExerciseEvent.new
+    @exercise_event = @user.exercise_event.build
   end
 
   # GET /exercise_events/1/edit
@@ -24,7 +24,7 @@ class ExerciseEventsController < ApplicationController
   # POST /exercise_events
   # POST /exercise_events.json
   def create
-    @exercise_event = ExerciseEvent.new(exercise_event_params)
+    @exercise_event = @user.exercise_event.create(exercise_event_params)
 
     respond_to do |format|
       if @exercise_event.save
@@ -69,6 +69,6 @@ class ExerciseEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_event_params
-      params.require(:exercise_event).permit(:user_id, :exercise_type_id, :duration, :intensity_id, :points, :date)
+      params.require(:exercise_event).permit(:exercise_type_id, :exercise_unit_id, :intensity_id, :date)
     end
 end
