@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   
   has_many :exercise_events
   has_many :exercise_types, through: :exercise_events
+  has_many :friends
   
   
   # returns the total points from all this person's exercise events
