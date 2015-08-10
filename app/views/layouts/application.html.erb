@@ -9,6 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="nav-wrapper">
   <div id="nav">
     <i class="material-icons dropdown-button" data-activates='main-menu' data-hover="true" data-beloworigin="true">menu</i></div>
     <ul id="main-menu" class="dropdown-content">    
@@ -24,6 +25,7 @@
   <div>
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>
+  </div>
   </div>
   <div class="container">
   <%= yield %>
