@@ -46,7 +46,8 @@ class User < ActiveRecord::Base
   #
   # returns an Array of Users
   def not_friends
-    not_me = User.all.includes(:friends).where.not(id: self.id)
+    #TODO - get a better implementation of this
+    not_me = User.all.includes(:friends).where.not(id: self.id).limit(50)
     not_my_friends = not_me.select{|user| !user.friends.exists?(self.id)}
     not_my_friends
   end
