@@ -18,9 +18,12 @@ class ExerciseEvent < ActiveRecord::Base
   validates :date, presence: true, date: true
   validates :exercise_type, presence: true
   validates :intensity, presence: true
+  validates :exercise_unit, presence: true
+  validates :num_units, presence: true, numericality: {greater_than: 0}
   
   
   belongs_to :exercise_type
   belongs_to :intensity
   belongs_to :user
+  belongs_to :exercise_unit
 end
