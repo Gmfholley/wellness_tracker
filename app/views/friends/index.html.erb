@@ -1,26 +1,27 @@
 
 <h3><%= @message %></h3>
-
-<% @users.each do |user| %>
       <div class="row">
+<% @users.each do |user| %>
+
         <div class="col s12 m6">
           <div class="card darken-1">
             <div class="card-content black-text">
-              <span class="card-title"><%= "#{user.first_name} #{user.last_name}" %> Yes</span>
+              <span class="card-title black-text"><%= "#{user.first_name} #{user.last_name}" %></span>
               <p>I am a very simple card. I am good at containing small bits of information.
               I am convenient because I require little markup to use effectively.</p>
               <%# TODO - display organizations %>
               <%# TODO - display team information %>
             </div>
             <div class="card-action">
-              <a href="#">Profile</a>
+              <a href="#"><i class="material-icons">person</i>Profile</a>
               <% if @user.friends.exists?(user) %>
                 <a href="#">Friend</a>
               <% else %>
-                <a href="#">Send Friend Request</a>
+                <a href="#"><i class="material-icons">add</i>Send Friend Request</a>
               <% end %>              
             </div>
           </div>
         </div>
-      </div>
+
 <% end %>
+      </div>
