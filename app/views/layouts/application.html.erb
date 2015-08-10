@@ -28,8 +28,10 @@
   <div class="container">
   <%= yield %>
   </div>
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'materialize' %>
-  <%= javascript_include_tag 'materialize.min' %>
+  <div class="scripts">  
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'materialize' %>
+    <%= javascript_include_tag 'materialize.min' %>
+  </div>
 </body>
 </html>
