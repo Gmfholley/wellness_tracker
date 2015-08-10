@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   def not_friends
     #TODO - get a better implementation of this
     not_me = User.all.includes(:friends).where.not(id: self.id).limit(50)
-    not_my_friends = not_me.select{|user| !user.friends.exists?(self.id)}
+    not_my_friends = not_me.select{|user| !self.friends.exists?(user.id)}
     not_my_friends
   end
   # returns the total points from all this person's exercise events
