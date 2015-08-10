@@ -2,32 +2,25 @@
 
 <p>
   <strong>User:</strong>
-  <%= @exercise_event.user_id %>
+  <%= @exercise_event.user.first_name %>
 </p>
-
+<p>
+  <strong>Date:</strong>
+  <%= @exercise_event.date %>
+</p>
 <p>
   <strong>Exercise type:</strong>
   <%= @exercise_event.exercise_type_id %>
 </p>
 
 <p>
-  <strong>Duration:</strong>
-  <%= @exercise_event.duration %>
-</p>
-
-<p>
   <strong>Intensity:</strong>
-  <%= @exercise_event.intensity_id %>
+  <%= @exercise_event.intensity.name %>
 </p>
 
 <p>
-  <strong>Points:</strong>
-  <%= @exercise_event.points %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @exercise_event.date %>
+  <strong>Description:</strong>
+  <%= "#{@exercise_event.num_units} #{@exercise_event.exercise_unit.name}" %>
 </p>
 
 <%= link_to 'Edit', edit_exercise_event_path(@exercise_event) %> |
