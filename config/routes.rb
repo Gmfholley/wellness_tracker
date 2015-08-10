@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'friends/new'
+
+  get 'friends/create'
+
   resources :exercise_types
   resources :exercise_events
   post 'password_resets' => 'password_resets#create', as: :password_resets
