@@ -2,7 +2,7 @@ class FriendsController < ApplicationController
   before_action :set_friend, :only => [:show, :destroy]
   
   def new
-    @users = User.includes(:friends).where.not(:friends => {  })
+    @users = @user.not_friends
   end
 
   def create
