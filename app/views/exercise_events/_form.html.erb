@@ -10,26 +10,26 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
-    <%= f.label :exercise_type_id %><br>
-    <%= f.number_field :exercise_type_id %>
+    <%= f.label :date %>
+    <input type="date" name="date" value=<%= Date.today %>></input>
   </div>
   <div class="field">
-    <%= f.label :duration %><br>
-    <%= f.number_field :duration %>
+    <%= f.label :exercise_type_id %><br>
+    <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :intensity_id %><br>
-    <%= f.number_field :intensity_id %>
+    <%= f.select :intensity_id, Intensity.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
   </div>
   <div class="field">
-    <%= f.label :points %><br>
-    <%= f.number_field :points %>
+    <%= f.label :num_units %><br>
+    <%= f.number_field :num_units %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.label :exercise_unit_id %><br>
+    <%= f.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
   </div>
   <div class="actions">
     <%= f.submit %>

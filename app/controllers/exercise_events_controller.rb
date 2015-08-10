@@ -14,7 +14,7 @@ class ExerciseEventsController < ApplicationController
 
   # GET /exercise_events/new
   def new
-    @exercise_event = @user.exercise_event.build
+    @exercise_event = @user.exercise_events.build
   end
 
   # GET /exercise_events/1/edit
@@ -24,7 +24,7 @@ class ExerciseEventsController < ApplicationController
   # POST /exercise_events
   # POST /exercise_events.json
   def create
-    @exercise_event = @user.exercise_event.create(exercise_event_params)
+    @exercise_event = @user.exercise_events.create(exercise_event_params)
 
     respond_to do |format|
       if @exercise_event.save
