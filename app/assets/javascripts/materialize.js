@@ -6155,5 +6155,9 @@ Picker.extend( 'pickadate', DatePicker )
   $(document).ready(function(){
     $('input, textarea').characterCounter();
   });
+  
+  $(document).ready(function() {
+      $('select').material_select();
+    });
 
 }( jQuery ));
