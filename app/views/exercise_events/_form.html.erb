@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :exercise_type_id %><br>
-    <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
+    <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: "browser-default" %>
   </div>
   <div class="field">
     <%= f.label :intensity_id %><br>
