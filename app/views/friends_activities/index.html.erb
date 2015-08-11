@@ -1,35 +1,36 @@
 <div class="row">
-  <h5>Friends Activity Feed</h5>
+  <h4 class="bold grey-text darken-3-text center-align">Friends Activity Feed</h5>
 </div>
 <div clas="row">
-  <% @feed.each do |activity| %>
+<% @feed.each do |activity| %>
+
   <div class="divider"></div>
-   <div class="section">
-     <div class="col s6 m3 profile-column">
-       <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
-       <p class="grey-text"><%= activity.date %></p>
+     <div class="row">
+       <div class="col s6 m3 picture-column">
+         <div class="section">
+           <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
+         </div>
+       </div>
+       <div class="col s6 m9 text-column">
+         <div class="username">
+           <h5><%= "#{activity.user.first_name} #{activity.user.last_name}" %></h5>
+           <p class="grey-text condensed"><%= activity.date %></p>
+         </div>
+         <div class="divider"></div>
+         <div class="activity">
+           <span><%= "#{activity.user.first_name} did #{activity.exercise_type.name} at #{activity.intensity.name} intensity for #{activity.num_units} #{activity.exercise_unit.name}" %></span>
+           <p class="grey-text"><span><%= activity.cheers.size %> Cheers</span>       <span><%= activity.comments.size %> Comments</span></p>
+         </div>
+                  <%# Need to add way to undo these too  %>
+         <div class="react-buttons">
+           <%= link_to '<i class="material-icons">favorite</i>'.html_safe, new_exercise_event_cheer_path(activity.id), method: "post" %>
+          <%= link_to '<i class="material-icons">comment</i>'.html_safe, new_exercise_event_comment_path(activity.id), method: "post" %>
+         </div>
      </div>
-     <div class="col s6 m9 text-column">
-       <div class="section username">
-         <h5><%= "#{activity.user.first_name} #{activity.user.last_name}" %></h5>
-       </div>
-       <div class="divider"></div>
-       <div class="section activity">
-         <span><%= "#{activity.user.first_name} did #{activity.exercise_type.name} at #{activity.intensity.name} intensity for #{activity.num_units} #{activity.exercise_unit.name}" %></span>
-         <p class="grey-text"><span><%= activity.cheers.size %> Cheers</span>       <span><%= activity.comments.size %> Comments</span></p>
-       </div>
-       <div class="divider"></div>
-       <%# Need to add way to undo these too  %>
-       <div class="section react-buttons">
-         <%= link_to '<i class="material-icons">thumb_up</i>', new_exercise_event_cheer_path(activity.id), method: "post" %>
-        <%= link_to '<i class="material-icons">comment</i>', new_exercise_event_comment_path(activity.id), method: "post" %>
-       </div>
-            
-       </div>
-   
        
-     </div>
    </div>
-  <% end %>
-  <div class="divider"></div>
+   <div class="divider"></div>
+
+<% end %>
 </div>
+  
