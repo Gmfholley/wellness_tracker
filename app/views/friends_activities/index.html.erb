@@ -11,11 +11,10 @@
            <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
          </div>
        </div>
-       <%# TODO - See if you can find a way to center the user's name at small size but left align it mid size %>
        <div class="col s12 m9 text-column">
          <div class="username">
-           <h5><%= "#{activity.user.first_name} #{activity.user.last_name}" %></h5>
-           <p class="grey-text condensed"><%= activity.date %></p>
+           <h5 class="center-on-small-only"><%= "#{activity.user.first_name} #{activity.user.last_name}" %></h5>
+           <p class="grey-text condensed center-on-small-only"><%= activity.date %></p>
          </div>
          <div class="divider"></div>
          <div class="activity">
@@ -23,8 +22,8 @@
            <p class="grey-text"><span><%= activity.cheers.size %> Cheers</span>                    <span><%= activity.comments.size %> Comments</span></p>
          </div>
                   <%# TODO - Need to add way to undo these too  %>
-         <div class="react-buttons">
-           <%= link_to '<i class="material-icons">favorite</i>'.html_safe, new_exercise_event_cheer_path(activity.id), method: "post" %>
+         <div class="react-buttons right">
+           <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, new_exercise_event_cheer_path(activity.id), method: "post" %>
           <%= link_to '<i class="material-icons">comment</i>'.html_safe, new_exercise_event_comment_path(activity.id), method: "post" %>
          </div>
      </div>
