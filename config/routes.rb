@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'comments/create'
+
+  get 'comments/new'
+
+  get 'comments/edit'
+
+  get 'comments/update'
+
+  get 'comments/destroy'
+
   resources :friends, except: [:update, :edit, :create]
   post 'friends/new/:user_id' => 'friends#create', as: :add_friend
   
