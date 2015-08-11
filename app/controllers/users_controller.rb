@@ -34,6 +34,9 @@ class UsersController < ApplicationController
   end
   
   def show
+    if params_user == @user
+    else
+    end
   end
   
   def destroy
@@ -54,6 +57,10 @@ class UsersController < ApplicationController
     if @user
       redirect_to profile_path, :notice => "You are already logged in.  To create a new account, log out first."
     end
+  end
+  
+  def params_user
+    User.find(params["id"])
   end
   
 end

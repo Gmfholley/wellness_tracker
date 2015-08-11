@@ -23,7 +23,7 @@ class FriendsController < ApplicationController
     @users = @user.friends
     @message = "These are your friends."
   end
-  s
+  
   def destroy
     if @user.friends.delete(@friend)
       redirect_to friends_path, notice: "You are no longer friends with #{@friend.first_name}."
