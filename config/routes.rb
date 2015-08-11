@@ -1,26 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'cheers/create'
-
-  get 'cheers/destroy'
-
-  get 'comments/create'
-
-  get 'comments/new'
-
-  get 'comments/edit'
-
-  get 'comments/update'
-
-  get 'comments/destroy'
-
   resources :friends, except: [:update, :edit, :create]
   post 'friends/new/:user_id' => 'friends#create', as: :add_friend
   
   #resources :exercise_types
   resources :exercise_events do
-    resources :cheers
-    resources :comments
+    resources :cheers, only: [:create, :destroy]
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
   
   post 'password_resets' => 'password_resets#create', as: :password_resets
