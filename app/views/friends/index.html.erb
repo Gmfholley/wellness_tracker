@@ -13,7 +13,7 @@
               <%# TODO - display team information %>
             </div>
             <div class="card-action">
-              <a href="<%= user_path(user.id) %>"><i class="material-icons">person</i>Profile</a>
+              <a href="<%= user_path(user.username) %>"><i class="material-icons">person</i>Profile</a>
               <% if @user.friends.exists?(user) %>
                 <%= link_to "Friend", friend_path(user.id), method: "delete", class: "tooltipped", "data-position": "bottom", "data-delay": "50", "data-tooltip": "Click to unfriend" %>
               <% else %>
