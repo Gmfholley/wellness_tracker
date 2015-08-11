@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
   #
   # returns an Array of ExerciseEvent objects
   def friends_activities
-    ExerciseEvent.where(:user_id => [a.friends.ids]).order(:date)
+    ExerciseEvent.where(:user_id => [a.friends.ids]).order(:date).limit(50)
   end
   
   # returns the total points from all this person's exercise events
