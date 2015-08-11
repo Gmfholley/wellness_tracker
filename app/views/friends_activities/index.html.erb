@@ -11,6 +11,7 @@
            <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
          </div>
        </div>
+       <%# TODO - See if you can find a way to center the user's name at small size but left align it mid size %>
        <div class="col s12 m9 text-column">
          <div class="username">
            <h5><%= "#{activity.user.first_name} #{activity.user.last_name}" %></h5>
@@ -21,7 +22,7 @@
            <span><%= "#{activity.user.first_name} did #{activity.exercise_type.name} at #{activity.intensity.name} intensity for #{activity.num_units} #{activity.exercise_unit.name}" %></span>
            <p class="grey-text"><span><%= activity.cheers.size %> Cheers</span>                    <span><%= activity.comments.size %> Comments</span></p>
          </div>
-                  <%# Need to add way to undo these too  %>
+                  <%# TODO - Need to add way to undo these too  %>
          <div class="react-buttons">
            <%= link_to '<i class="material-icons">favorite</i>'.html_safe, new_exercise_event_cheer_path(activity.id), method: "post" %>
           <%= link_to '<i class="material-icons">comment</i>'.html_safe, new_exercise_event_comment_path(activity.id), method: "post" %>
