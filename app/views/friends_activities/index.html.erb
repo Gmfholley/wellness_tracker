@@ -16,8 +16,10 @@
        <div class="divider"></div>
        <div class="section activity">
          <span><%= "#{activity.user.first_name} did #{activity.exercise_type.name} at #{activity.intensity.name} intensity for #{activity.num_units} #{activity.exercise_unit.name}" %></span>
+         <p class="grey-text"><span><%= activity.cheers.size %> Cheers</span>       <span><%= activity.comments.size %> Comments</span></p>
        </div>
        <div class="divider"></div>
+       <%# Need to add way to undo these too  %>
        <div class="section react-buttons">
          <%= link_to '<i class="material-icons">thumb_up</i>', new_exercise_event_cheer_path(activity.id), method: "post" %>
         <%= link_to '<i class="material-icons">comment</i>', new_exercise_event_comment_path(activity.id), method: "post" %>
