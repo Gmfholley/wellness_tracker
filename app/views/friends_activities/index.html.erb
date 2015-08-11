@@ -6,12 +6,12 @@
 
   <div class="divider"></div>
      <div class="row">
-       <div class="col s6 m3 picture-column">
+       <div class="col s12 m3 picture-column">
          <div class="section">
            <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
          </div>
        </div>
-       <div class="col s6 m9 text-column">
+       <div class="col s12 m9 text-column">
          <div class="username">
            <h5><%= "#{activity.user.first_name} #{activity.user.last_name}" %></h5>
            <p class="grey-text condensed"><%= activity.date %></p>
@@ -19,7 +19,7 @@
          <div class="divider"></div>
          <div class="activity">
            <span><%= "#{activity.user.first_name} did #{activity.exercise_type.name} at #{activity.intensity.name} intensity for #{activity.num_units} #{activity.exercise_unit.name}" %></span>
-           <p class="grey-text"><span><%= activity.cheers.size %> Cheers</span>       <span><%= activity.comments.size %> Comments</span></p>
+           <p class="grey-text"><span><%= activity.cheers.size %> Cheers</span>                    <span><%= activity.comments.size %> Comments</span></p>
          </div>
                   <%# Need to add way to undo these too  %>
          <div class="react-buttons">
