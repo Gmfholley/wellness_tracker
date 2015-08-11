@@ -10,8 +10,8 @@
 #
 
 class Cheer < ActiveRecord::Base
-  validates user, presence: true
-  validates exercise_event, presence: true
+  validates :user, presence: true
+  validates :exercise_event, presence: true
   
   
   belongs_to :user
