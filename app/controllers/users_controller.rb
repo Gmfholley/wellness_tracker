@@ -34,9 +34,9 @@ class UsersController < ApplicationController
   end
   
   def show
-    if params_user == @user
-    else
-    end
+    # if params_user == @user
+    # else
+    # end
   end
   
   def destroy
