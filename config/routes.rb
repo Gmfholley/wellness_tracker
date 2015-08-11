@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   post 'friends/new/:user_id' => 'friends#create', as: :add_friend
   
   #resources :exercise_types
-  resources :exercise_events
+  resources :exercise_events do
+    resources :cheers
+    resources :comments
+  end
+  
   post 'password_resets' => 'password_resets#create', as: :password_resets
   get 'password_resets/:id/edit' => 'password_resets#edit', as: :edit_password_resets
   put 'password_resets/:id' => 'passwords_resets#update'
