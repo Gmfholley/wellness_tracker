@@ -2,5 +2,37 @@
   <h5>Friends Activity Feed</h5>
 </div>
 <div clas="row">
-  
+  <% @friends.each do |friend| %>
+  <div class="divider"></div>
+   <div class="section">
+     <div class="col s6 m3">
+       <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
+     </div>
+     <div class="col s6 m9">
+       <div class="section">
+         <h5><%= "#{friend.first_name} #{friend.last_name}" %></h5>
+       </div>
+       <div class="divider"></div>
+       <div class="section">
+         
+       </div>
+       <div class="divider"></div>
+       <div class="section">
+         <%= link_to '<i class="material-icons">thumb_up</i>', exercise_event_cheer_path() %>
+       </div>
+       <p>Stuff</p>
+       
+         <a href="<%= user_path(user.id) %>"><i class="material-icons">person</i>Profile</a>
+         <% if @user.friends.exists?(user) %>
+           <%= link_to "Friend", friend_path(user.id), method: "delete", class: "tooltipped", "data-position": "bottom", "data-delay": "50", "data-tooltip": "Click to unfriend" %>
+         <% else %>
+           <%= link_to '<i class="material-icons">add</i>Send Friend Request'.html_safe, add_friend_path(user.id), method: "post"  %>
+         <% end %>              
+       </div>
+   
+       
+     </div>
+   </div>
+  <% end %>
+  <div class="divider"></div>
 </div>

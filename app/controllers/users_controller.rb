@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = @user.friends
+    @friends = @user.friends
   end
   
   def edit
