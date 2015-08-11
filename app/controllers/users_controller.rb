@@ -16,10 +16,6 @@ class UsersController < ApplicationController
     end
   end
   
-  def index
-    @friends = @user.friends
-  end
-  
   def edit
     @user = current_user
   end

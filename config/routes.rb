@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'friends_activities/index'
-
   resources :friends, except: [:update, :edit, :create]
   post 'friends/new/:user_id' => 'friends#create', as: :add_friend
   
-  resources :exercise_types
+  #resources :exercise_types
   resources :exercise_events
   post 'password_resets' => 'password_resets#create', as: :password_resets
   get 'password_resets/:id/edit' => 'password_resets#edit', as: :edit_password_resets
@@ -19,7 +17,7 @@ Rails.application.routes.draw do
   put 'edit_profile' => 'users#update' 
   patch 'edit_profile' => 'users#update'
   delete 'delete_profile' => 'users#destroy', as: :delete_profile
-  get 'friends_feed' => 'users#index', as: :friends_feed 
+  get 'friends_feed' => 'friends_activities#index', as: :friends_feed 
 
   get 'users/new' => 'users#new', as: :new_user
   post 'users' => 'users#create'
