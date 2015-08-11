@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   get 'users/new' => 'users#new', as: :new_user
   post 'users' => 'users#create'
-  get 'users/:id' => 'users#show', as: :user
+  get 'users/:username' => 'friends#show', as: :user
   post 'login' => 'user_sessions#create', as: :login
   get 'login' => 'user_sessions#new'
   delete 'logout' => 'user_sessions#destroy', as: :logout
