@@ -1,0 +1,12 @@
+/*My code
+*/
+.material-icons:hover {
+  color: red;
+}
+
+.material-icons.added {
+  color: gray;
+}
+.material-icons.added:hover {
+  color: red;
+}

@@ -3,22 +3,6 @@
  * Copyright 2014-2015 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
-
-/*My code
-*/
-.material-icons:hover {
-  color: red;
-}
-
-.material-icons.added {
-  color: gray;
-}
-.material-icons.added:hover {
-  color: red;
-}
-
-/*Their code
-*/
 .materialize-red.lighten-5 {
   background-color: #fdeaeb !important; }
 
