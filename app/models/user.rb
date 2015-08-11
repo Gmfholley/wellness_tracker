@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, email: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :username, presence: true, uniqueness: true
   
   has_many :exercise_events
   has_many :exercise_types, through: :exercise_events
