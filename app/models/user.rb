@@ -38,8 +38,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :friends, :class_name => "User",
                                     :foreign_key => "user_id",
                                     :association_foreign_key => "friend_id"
-  
-  has_many :friends_exercise_events, through: :friends, class_name: "ExerciseEvent"
+
                                     
   
   
@@ -52,6 +51,15 @@ class User < ActiveRecord::Base
     not_my_friends = not_me.select{|user| !self.friends.exists?(user.id)}
     not_my_friends
   end
+  
+  #TODO - is there a better way to write this?
+  # returns friends activities in date order
+  #
+  # returns an Array of ExerciseEvent objects
+  def friends_activities
+    ExerciseEvent.where(:user_id => [a.friends.ids]).order(:date)
+  end
+  
   # returns the total points from all this person's exercise events
   #
   # returns an Integer
