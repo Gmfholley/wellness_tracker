@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'cheers/create'
+
+  get 'cheers/destroy'
+
   get 'comments/create'
 
   get 'comments/new'
