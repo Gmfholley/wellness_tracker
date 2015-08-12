@@ -16,9 +16,24 @@
          <div class="@exercise_event">
            <p><%= "#{@exercise_event.user.first_name} did #{@exercise_event.exercise_type.name} at #{@exercise_event.intensity.name} intensity for #{@exercise_event.num_units} #{@exercise_event.exercise_unit.name}" %></p>
          </div>
-                  <%# TODO - Need to add way to undo these too  %>
+         
          <div class="react-buttons"><
-          <span class="grey-text small-font"><span><%= @exercise_event.cheers.size %> Cheers</span>                                   <span><%= @exercise_event.comments.size %> Comments</span></span>
+          <span class="grey-text small-font"><span><%= @exercise_event.cheers.size %> Cheers</span>                            <span><%= @exercise_event.comments.size %> Comments</span>
+          
+          <div class="comment">
+            <div class="section">
+              <div class="row">
+                <div class="col s6 m2">
+                  <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
+                </div>
+                <div class="col s6 m10">
+                  <span><%= "#{@user.first_name} says..." %></span>
+                </div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <%= render :partial => "/comments/form", :comment => @exercise_event.comments.build %>
+          </div>
           <%= link_to '<i class="material-icons">comment</i>'.html_safe, exercise_event_path(@exercise_event.id), class: "right" %>
           <% if @exercise_event.user_has_cheered?(@user) %>
             <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(@exercise_event.id), method: "delete", class: "right" %>
