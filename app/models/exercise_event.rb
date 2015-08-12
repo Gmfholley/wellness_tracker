@@ -31,10 +31,10 @@ class ExerciseEvent < ActiveRecord::Base
   belongs_to :exercise_unit
   
   def user_has_commented?(user)
-    self.comments.where(user_id: user.id)
+    !self.comments.where(user_id: user.id).empty?
   end
     
   def user_has_cheered?(user)
-    self.cheers.where(user_id: user.id)
+    !self.cheers.where(user_id: user.id).empty?
   end
 end
