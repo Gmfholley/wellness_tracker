@@ -2,11 +2,11 @@ class CheersController < ApplicationController
   before_action :set_exercise_event
   
   def create
-    @cheer = Cheer.create(user_id: @user.id, exercise_event_id: @exercise_event.id)
-    if @cheer.errors.empty?
+    @cheer = Cheer.new(user_id: @user.id, exercise_event_id: @event.id)
+    begin @cheer.save
       render json: @cheer
-    else
-      render json: @cheer.errors
+    rescue
+      render json: "Errors"
     end
   end
 
