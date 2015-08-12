@@ -23,8 +23,12 @@
                   <%# TODO - Need to add way to undo these too  %>
          <div class="react-buttons">
           <span class="grey-text small-font"><span><%= activity.cheers.size %> Cheers</span>                                   <span><%= activity.comments.size %> Comments</span></span>
-          <%= link_to '<i class="material-icons">comment</i>'.html_safe, new_exercise_event_comment_path(activity.id), class: "right" %>
-           <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(activity.id), method: "post", class: "right" %>
+          <%= link_to '<i class="material-icons">comment</i>'.html_safe, exercise_event_path(activity.id), class: "right" %>
+          <% if activity.user_has_cheered?(@user) %>
+            <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(activity.id), method: "delete", class: "right" %>
+          <% else %>
+            <%= link_to '<i class="material-icons">favorite</i>'.html_safe, exercise_event_cheers_path(activity.id), method: "post", class: "right" %>
+          <% end %>
          </div>
      </div>
        

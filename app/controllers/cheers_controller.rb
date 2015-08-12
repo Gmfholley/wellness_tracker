@@ -11,7 +11,7 @@ class CheersController < ApplicationController
   end
 
   def destroy
-    @cheer = Cheer.find(user_id: @user.id, exercise_event_id: @event.id)
+    @cheer = Cheer.find_by(user_id: @user.id, exercise_event_id: @event.id)
     if @cheer.destroy
       render json: { head: :no_content}
     else
