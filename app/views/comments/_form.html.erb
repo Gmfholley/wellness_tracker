@@ -1,4 +1,4 @@
-<%= form_for(@comment, url: "exercise_events/#{@comment.exercise_event_id}/comments/new") do |f| %>
+<%= form_for(@comment, url: exercise_event_comments_path(@comment.exercise_event_id)) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this exercise_event from being saved:</h2>
