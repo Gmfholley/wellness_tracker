@@ -29,4 +29,12 @@ class ExerciseEvent < ActiveRecord::Base
   belongs_to :intensity
   belongs_to :user
   belongs_to :exercise_unit
+  
+  def user_has_commented?(user)
+    self.comments.where(user_id: user.id)
+  end
+    
+  def user_has_cheered?(user)
+    self.cheers.where(user_id: user.id)
+  end
 end
