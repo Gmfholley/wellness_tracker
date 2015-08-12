@@ -1,11 +1,16 @@
 /*My code
 */
+
+.material-icons {
+  color: #424242; 
+}
+
 .material-icons:hover {
   color: red;
 }
 
 .material-icons.added {
-  color: gray;
+  color: rgb(3, 155, 229);
 }
 
 .material-icons.added:hover {
