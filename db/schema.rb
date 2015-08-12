@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811224020) do
+ActiveRecord::Schema.define(version: 20150811235630) do
 
   create_table "cheers", force: :cascade do |t|
     t.integer  "exercise_event_id"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20150811224020) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  add_index "cheers", ["user_id", "exercise_event_id"], name: "index_cheers_on_user_id_and_exercise_event_id", unique: true
 
   create_table "comments", force: :cascade do |t|
     t.integer  "exercise_event_id"
@@ -85,5 +87,7 @@ ActiveRecord::Schema.define(version: 20150811224020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "users_users", ["user_id", "friend_id"], name: "index_users_users_on_user_id_and_friend_id", unique: true
 
 end
