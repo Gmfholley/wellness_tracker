@@ -17,7 +17,7 @@
               <% if @user.friends.exists?(user) %>
                 <%= link_to "Friend", friend_path(user.id), method: "delete", class: "tooltipped", "data-position": "bottom", "data-delay": "50", "data-tooltip": "Click to unfriend" %>
               <% else %>
-                <%= link_to '<i class="material-icons">add</i>Send Friend Request'.html_safe, add_friend_path(user.id), method: "post"  %>
+                <%= link_to '<i class="material-icons">add</i>Send Friend Request'.html_safe, add_friend_path(user.id), method: "post", class: "tooltipped", "data-position": "bottom", "data-delay": "50", "data-tooltip": "Send Friend Request"  %>
               <% end %>              
             </div>
           </div>
