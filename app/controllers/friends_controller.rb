@@ -43,6 +43,6 @@ class FriendsController < ApplicationController
   
   private
   def set_friend
-    @friend = User.find(params["username"])
+    @friend = User.find_by(username: params["username"])
   end
 end
