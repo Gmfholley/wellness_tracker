@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-  <div class="divider"></div>
      <div class="row">
        <div class="col s8 offset-s2 m3 picture-column">
          <div class="section">
@@ -18,7 +17,7 @@
          
          
           <div class="react-buttons">
-            <span class="grey-text small-font"><%= @exercise_event.cheers.size %> Cheers</span>                                  <span><%= @exercise_event.comments.size %> Comments</span>
+            <span class="grey-text small-font"><%= @exercise_event.cheers.size %> Cheers</span>                                  <span class="grey-text small-font"><%= @exercise_event.comments.size %> Comments</span>
             <span> 
               <% if @exercise_event.user_has_cheered?(@user) %>
                  <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(@exercise_event.id), method: "delete", class: "right" %>
@@ -29,15 +28,36 @@
          </div>
         </div>
       </div>
+    </div>
       <div class="divider"></div>
-      <div class="comment section">
+    <div class="row">
+      <% @exercise_event.comments.each do |comment| %>
+        <div class="comment">
             <div class="section">
               <div class="row">
-                <div class="col s6 m2 center-align">
+                <div class="col s4 m2 center-align">
                   <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
                 </div>
                 
-                <div class="col s6 m10">
+                <div class="col s8 m10">
+                  <span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name} says..." %></span>
+                  <span><%= comment.content %></span>
+                  <span class="grey-text small-font"><%= time_ago_in_words(comment.updated_at) %></span>
+                </div>
+              </div>
+            </div>
+            <div class="divider"></div>
+          </div>
+      <% end %>
+      
+      <div class="comment">
+            <div class="section">
+              <div class="row">
+                <div class="col s4 m2 center-align">
+                  <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
+                </div>
+                
+                <div class="col s8 m10">
                   <% @comment = @exercise_event.comments.build %>
                   <%= render :partial => "/comments/form", locals: {:comment => @comment } %>
                 </div>
@@ -45,10 +65,8 @@
             </div>
             <div class="divider"></div>
           </div>
-       
-   </div>
-   
-
+          
+</div>
 
 <%= link_to 'Edit', edit_exercise_event_path(@exercise_event) %> |
 <%= link_to 'Back', exercise_events_path %>
