@@ -20,7 +20,7 @@
          
          <div class="username">
            <h5 class="center-on-small-only"><%= "#{activity.user.first_name} #{activity.user.last_name}" %></h5>
-           <p class="grey-text condensed center-on-small-only small-font"><%= activity.date %></p>
+           <p class="grey-text condensed center-on-small-only small-font"><time datetime="<%= activity.date %>"><%= "#{time_ago_in_words(activity.date)} ago" %></time></p>
          </div>
     
          <div class="divider"></div>
