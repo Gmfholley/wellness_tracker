@@ -17,7 +17,7 @@
          
          
           <div class="react-buttons">
-            <span class="grey-text small-font"><%= @exercise_event.cheers.size %> Cheers</span>                                  <span class="grey-text small-font"><%= @exercise_event.comments.size %> Comments</span>
+            <span class="grey-text small-font"><%= cheer_sentence(@exercise_event.cheers) %></span>         
             <span> 
               <% if @exercise_event.user_has_cheered?(@user) %>
                  <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(@exercise_event.id), method: "delete", class: "right" %>
@@ -42,7 +42,7 @@
                 <div class="col s8 m9">
                   <p><span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name}" %></span> says...</p>
                   <p><%= comment.content %></p>
-                  <span class="grey-text small-font"><%= time_ago_in_words(comment.updated_at) %></span>
+                  <span class="grey-text small-font"><%= "#{time_ago_in_words(comment.updated_at)} ago" %></span>
                 </div>
               </div>
             </div>
