@@ -58,6 +58,7 @@ class User < ActiveRecord::Base
   end
   
   #TODO - is there a better way to write this?
+  #TODO - use will_paginate to get the right number
   # returns friends activities in date order
   #
   # returns an Array of ExerciseEvent objects
