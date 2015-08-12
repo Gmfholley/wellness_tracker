@@ -1,4 +1,5 @@
 class ExerciseEventsController < ApplicationController
+  helper ExerciseEventsHelper
   before_action :set_exercise_event, only: [:show, :edit, :update, :destroy]
 
   # GET /exercise_events
