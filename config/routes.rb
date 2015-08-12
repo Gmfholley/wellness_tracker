@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #resources :exercise_types
   resources :exercise_events do
     resources :cheers, only: [:create]
-    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+    resources :comments, only: [:create, :edit, :update, :destroy]
   end
   
   delete 'exercise_events/:exercise_event_id/cheers' => 'cheers#destroy'

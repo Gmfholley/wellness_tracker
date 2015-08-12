@@ -35,13 +35,13 @@
         <div class="comment">
             <div class="section">
               <div class="row">
-                <div class="col s4 m2 center-align">
+                <div class="col s4 m3 center-align">
                   <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
                 </div>
                 
-                <div class="col s8 m10">
-                  <span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name} says..." %></span>
-                  <span><%= comment.content %></span>
+                <div class="col s8 m9">
+                  <p><span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name}" %></span> says...</p>
+                  <p><%= comment.content %></p>
                   <span class="grey-text small-font"><%= time_ago_in_words(comment.updated_at) %></span>
                 </div>
               </div>
@@ -53,11 +53,11 @@
       <div class="comment">
             <div class="section">
               <div class="row">
-                <div class="col s4 m2 center-align">
+                <div class="col s4 m3 center-align">
                   <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
                 </div>
                 
-                <div class="col s8 m10">
+                <div class="col s8 m9">
                   <% @comment = @exercise_event.comments.build %>
                   <%= render :partial => "/comments/form", locals: {:comment => @comment } %>
                 </div>
