@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   
   #resources :exercise_types
   resources :exercise_events do
-    resources :cheers, only: [:create, :destroy]
+    resources :cheers, only: [:create]
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
+  
+  delete 'exercise_events/:exercise_event_id/cheers' => 'cheers#destroy'
   
   post 'password_resets' => 'password_resets#create', as: :password_resets
   get 'password_resets/:id/edit' => 'password_resets#edit', as: :edit_password_resets
