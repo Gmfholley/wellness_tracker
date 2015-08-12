@@ -10,6 +10,8 @@ class ExerciseEventsController < ApplicationController
   # GET /exercise_events/1
   # GET /exercise_events/1.json
   def show
+    @comments = @exercise_event.comments.includes(:user)
+    @cheers = @exercise_event.cheers.includes(:user)
   end
 
   # GET /exercise_events/new
