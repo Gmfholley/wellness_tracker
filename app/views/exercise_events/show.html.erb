@@ -1,27 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @exercise_event.user.first_name %>
-</p>
-<p>
-  <strong>Date:</strong>
-  <%= @exercise_event.date %>
-</p>
-<p>
-  <strong>Exercise type:</strong>
-  <%= @exercise_event.exercise_type_id %>
-</p>
+  <div class="divider"></div>
+     <div class="row">
+       <div class="col s8 offset-s2 m3 picture-column">
+         <div class="section">
+           <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
+         </div>
+       </div>
+       <div class="col s12 m9 text-column">
+         <div class="username">
+           <h5 class="center-on-small-only"><%= "#{@exercise_event.user.first_name} #{@exercise_event.user.last_name}" %></h5>
+           <p class="grey-text condensed center-on-small-only small-font"><%= @exercise_event.date %></p>
+         </div>
+         <div class="divider"></div>
+         <div class="@exercise_event">
+           <p><%= "#{@exercise_event.user.first_name} did #{@exercise_event.exercise_type.name} at #{@exercise_event.intensity.name} intensity for #{@exercise_event.num_units} #{@exercise_event.exercise_unit.name}" %></p>
+         </div>
+                  <%# TODO - Need to add way to undo these too  %>
+         <div class="react-buttons">
+          <span class="grey-text small-font"><span><%= @exercise_event.cheers.size %> Cheers</span>                                   <span><%= @exercise_event.comments.size %> Comments</span></span>
+          <%= link_to '<i class="material-icons">comment</i>'.html_safe, exercise_event_path(@exercise_event.id), class: "right" %>
+          <% if @exercise_event.user_has_cheered?(@user) %>
+            <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(@exercise_event.id), method: "delete", class: "right" %>
+          <% else %>
+            <%= link_to '<i class="material-icons">favorite</i>'.html_safe, exercise_event_cheers_path(@exercise_event.id), method: "post", class: "right" %>
+          <% end %>
+         </div>
+     </div>
+       
+   </div>
+   <div class="divider"></div>
+   
 
-<p>
-  <strong>Intensity:</strong>
-  <%= @exercise_event.intensity.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= "#{@exercise_event.num_units} #{@exercise_event.exercise_unit.name}" %>
-</p>
 
 <%= link_to 'Edit', edit_exercise_event_path(@exercise_event) %> |
 <%= link_to 'Back', exercise_events_path %>
