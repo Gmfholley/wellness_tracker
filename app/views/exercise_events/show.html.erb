@@ -18,7 +18,7 @@
          
           <div class="react-buttons">
             <span class="grey-text small-font tooltipped", data-position="bottom", data-delay="50", data-tooltip="<%= "#{@exercise_event.cheers.map {|r| r.user.username}}"%>"><%= cheer_sentence(@exercise_event.cheers) %></span>
-            <%# Put the names of the cheerers in something other than an array %>         
+            <%# TODO - Put the names of the cheerers in something other than an array %>         
             <span> 
               <% if @exercise_event.user_has_cheered?(@user) %>
                  <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(@exercise_event.id), method: "delete", class: "right" %>
