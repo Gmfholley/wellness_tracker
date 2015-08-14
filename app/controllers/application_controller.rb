@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :require_login
   before_action :set_user
   
+  def show_angular
+    render 'layouts/angular'
+  end
+  
   
   private
   def not_authenticated
@@ -14,4 +18,5 @@ class ApplicationController < ActionController::Base
   def set_user
     @user = current_user
   end
+  
 end

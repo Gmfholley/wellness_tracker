@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'user_sessions#destroy', as: :logout
   get '/' => 'users#show', as: :root
   
+  get '/angular' => 'application#show_angular'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
