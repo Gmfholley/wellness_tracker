@@ -37,6 +37,10 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    angular-rails-templates (0.1.4)
+      railties (>= 3.1)
+      sprockets
+      tilt
     annotate (2.6.10)
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
@@ -256,6 +260,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angular-rails-templates
   annotate (= 2.6.10)
   better_errors (= 2.1.1)
   binding_of_caller (= 0.7.2)
