@@ -1,5 +1,7 @@
 //Controllers
 
+
+
 function FriendActivityCtrl(FriendActivityFeed) {
   this.test = 'Hello world!';
   this.string = FriendActivityFeed.activities;
@@ -7,9 +9,21 @@ function FriendActivityCtrl(FriendActivityFeed) {
   this.feed = FriendActivityFeed.activities;
 
 }
+
+function ExerciseEventCtrl(){
+  
+}
+
+
 //The controller needs the array of dependencies
 angular.module('activity', ['ui.router'])
 .controller('FriendActivityCtrl', FriendActivityCtrl);
+angular.module('activity', ['ui.router'])
+.controller('ExerciseEventCtrl', ExerciseEventCtrl);
+
+
+
+
 
 //Config also needs the array of dependencies
 //Config
@@ -23,6 +37,12 @@ function($stateProvider, $urlRouterProvider) {
       url: '/angular',
       templateUrl: 'friends_activities/_index.html',
       controller: 'FriendActivityCtrl as activity'
+    })
+    
+    .state('exercise_event', {
+      url: '/exercise_events/{id}',
+      templateUrl: 'exercise_events/_show.html',
+      controller: 'ExerciseEventCtrl as exercise_event'
     });
 
   $urlRouterProvider.otherwise('angular');
