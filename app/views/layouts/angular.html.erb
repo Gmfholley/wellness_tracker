@@ -1,40 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>WellnessTracker</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-  <%= stylesheet_link_tag    'my_materialize', media: 'all'%>
-  <%= stylesheet_link_tag    'materialize.min', media: 'all'%>
-  <%= stylesheet_link_tag    'https://fonts.googleapis.com/icon?family=Material+Icons', media: 'all'%>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="nav-wrapper">
-  <div id="nav">
-    <i class="material-icons dropdown-button" data-activates='main-menu' data-hover="true" data-beloworigin="true">menu</i></div>
-    <ul id="main-menu" class="dropdown-content">    
-      <% if current_user %>
-        <ul><%= link_to "Edit Profile", edit_profile_path %></ul>
-        <ul><%= link_to "Logout", :logout, method: :delete %></ul>
-      <% else %>
-        <ul><%= link_to "Register", new_user_path %></ul>
-        <ul><%= link_to "Login", :login %></ul>
-      <% end %>
-    </ul>
-  </div>
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-  </div>
-  </div>
-  <div class="container">
+This one.
+<div ng-app="activity"></div>
+<div ng-controller="ActivityCtrl as activity">
+  {{activity.test}}
+</div>
     <uiview></uiview>
-  </div>
-  <div class="scripts">  
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'materialize' %>
-    <%= javascript_include_tag 'materialize.min' %>
-  </div>
-</body>
-</html>
+  
