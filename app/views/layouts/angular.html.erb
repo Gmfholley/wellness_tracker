@@ -1,21 +1,15 @@
-This one.
 
-<body ng-app="activity" ng-controller="ActivityCtrl as activity">
-  <div>{{activity.test}}</div>
-  <div>{{activity.string}}</div>
 
-    <uiview></uiview>
+
+<p>This one.</p>
+
+<ui-view></ui-view>
   
   
   
+<script type="text/ng-template" id="/activity.html">
+  <p>The second thing.</p>
+  {{activity.test}}
   
-<script type="text/ng-template" id="activity.html">
-  My test
-
-  <div>
-    {{activity.test}}
-  </div>
-
 </script>
 
-</body>
