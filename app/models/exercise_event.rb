@@ -37,4 +37,8 @@ class ExerciseEvent < ActiveRecord::Base
   def user_has_cheered?(user)
     !self.cheers.where(user_id: user.id).empty?
   end
+  
+  def as_json(options={})
+    super(options.merge(include: [:user, :exercise_type, :intensity, :exercise_unit, {cheers: {include: [:user]}}, {comments: {include: [:user]}}]))
+  end
 end

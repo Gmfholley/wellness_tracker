@@ -18,4 +18,9 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :exercise_event
   
+  
+  def as_json(options={})
+    super(options.merge(include: [:user, :exercise_event]))
+  end
+  
 end
