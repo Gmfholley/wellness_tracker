@@ -1,15 +1,15 @@
 //Controllers
 
-function ActivityCtrl(ActivityFeed) {
+function FriendActivityCtrl(FriendActivityFeed) {
   this.test = 'Hello world!';
-  this.string = ActivityFeed.activities;
-  ActivityFeed.getFeed();
-  this.feed = ActivityFeed.activities;
+  this.string = FriendActivityFeed.activities;
+  FriendActivityFeed.getFeed();
+  this.feed = FriendActivityFeed.activities;
 
 }
 //The controller needs the array of dependencies
 angular.module('activity', ['ui.router'])
-.controller('ActivityCtrl', ActivityCtrl);
+.controller('FriendActivityCtrl', FriendActivityCtrl);
 
 //Config also needs the array of dependencies
 //Config
@@ -18,12 +18,11 @@ angular.module('activity', ['ui.router'])
 '$stateProvider',
 '$urlRouterProvider',
 function($stateProvider, $urlRouterProvider) {
-
   $stateProvider
     .state('angular', {
       url: '/angular',
-      templateUrl: 'activities/_activity.html',
-      controller: 'ActivityCtrl as activity'
+      templateUrl: 'friends_activities/_index.html',
+      controller: 'FriendActivityCtrl as activity'
     });
 
   $urlRouterProvider.otherwise('angular');
@@ -31,7 +30,7 @@ function($stateProvider, $urlRouterProvider) {
 
 //but the factory should NOT have the array of dependencies.  This is so confusing
 //Factory
-function ActivityFeed($http){
+function FriendActivityFeed($http){
   var feed = {
     activities: [],
   }
@@ -49,5 +48,5 @@ function ActivityFeed($http){
 }
 
 angular.module('activity')
-.factory('ActivityFeed', ActivityFeed);
+.factory('FriendActivityFeed', FriendActivityFeed);
 

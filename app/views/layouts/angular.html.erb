@@ -7,8 +7,8 @@
   
   
   
-<script type="text/ng-template" id="activities/_activity.html">
-    {{activity.test}}
+<script type="text/ng-template" id="friends_activities/_index.html">
+    {{feed.test}}
   <div class="row">
     <h4 class="bold grey-text darken-3-text center-align">Friends Activity Feed</h5>
   </div>
@@ -41,8 +41,10 @@
              </div>
          
              <div class="react-buttons">
-              <span class="grey-text small-font"><span>{{activity.cheers.size}} Cheers</span>                                <span>{{activity.comments.size}} Comments</span></span>
-              <a href="#/exercise_events/{{activity.exercise_event.id}}" class="right"><i class="material-icons">comment</i></a>
+              <span class="grey-text small-font"><span>{{activity.cheers.length}} Cheers</span>                                <span>{{activity.comments.length}} Comments</span></span>
+              <a href="#/exercise_events/{{activity.id}}" class="right"><i class="material-icons">comment</i></a>
+              
+              <%#TODO - need to figure out how to get these working %>
               <%# link_to '<i class="material-icons">comment</i>'.html_safe, exercise_event_path(activity.id), class: "right" %>
               <%# if activity.user_has_cheered?(@user) %>
                 <%# link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(activity.id), method: "delete", class: "right" %>
