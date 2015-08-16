@@ -7,7 +7,7 @@ function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('angular', {
       url: '/angular',
-      templateUrl: 'activities/_activity.html',
+      templateUrl: 'activity.html',
       controller: 'ActivityCtrl'
     });
 
