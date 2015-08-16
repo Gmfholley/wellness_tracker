@@ -29,10 +29,16 @@ function($stateProvider, $urlRouterProvider) {
 //but the factory should NOT have the array of dependencies.  This is so confusing
 //Factory
 function ActivityFeed(){
-  var o = {
+  var feed = {
     activities: [],
   }
-  return o;
+  
+  feed.getFeed = function()) {
+    $http.get('/friends_feed.json')
+  }
+  
+  
+  return feed;
 }
 
 angular.module('activity')
