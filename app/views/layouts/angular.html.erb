@@ -8,10 +8,58 @@
   
   
 <script type="text/ng-template" id="activities/_activity.html">
-  <p>The second thing.</p>
-  {{activity.test}}
+    {{activity.test}}
+  <div class="row">
+    <h4 class="bold grey-text darken-3-text center-align">Friends Activity Feed</h5>
+  </div>
+  <div clas="row">
   
-  {{activity.feed}}
-  
+    <div ng-repeat="activity in activity.feed">
+      
+      <div class="divider"></div>
+         <div class="row">
+       
+           <div class="col s8 offset-s2 m3 picture-column">
+         
+             <div class="section">
+               <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
+             </div>
+       
+           </div>
+       
+           <div class="col s12 m9 text-column">
+         
+             <div class="username">
+               <h5 class="center-on-small-only">{{activity.user.first_name}}  {{activity.user.last_name}}</h5>
+               <p class="grey-text condensed center-on-small-only small-font"><time datetime={{activity.date}}>{{activity.date}}</time></p>
+             </div>
+    
+             <div class="divider"></div>
+         
+             <div class="activity">
+               <p>{{activity.user.first_name}} did {{activity.exercise_type.name}} at {{activity.intensity.name}} intensity for {{activity.num_units}} {{activity.exercise_unit.name}}</p>
+             </div>
+         
+             <div class="react-buttons">
+              <span class="grey-text small-font"><span>{{activity.cheers.size}} Cheers</span>                                <span>{{activity.comments.size}} Comments</span></span>
+              <a href="#/exercise_events/{{activity.exercise_event.id}}" class="right"><i class="material-icons">comment</i></a>
+              <%# link_to '<i class="material-icons">comment</i>'.html_safe, exercise_event_path(activity.id), class: "right" %>
+              <%# if activity.user_has_cheered?(@user) %>
+                <%# link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(activity.id), method: "delete", class: "right" %>
+              <%# else %>
+                <%# link_to '<i class="material-icons">favorite</i>'.html_safe, exercise_event_cheers_path(activity.id), method: "post", class: "right" %>
+              <%# end %>
+             </div>
+         
+         </div>    
+       </div>
+   
+       <div class="divider"></div>
+      
+      
+      
+    </div>
+
+  </div>  
 </script>
 
