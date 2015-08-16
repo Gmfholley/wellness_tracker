@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :require_login
   before_action :set_user
+  respond_to :html, :json
   
   def show_angular
     render 'layouts/angular'
