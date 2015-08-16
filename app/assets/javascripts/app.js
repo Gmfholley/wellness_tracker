@@ -11,7 +11,7 @@ function FriendActivityCtrl(FriendActivityFeed) {
 }
 
 function ExerciseEventCtrl(){
-  
+  this.test = "Hello world!";
 }
 
 
