@@ -3,6 +3,9 @@
 function ActivityCtrl(ActivityFeed) {
   this.test = 'Hello world!';
   this.string = ActivityFeed.activities;
+  ActivityFeed.getFeed();
+  this.feed = ActivityFeed.activities;
+
 }
 //The controller needs the array of dependencies
 angular.module('activity', ['ui.router'])
@@ -28,13 +31,17 @@ function($stateProvider, $urlRouterProvider) {
 
 //but the factory should NOT have the array of dependencies.  This is so confusing
 //Factory
-function ActivityFeed(){
+function ActivityFeed($http){
   var feed = {
     activities: [],
   }
   
-  feed.getFeed = function()) {
-    $http.get('/friends_feed.json')
+  function addActivities(data) {
+    angular.copy(data, feed.activities);
+  }
+  
+  feed.getFeed = function() {
+    return $http.get('/friends_feed.json').success(addActivities);
   }
   
   
