@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+ChallengeType.find_or_create_by(name: "Individual")
+ChallengeType.find_or_create_by(name: "Team")
 
 Intensity.find_or_create_by(name: "Low")
 Intensity.find_or_create_by(name: "Medium")
