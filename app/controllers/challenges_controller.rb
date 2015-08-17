@@ -63,12 +63,13 @@ class ChallengesController < ApplicationController
   end
 
   private
+    # redirects to home page if an unauthorized user attempts to access the route
     def owns_challenge
       unless @organization.user = @user
         redirects_to :home, notice: "Only the user with admin privileges for #{organization.name} can change/create challenges."
       end
     end
-
+    # sets the @organization (if there is no challenge)
     def set_organization
       @organization = Organization.find(params[:organization_id])
     end
