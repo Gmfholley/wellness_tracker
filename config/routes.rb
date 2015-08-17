@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :challenge_participants
   resources :organizations
   resources :challenges
   resources :friends, except: [:update, :edit, :create]
