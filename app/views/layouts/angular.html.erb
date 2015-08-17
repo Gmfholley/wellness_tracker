@@ -18,17 +18,17 @@
          </div>
          <div class="col s12 m9 text-column">
            <div class="username">
-             <h5 class="center-on-small-only">{{exercise_event.user.first_name}} {{exercise_event.user.last_name}}</h5>
+             <h5 class="center-on-small-only">{{exercise_event.event.user.first_name}} {{exercise_event.event.user.last_name}}</h5>
              <%# TODO - change this to some other time %>
-             <p class="grey-text condensed center-on-small-only small-font"><time datetime="{{exercise_event.date}}">{{exercise_event.date}}</time></p>
+             <p class="grey-text condensed center-on-small-only small-font"><time datetime="{{exercise_event.date}}">{{exercise_event.event.date}}</time></p>
            </div>
            <div class="divider"></div>
            <div class="section">
-             <p>{{exercise_event.user.first_name}} did {{exercise_event.exercise_type.name}} at {{exercise_event.intensity.name}} intensity for {{exercise_event.num_units}} {{exercise_event.exercise_unit.name}}</p>
+             <p>{{exercise_event.event.user.first_name}} did {{exercise_event.event.exercise_type.name}} at {{exercise_event.event.intensity.name}} intensity for {{exercise_event.event.num_units}} {{exercise_event.event.exercise_unit.name}}</p>
          
          
             <div class="react-buttons">
-              <span class="grey-text small-font tooltipped", data-position="bottom", data-delay="50", data-tooltip="{{exercise_event.cheers}}">{{exercise_event.cheers.length}} Cheers</span>
+              <span class="grey-text small-font tooltipped", data-position="bottom", data-delay="50", data-tooltip="{{exercise_event.cheers}}">{{exercise_event.event.cheers.length}} Cheers</span>
               <%# TODO - Put the names of the cheerers in something other than an array %>         
               <span> 
                 <%# if @exercise_event.user_has_cheered?(@user) %>

@@ -68,8 +68,8 @@ function FriendActivityFeed($http){
     return $http.get('/friends_feed.json').success(addActivities);
   }
   
-  feed.getActivity = function(id) {
-    return feed.activities.filterObjects("id", id);
+  feed.getActivity = function(idObject) {
+    return feed.activities.filterObjects("id", parseInt(idObject.id))[0];  
   }
   
   return feed;
