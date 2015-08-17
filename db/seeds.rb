@@ -8,7 +8,9 @@
 
 ChallengeType.find_or_create_by(name: "Individual")
 ChallengeType.find_or_create_by(name: "Team")
-
+TimePeriod.find_or_create_by(name: "day")
+TimePeriod.find_or_create_by(name: "week")
+TimePeriod.find_or_create_by(name: "month")
 Intensity.find_or_create_by(name: "Low")
 Intensity.find_or_create_by(name: "Medium")
 Intensity.find_or_create_by(name: "High")
