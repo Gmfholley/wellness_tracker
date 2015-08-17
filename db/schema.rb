@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811235630) do
+ActiveRecord::Schema.define(version: 20150817211642) do
+
+  create_table "challenge_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "challenge_type_id"
+    t.integer  "num_type"
+    t.integer  "num_in_type"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "corporation_id"
+    t.string   "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "cheers", force: :cascade do |t|
     t.integer  "exercise_event_id"
@@ -58,6 +77,21 @@ ActiveRecord::Schema.define(version: 20150811235630) do
     t.integer  "point_adjustment"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "time_periods", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
