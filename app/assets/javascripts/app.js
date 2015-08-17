@@ -10,7 +10,7 @@ function FriendActivityCtrl(FriendActivityFeed) {
 
 }
 
-function ExerciseEventCtrl(){
+function ExerciseEventCtrl($stateParams, FriendActivityFeed){
   this.test = "Hello world!";
 }
 
@@ -19,7 +19,7 @@ function ExerciseEventCtrl(){
 angular.module('activity', ['ui.router'])
 .controller('FriendActivityCtrl', FriendActivityCtrl);
 angular.module('activity', ['ui.router'])
-.controller('ExerciseEventCtrl', ExerciseEventCtrl);
+.controller('$stateParams', 'ExerciseEventCtrl', ExerciseEventCtrl);
 
 
 
@@ -64,9 +64,13 @@ function FriendActivityFeed($http){
   }
   
   
+  
+  feed.getActivity = function(activity) {
+    return $http.get('/exercise_events/' + activity.id + '.json').success(addActivities);
+  }
+  
   return feed;
 }
 
 angular.module('activity')
 .factory('FriendActivityFeed', FriendActivityFeed);
-

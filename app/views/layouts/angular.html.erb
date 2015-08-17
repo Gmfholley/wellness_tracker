@@ -10,6 +10,80 @@
   {{exercise_event.test}}
   <p>Exercise Event</p>
   
+       <div class="row">
+         <div class="col s8 offset-s2 m3 picture-column">
+           <div class="section">
+             <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
+           </div>
+         </div>
+         <div class="col s12 m9 text-column">
+           <div class="username">
+             <h5 class="center-on-small-only">{{exercise_event.user.first_name}} {{exercise_event.user.last_name}}</h5>
+             <%# TODO - change this to some other time %>
+             <p class="grey-text condensed center-on-small-only small-font"><time datetime="{{exercise_event.date}}">{{exercise_event.date}}</time></p>
+           </div>
+           <div class="divider"></div>
+           <div class="section">
+             <p>{{exercise_event.user.first_name}} did {{exercise_event.exercise_type.name}} at {{exercise_event.intensity.name}} intensity for {{exercise_event.num_units}} {{exercise_event.exercise_unit.name}}</p>
+         
+         
+            <div class="react-buttons">
+              <span class="grey-text small-font tooltipped", data-position="bottom", data-delay="50", data-tooltip="{{exercise_event.cheers}}">{{exercise_event.cheers.length}} Cheers</span>
+              <%# TODO - Put the names of the cheerers in something other than an array %>         
+              <span> 
+                <%# if @exercise_event.user_has_cheered?(@user) %>
+                   <%# link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(@exercise_event.id), method: "delete", class: "right" %>
+                 <%# else %>
+                   <%# link_to '<i class="material-icons">favorite</i>'.html_safe, exercise_event_cheers_path(@exercise_event.id), method: "post", class: "right" %>
+                 <%# end %>
+              </span>
+           </div>
+          </div>
+        </div>
+      </div>
+        <div class="divider"></div>
+      <div class="row" ng-repeat="comment in exercise_event.comments">
+       
+          <div class="comment">
+              <div class="section">
+                <div class="row">
+                  <div class="col s4 m3 center-align">
+                    <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
+                  </div>
+                
+                  <div class="col s8 m9">
+                    <div class="row">
+                      <p><span class="bold">{{comment.user.first_name}} {{comment.user.last_name}}</span> says...</p>
+                      <%#Add material icons for editing and deleting here (edit and remove trash?)  %>
+                      <%# link_to '<i class="material-icons">edit</i>'.html_safe, "/some path", method: "post" %>
+                    </div>
+                    <p>{{comment.content}}</p>
+                    <span class="grey-text small-font">{{comment.updated_at}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="divider"></div>
+            </div>
+      
+        <div class="comment">
+              <div class="section">
+                <div class="row">
+                  <div class="col s4 m3 center-align">
+                    <img class="responsive-img circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
+                  </div>
+                
+                  <div class="col s8 m9">
+                    <%# Add a new comment here %>
+                    <%# @comment = @exercise_event.comments.build %>
+                    <%# render :partial => "/comments/form", locals: {:comment => @comment } %>
+                  </div>
+                </div>
+              </div>
+              <div class="divider"></div>
+            </div>
+          
+  </div>
+  
 </script>
 
 
