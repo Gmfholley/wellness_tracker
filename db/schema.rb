@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817211642) do
+ActiveRecord::Schema.define(version: 20150817223134) do
 
   create_table "challenge_types", force: :cascade do |t|
     t.string   "name"
@@ -86,6 +86,33 @@ ActiveRecord::Schema.define(version: 20150817211642) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rule_eaches", force: :cascade do |t|
+    t.integer  "challenge_id"
+    t.integer  "exercise_unit_id"
+    t.integer  "num_exercise_units"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "rule_qualifies", force: :cascade do |t|
+    t.integer  "challenge_id"
+    t.integer  "time_period_id"
+    t.integer  "exercise_unit_id"
+    t.integer  "num_exercise_units"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "rule_totals", force: :cascade do |t|
+    t.integer  "challenge_id"
+    t.integer  "exercise_unit_id"
+    t.integer  "num_exercise_units"
+    t.integer  "time_period_id"
+    t.integer  "num_time_periods"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "time_periods", force: :cascade do |t|
