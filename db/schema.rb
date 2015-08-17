@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817230924) do
+ActiveRecord::Schema.define(version: 20150817232506) do
 
   create_table "challenge_participants", force: :cascade do |t|
     t.integer  "challenge_id"
@@ -91,11 +91,9 @@ ActiveRecord::Schema.define(version: 20150817230924) do
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "rule_eaches", force: :cascade do |t|

@@ -4,15 +4,14 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  first_name :string
-#  last_name  :string
-#  email      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 class Organization < ActiveRecord::Base
+  validates :user, presence: true
   validates :name, presence: true
-  validates :first_name, presence: true
-  validates :email, presence: true
+  
+  belongs_to :user
 end
