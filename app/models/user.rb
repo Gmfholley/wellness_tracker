@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
   
   has_many :exercise_events
   has_many :exercise_types, through: :exercise_events
+  has_many :challenges, through: :challenge_participants
+  has_many :teams, through: :challenge_participants
   
   has_many :comments
   has_many :cheers

@@ -23,4 +23,7 @@ class Challenge < ActiveRecord::Base
   has_many :rule_qualifies
   has_many :rule_totals
   
+  has_many :users, through: :challenge_participants
+  has_many :teams, through: :challenge_participants
+  
 end
