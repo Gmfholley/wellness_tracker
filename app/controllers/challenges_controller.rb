@@ -1,10 +1,11 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_organization, only: [:new, :create, :index]
+  before_action :owns_organization, only: [:edit, :update, :new, :create, :destroy]
   # GET /challenges
   # GET /challenges.json
   def index
-    @challenges = Challenge.all
+    @challenges = @user.challenges
   end
 
   # GET /challenges/1
@@ -62,9 +63,20 @@ class ChallengesController < ApplicationController
   end
 
   private
+    def owns_challenge
+      unless @organization.user = @user
+        redirects_to :home, notice: "Only the user with admin privileges for #{organization.name} can change/create challenges."
+      end
+    end
+
+    def set_organization
+      @organization = Organization.find(params[:organization_id])
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_challenge
       @challenge = Challenge.find(params[:id])
+      @organization = @challenge.organization
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

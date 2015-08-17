@@ -1,10 +1,10 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
-
+  before_action :owns_organization, only: [:edit, :update, :destroy]
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.all
+    @organizations = Organization.all.order(:name)
   end
 
   # GET /organizations/1
@@ -62,6 +62,12 @@ class OrganizationsController < ApplicationController
   end
 
   private
+  
+    def owns_organization
+      unless @organization.user = @user
+        redirects_to :home, notice: "Only the user with admin privileges for #{organization.name} can update/delete the organization."
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
       @organization = Organization.find(params[:id])
