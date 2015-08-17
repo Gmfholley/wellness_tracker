@@ -19,4 +19,8 @@ class Challenge < ActiveRecord::Base
   belongs_to :organization
   belongs_to :challenge_type
   
+  has_many :rule_eaches
+  has_many :rule_qualifies
+  has_many :rule_totals
+  
 end
