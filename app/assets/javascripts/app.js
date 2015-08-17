@@ -12,6 +12,7 @@ function FriendActivityCtrl(FriendActivityFeed) {
 
 function ExerciseEventCtrl($stateParams, FriendActivityFeed){
   this.test = "Hello world!";
+  this.event = FriendActivityFeed.getActivity($stateParams);
 }
 
 
@@ -54,6 +55,10 @@ function FriendActivityFeed($http){
   var feed = {
     activities: [],
   }
+
+  Array.prototype.filterObjects = function(key, value) {
+      return this.filter(function(x) { return x[key] === value; })
+  }
   
   function addActivities(data) {
     angular.copy(data, feed.activities);
@@ -63,10 +68,8 @@ function FriendActivityFeed($http){
     return $http.get('/friends_feed.json').success(addActivities);
   }
   
-  
-  
-  feed.getActivity = function(activity) {
-    return $http.get('/exercise_events/' + activity.id + '.json').success(addActivities);
+  feed.getActivity = function(id) {
+    return feed.activities.filterObjects("id", id);
   }
   
   return feed;
