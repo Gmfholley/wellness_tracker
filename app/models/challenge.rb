@@ -25,6 +25,8 @@ class Challenge < ActiveRecord::Base
   
   belongs_to :organization
   belongs_to :challenge_type
+  belongs_to :user, through: :organization
+  
   
   has_many :rule_eaches
   has_many :rule_qualifies
