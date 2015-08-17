@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :challenges
   resources :friends, except: [:update, :edit, :create]
   post 'friends/new/:user_id' => 'friends#create', as: :add_friend
   
