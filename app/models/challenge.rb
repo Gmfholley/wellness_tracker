@@ -16,6 +16,13 @@
 #
 
 class Challenge < ActiveRecord::Base
+  validates :name, presence: true
+  validates :challenge_type, presence: true
+  validates :start_date, presence: true, date: true
+  validates :end_date, presence: true, date: true
+  
+  
+  
   belongs_to :organization
   belongs_to :challenge_type
   
