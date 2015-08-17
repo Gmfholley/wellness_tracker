@@ -9,7 +9,7 @@
 #  num_in_type       :integer
 #  start_date        :datetime
 #  end_date          :datetime
-#  corporation_id    :integer
+#  organization_id   :integer
 #  description       :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null

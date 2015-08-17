@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817223134) do
+ActiveRecord::Schema.define(version: 20150817223351) do
 
   create_table "challenge_types", force: :cascade do |t|
     t.string   "name"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150817223134) do
     t.integer  "num_in_type"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "corporation_id"
+    t.integer  "organization_id"
     t.string   "description"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
