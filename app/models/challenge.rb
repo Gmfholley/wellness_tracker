@@ -16,4 +16,7 @@
 #
 
 class Challenge < ActiveRecord::Base
+  belongs_to :organization
+  belongs_to :challenge_type
+  
 end
