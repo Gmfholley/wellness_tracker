@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   get 'challenges/:token_id/sign_up' => 'challenge_participants#new', as: :challenge_sign_up
-  post 'challenges/:token_id/sign_up' => 'challenge_participants#create'
+  post 'challenges/:token_id/participants' => 'challenge_participants#create'
   delete 'challenges/:token_id/participants' => 'challenge_participants#destroy', as: :challenge_participants
   get 'challenges/:token_id/participants' => 'challenge_participants#index'
   get 'challenges/:token_id' => 'challenge_participants#show', as: :challenge_not_found

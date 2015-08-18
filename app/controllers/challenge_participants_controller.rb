@@ -1,5 +1,5 @@
 class ChallengeParticipantsController < ApplicationController
-  skip_before_action :require_login
+  skip_before_action :require_login, only: [:new]
   before_action :set_challenge
 
   # GET /challenge_participants
@@ -16,7 +16,7 @@ class ChallengeParticipantsController < ApplicationController
   # POST /challenge_participants
   # POST /challenge_participants.json
   def create
-    @challenge_participant = ChallengeParticipant.new(challenge_participant_params)
+    @challenge_participant = @challenge.challenge_participants.build(user_id: @user.id)
 
     respond_to do |format|
       if @challenge_participant.save

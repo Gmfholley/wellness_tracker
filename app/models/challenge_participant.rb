@@ -16,8 +16,8 @@
 
 class ChallengeParticipant < ActiveRecord::Base
   validates :challenge, presence: true
-  validates :team, presence: true
-
+  validates :user, presence: true
+  
   belongs_to :challenge
   belongs_to :user
   belongs_to :team

@@ -54,7 +54,11 @@
     </div>
     <% end %>
   <% else %>
-    <button>Sign me up!</button>
+    <p>Sign me up!</p>
+    <div class="field">
+       <%= ff.label :password %><br />
+       <%= ff.password_field :password, placeholder: "Enter your password to confirm." %>
+    </div>
   <% end %>
   <div class="actions">
     <%= f.submit %>
