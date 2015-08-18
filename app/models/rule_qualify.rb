@@ -12,13 +12,12 @@
 #
 
 class RuleQualify < ActiveRecord::Base
+  # To count towards the total, each day must have at least X units.
   validates :challenge, presence: true
-  validates :time_period, presence: true
   validates :exercise_unit, presence: true
   validates :num_exercise_units, presence: true, numericality: {only_integer: true, greater_than: 0}
-
-  belongs_to :challenge
-  belongs_to :time_period
-  belongs_to :exercise_unit
   
+  
+  belongs_to :challenge
+  belongs_to :exercise_unit
 end

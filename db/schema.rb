@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817232506) do
+ActiveRecord::Schema.define(version: 20150818143611) do
 
   create_table "challenge_participants", force: :cascade do |t|
     t.integer  "challenge_id"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20150817232506) do
 
   create_table "rule_eaches", force: :cascade do |t|
     t.integer  "challenge_id"
+    t.integer  "time_period_id"
     t.integer  "exercise_unit_id"
     t.integer  "num_exercise_units"
     t.datetime "created_at",         null: false
@@ -106,7 +107,6 @@ ActiveRecord::Schema.define(version: 20150817232506) do
 
   create_table "rule_qualifies", force: :cascade do |t|
     t.integer  "challenge_id"
-    t.integer  "time_period_id"
     t.integer  "exercise_unit_id"
     t.integer  "num_exercise_units"
     t.datetime "created_at",         null: false

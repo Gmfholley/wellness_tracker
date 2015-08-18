@@ -13,6 +13,7 @@
 #
 
 class RuleTotal < ActiveRecord::Base
+  # The goal is X Units in Y Period.
   validates :challenge, presence: true
   validates :exercise_unit, presence: true
   validates :time_period, presence: true

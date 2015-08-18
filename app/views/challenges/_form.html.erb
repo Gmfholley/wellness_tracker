@@ -50,7 +50,7 @@
     <% end %>
     <%= f.fields_for :rule_eaches do |ff| %>
       <div class="new_rule_each">
-        <p>Each <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> must be greater than or equal to <%= ff.number_field :num_exercise_units, placeholder: "x" %>.</p>
+        <p>Participants must have a minimum of Each <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> must be greater than or equal to <%= ff.number_field :num_exercise_units, placeholder: "x" %>.</p>
       </div>
     <% end %>
   </div>
