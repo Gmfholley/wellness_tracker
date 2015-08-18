@@ -13,6 +13,11 @@
 #  description       :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  token             :string
+#
+# Indexes
+#
+#  index_challenges_on_token  (token) UNIQUE
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818143611) do
+ActiveRecord::Schema.define(version: 20150818162239) do
 
   create_table "challenge_participants", force: :cascade do |t|
     t.integer  "challenge_id"
@@ -40,7 +40,10 @@ ActiveRecord::Schema.define(version: 20150818143611) do
     t.string   "description"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "token"
   end
+
+  add_index "challenges", ["token"], name: "index_challenges_on_token", unique: true
 
   create_table "cheers", force: :cascade do |t|
     t.integer  "exercise_event_id"
