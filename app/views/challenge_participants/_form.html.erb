@@ -10,19 +10,52 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :challenge_id %><br>
-    <%= f.number_field :challenge_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :team_id %><br>
-    <%= f.number_field :team_id %>
-  </div>
+  <% if @user.blank? %>
+    <p>Sign up for an account</p>
+    <%= form_for :user do |ff| %>
+      <div class="field">
+         <%= ff.label :email %><br />
+         <%= ff.text_field :email %>
+      </div>
+      <div class="field">
+         <%= ff.label :username %><br />
+         <%= ff.text_field :username %>
+      </div>
+      <div class="field">
+         <%= ff.label :first_name %><br />
+         <%= ff.text_field :first_name %>
+      </div>
+      <div class="field">
+         <%= ff.label :last_name %><br />
+         <%= ff.text_field :last_name %>
+      </div>
+      <div class="field">
+         <%= ff.label :profile_picture %><br />
+         <%= ff.file_field :profile_picture %>
+      </div>
+      <div class="field">
+         <%= ff.label :password %><br />
+         <%= ff.password_field :password %>
+      </div>
+      <div class="field">
+         <%= ff.label :password_confirmation %><br />
+         <%= ff.password_field :password_confirmation %>
+      </div>
+    <% end %>
+    <p>Already have an account?  Sign in.</p>
+    <%= form_tag do |ff| %>
+    <div class="field">
+       <%= ff.label :email %><br />
+       <%= ff.text_field :email %>
+    </div>
+    <div class="field">
+       <%= ff.label :password %><br />
+       <%= ff.password_field :password %>
+    </div>
+    <% end %>
+  <% else %>
+    <button>Sign me up!</button>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

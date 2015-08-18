@@ -10,7 +10,7 @@ class ChallengeParticipantsController < ApplicationController
 
   # GET /challenge_participants/new
   def new
-    @challenge_participant = ChallengeParticipant.new
+    @challenge_participant = @challenge.challenge_participants.build
   end
 
   # POST /challenge_participants
