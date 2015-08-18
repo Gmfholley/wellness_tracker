@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :challenge_participants
   resources :rule_eaches
   resources :rule_totals
   resources :rule_qualifes
   
-  resources :organizations do
-    resources :challenges do
-    end
-  end
+  resources :organizations
+  resources :challenges
+  
+  get 'challenges/:id/sign_up' => 'challenge_participants#new', as: :challenge_sign_up
+  post 'challenges/:id/sign_up' => 'challenge_participants#create'
+  delete 'challenges/:id/participants' => 'challenge_participants#destroy', as: :challenge_participants
+  get 'challenges/:id/participants' => 'challenge_participants#index'
+  
   
   resources :friends, except: [:update, :edit, :create]
   post 'friends/new/:user_id' => 'friends#create', as: :add_friend
