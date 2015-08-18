@@ -8,6 +8,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_teams_on_token  (token) UNIQUE
+#
 
 require 'test_helper'
 
