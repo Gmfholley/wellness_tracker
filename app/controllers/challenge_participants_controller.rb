@@ -1,24 +1,16 @@
 class ChallengeParticipantsController < ApplicationController
-  before_action :set_challenge_participant, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_login
+  before_action :set_challenge
 
   # GET /challenge_participants
   # GET /challenge_participants.json
   def index
-    @challenge_participants = ChallengeParticipant.all
-  end
-
-  # GET /challenge_participants/1
-  # GET /challenge_participants/1.json
-  def show
+    @participants = @challenge.users.order(:team)
   end
 
   # GET /challenge_participants/new
   def new
     @challenge_participant = ChallengeParticipant.new
-  end
-
-  # GET /challenge_participants/1/edit
-  def edit
   end
 
   # POST /challenge_participants
@@ -37,20 +29,6 @@ class ChallengeParticipantsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /challenge_participants/1
-  # PATCH/PUT /challenge_participants/1.json
-  def update
-    respond_to do |format|
-      if @challenge_participant.update(challenge_participant_params)
-        format.html { redirect_to @challenge_participant, notice: 'Challenge participant was successfully updated.' }
-        format.json { render :show, status: :ok, location: @challenge_participant }
-      else
-        format.html { render :edit }
-        format.json { render json: @challenge_participant.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /challenge_participants/1
   # DELETE /challenge_participants/1.json
   def destroy
@@ -63,8 +41,9 @@ class ChallengeParticipantsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_challenge_participant
-      @challenge_participant = ChallengeParticipant.find(params[:id])
+    def set_challenge
+      @challenge = Challenge.find_by(token: params[:token_id])
+      redirect_to challenge_not_found_path, notice: "Sorry.  That challenge was not found or is no longer available for sign up. Please check the url and try again." if @challenge.id.blank?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
