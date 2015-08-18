@@ -19,12 +19,18 @@ class ChallengeParticipantsController < ApplicationController
     @challenge_participant = @challenge.challenge_participants.build(user_id: @user.id)
 
     respond_to do |format|
-      if @challenge_participant.save
-        format.html { redirect_to @challenge_participant, notice: 'Challenge participant was successfully created.' }
+      begin
+        if @challenge_participant.save
+          format.html { redirect_to @user, notice: 'You successfully joined #{@challenge.name}.' }
+          format.json { render :show, status: :created, location: @challenge_participant }
+        else
+          format.html { render :new }
+          format.json { render json: @challenge_participant.errors, status: :unprocessable_entity }
+        end
+      rescue
+        @challenge_participant = ChallengeParticipant.where(user_id: @user.id, challenge_id: @challenge.id).first
+        format.html { redirect_to :root, notice: "You have already joined this challenge." }
         format.json { render :show, status: :created, location: @challenge_participant }
-      else
-        format.html { render :new }
-        format.json { render json: @challenge_participant.errors, status: :unprocessable_entity }
       end
     end
   end
