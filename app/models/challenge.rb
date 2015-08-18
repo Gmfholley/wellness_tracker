@@ -25,7 +25,6 @@ class Challenge < ActiveRecord::Base
   
   belongs_to :organization
   belongs_to :challenge_type
-  belongs_to :user, through: :organization
   
   
   has_many :rule_eaches
@@ -36,6 +35,7 @@ class Challenge < ActiveRecord::Base
   accepts_nested_attributes_for :rule_qualifies
   accepts_nested_attributes_for :rule_totals
   
+  has_many :challenge_participants
   has_many :users, through: :challenge_participants
   has_many :teams, through: :challenge_participants
   
