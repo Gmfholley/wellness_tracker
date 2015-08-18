@@ -18,6 +18,6 @@ class ChallengeParticipant < ActiveRecord::Base
   belongs_to :user
   belongs_to :team
   
-  accepts_nested_attributes_for :user
-  accepts_nested_attributes_for :team
+  # Cannot accept nested attributes for user at this stage or it will REQUIRE a password
+  # FYI
 end
