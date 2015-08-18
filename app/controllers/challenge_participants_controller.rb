@@ -16,13 +16,14 @@ class ChallengeParticipantsController < ApplicationController
   # POST /challenge_participants
   # POST /challenge_participants.json
   def create
+    logged_in_log_in_or_create_user
     binding.pry
     @challenge_participant = @challenge.challenge_participants.build(user_id: @user.id)
 
     respond_to do |format|
       begin
         if @challenge_participant.save
-          format.html { redirect_to @user, notice: 'You successfully joined #{@challenge.name}.' }
+          format.html { redirect_to :root, notice: "You successfully joined #{@challenge.name}." }
           format.json { render :show, status: :created, location: @challenge_participant }
         else
           format.html { render :new }
@@ -52,9 +53,30 @@ class ChallengeParticipantsController < ApplicationController
       @challenge = Challenge.find_by(token: params[:token_id])
       redirect_to challenge_not_found_path, notice: "Sorry.  That challenge was not found or is no longer available for sign up. Please check the url and try again." if @challenge.id.blank?
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_participant_params
       params.require(:challenge_participant).permit(:challenge_id, :user_id, :team_id)
     end
+    
+    def user_params
+      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :profile_picture, :username)
+    end
+    
+    def trying_to_login?
+      !params[:email].blank?
+    end
+    
+    def logged_in_log_in_or_create_user
+      if @user.blank?
+        if trying_to_login?
+          if !@user = login(params[:email], params[:password])
+            @user = User.new
+            @user.errors.add("Email or password combination", "was not correct")
+          end
+        else    
+          @user = User.create(user_params)
+        end
+      end
+    end
+    
 end
