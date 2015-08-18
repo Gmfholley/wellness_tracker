@@ -12,7 +12,7 @@
   <% end %>
   <% if @user.blank? %>
     <p>Sign up for an account</p>
-    <%= form_for :user do |ff| %>
+    <%= fields_for :user do |ff| %>
       <div class="field">
          <%= ff.label :email %><br />
          <%= ff.text_field :email %>
@@ -43,16 +43,16 @@
       </div>
     <% end %>
     <p>Already have an account?  Sign in.</p>
-    <%= form_tag do |ff| %>
-    <div class="field">
-       <%= ff.label :email %><br />
-       <%= ff.text_field :email %>
-    </div>
-    <div class="field">
-       <%= ff.label :password %><br />
-       <%= ff.password_field :password %>
-    </div>
-    <% end %>
+      <%= fields_for :login do |ff| %>
+        <div class="field">
+          <%= label_tag :email %><br />
+          <%= text_field_tag :email %>
+        </div>
+        <div class="field">
+          <%= label_tag :password %><br />
+          <%= password_field_tag :password %>
+        </div>
+      <% end %>
   <% else %>
     <p>Sign me up!</p>
   <% end %>

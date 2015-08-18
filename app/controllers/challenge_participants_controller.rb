@@ -1,5 +1,5 @@
 class ChallengeParticipantsController < ApplicationController
-  skip_before_action :require_login, only: [:new]
+  skip_before_action :require_login, only: [:new, :create]
   before_action :set_challenge
 
   # GET /challenge_participants
@@ -16,6 +16,7 @@ class ChallengeParticipantsController < ApplicationController
   # POST /challenge_participants
   # POST /challenge_participants.json
   def create
+    binding.pry
     @challenge_participant = @challenge.challenge_participants.build(user_id: @user.id)
 
     respond_to do |format|
