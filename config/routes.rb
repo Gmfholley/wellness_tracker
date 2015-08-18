@@ -8,10 +8,10 @@ Rails.application.routes.draw do
     resources :challenges
   end
   
-  get 'challenges/:id/sign_up' => 'challenge_participants#new', as: :challenge_sign_up
-  post 'challenges/:id/sign_up' => 'challenge_participants#create'
-  delete 'challenges/:id/participants' => 'challenge_participants#destroy', as: :challenge_participants
-  get 'challenges/:id/participants' => 'challenge_participants#index'
+  get 'challenges/:token_id/sign_up' => 'challenge_participants#new', as: :challenge_sign_up
+  post 'challenges/:token_id/sign_up' => 'challenge_participants#create'
+  delete 'challenges/:token_id/participants' => 'challenge_participants#destroy', as: :challenge_participants
+  get 'challenges/:token_id/participants' => 'challenge_participants#index'
   
   
   resources :friends, except: [:update, :edit, :create]
