@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :rule_totals
   resources :rule_qualifes
   
-  resources :organizations
-  resources :challenges
+  resources :organizations do
+    resources :challenges
+  end
   
   get 'challenges/:id/sign_up' => 'challenge_participants#new', as: :challenge_sign_up
   post 'challenges/:id/sign_up' => 'challenge_participants#create'
