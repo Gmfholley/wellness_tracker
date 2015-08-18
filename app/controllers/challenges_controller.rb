@@ -25,7 +25,7 @@ class ChallengesController < ApplicationController
   # POST /challenges
   # POST /challenges.json
   def create
-    @challenge = Challenge.new(challenge_params)
+    @challenge = @organization.challenges.build(challenge_params)
 
     respond_to do |format|
       if @challenge.save
@@ -82,6 +82,6 @@ class ChallengesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_params
-      params.require(:challenge).permit(:name, :challenge_type_id, :num_type, :num_in_type, :start_date, :end_date, :corporation_id, :description)
+      params.require(:challenge).permit(:name, :challenge_type_id, :num_type, :num_in_type, :start_date, :end_date, :organization_id, :description)
     end
 end

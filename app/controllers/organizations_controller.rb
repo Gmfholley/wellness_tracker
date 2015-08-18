@@ -24,7 +24,7 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   # POST /organizations.json
   def create
-    @organization = Organization.new(organization_params)
+    @organization = @user.organizations.build(organization_params)
 
     respond_to do |format|
       if @organization.save
@@ -75,6 +75,6 @@ class OrganizationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
-      params.require(:organization).permit(:name, :first_name, :last_name, :email)
+      params.require(:organization).permit(:name, :user)
     end
 end
