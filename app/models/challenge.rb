@@ -27,13 +27,13 @@ class Challenge < ActiveRecord::Base
   belongs_to :challenge_type
   
   
-  has_many :rule_eaches
-  has_many :rule_qualifies
-  has_many :rule_totals
+  has_many :rule_eaches, :inverse_of => :challenge  #This allows the validation of a challenge itself rather than an ID (for challenges that are being created at the same time as their rules)
+  has_many :rule_qualifies, :inverse_of => :challenge
+  has_many :rule_totals, :inverse_of => :challenge
   
-  accepts_nested_attributes_for :rule_eaches
-  accepts_nested_attributes_for :rule_qualifies
-  accepts_nested_attributes_for :rule_totals
+  accepts_nested_attributes_for :rule_eaches, reject_if: :all_blank
+  accepts_nested_attributes_for :rule_qualifies, reject_if: :all_blank
+  accepts_nested_attributes_for :rule_totals, reject_if: :all_blank
   
   has_many :challenge_participants
   has_many :users, through: :challenge_participants
