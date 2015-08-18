@@ -74,7 +74,9 @@ class ChallengeParticipantsController < ApplicationController
             @user.errors.add("Email or password combination", "was not correct")
           end
         else    
-          @user = User.create(user_params)
+          if @user = User.create(user_params)
+            @user = login(params[:user][:email], params[:user][:password])
+          end
         end
       end
     end

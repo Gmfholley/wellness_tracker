@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @user = login(params[:user][:email], params[:user][:password])
       redirect_to profile_path, :notice => "Welcome to Wellness Tracker!"
     else
       render :new, :notice => "Unable to create a new user."
