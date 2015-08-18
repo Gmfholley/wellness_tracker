@@ -82,7 +82,6 @@ class ChallengesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_params
-      binding.pry
-      params.require(:challenge).permit(:name, :challenge_type_id, :num_type, :num_in_type, :start_date, :end_date, :organization_id, :description, :rule_eaches_attributes => [:num_exercise_units, :exercise_unit_id], :rule_totals_attributes => [:num_exercise_units, :exercise_unit_id, :num_time_periods, :time_period_id], :rule_qualifies_attributes => [:time_period_id, :num_exercise_units, :exercise_unit_id])
+      params.require(:challenge).permit(:name, :challenge_type_id, :num_type, :num_in_type, :start_date, :end_date, :organization_id, :description, :rule_eaches_attributes => [:challenge_id, :num_exercise_units, :exercise_unit_id], :rule_totals_attributes => [:num_exercise_units, :exercise_unit_id, :num_time_periods, :time_period_id], :rule_qualifies_attributes => [:time_period_id, :num_exercise_units, :exercise_unit_id])
     end
 end
