@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @challenge %> |
-<%= link_to 'Back', challenges_path %>
+<%= link_to 'Show', organization_challenges_path(@organization.id, @challenge.id) %> |
+<%= link_to 'Back', organization_challenges_path(@organization.id) %>

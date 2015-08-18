@@ -1,7 +1,7 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
   before_action :set_organization, only: [:new, :create, :index]
-  before_action :owns_organization, only: [:edit, :update, :new, :create, :destroy]
+  before_action :owns_challenge, only: [:edit, :update, :new, :create, :destroy]
   # GET /challenges
   # GET /challenges.json
   def index

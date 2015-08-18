@@ -1,4 +1,4 @@
-<%= form_for(@challenge) do |f| %>
+<%= form_for(@challenge, url: organization_challenges_path(@organization.id)) do |f| %>
   <% if @challenge.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
@@ -24,20 +24,20 @@
     <%= f.select :challenge_type_id, ChallengeType.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
   </div>
   <div class="field">
-    <%= f.label :num_type %><br>
+    <%= f.label :num_type, "Maximum number of allowed participants" %><br>
     <%= f.number_field :num_type %>
   </div>
   <div class="field">
-    <%= f.label :num_in_type %><br>
+    <%= f.label :num_in_type, "Maximum number of members per team (if applicable)" %><br>
     <%= f.number_field :num_in_type %>
   </div>
   <div class="field">
     <label for="start_date">Start Date:</label>
-    <input type="datetime" name="start_date" placeholder="mm/dd/yyyy" value=<%= @challenge.start_date %>></input>    
+    <input type="date" name="start_date" placeholder="mm/dd/yyyy" value=<%= @challenge.start_date %>></input>    
   </div>
   <div class="field">
     <label for="end_date">End Date:</label>
-    <input type="datetime" name="end_date" placeholder="mm/dd/yyyy" value=<%= @challenge.end_date %>></input>
+    <input type="date" name="end_date" placeholder="mm/dd/yyyy" value=<%= @challenge.end_date %>></input>
   </div>
   <div class="actions">
     <%= f.submit %>
