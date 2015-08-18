@@ -1,0 +1,2 @@
+class RuleTotalsController < ApplicationController
+end

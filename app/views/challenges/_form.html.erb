@@ -56,7 +56,7 @@
   <div class="rule_totals">
     <% @challenge.rule_totals.each do |rule| %>
       <div class="rule_total">
-        <p>Users must have at least <%= "#{rule.num_exercise_units} #{rule.exericse_units.name} in #{rule.num_time_periods} #{rule.time_period.name}." %>  <span><%= link_to "Edit", edit_rule_total_path(rule.id) %></span>  <span><%= link_to "Delete", rule_total_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
+        <p>Users must have at least <%= "#{rule.num_exercise_units} #{rule.exericse_units.name} in #{rule.num_time_periods} #{rule.time_period.name}." %>  <span><%= link_to "Edit", edit_rule_total_path(rule.id) %></span>  <span><%= link_to "Delete", organization_challenge_rule_total_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
       </div>
     <% end %>
     <% @challenge.rule_totals.build %>

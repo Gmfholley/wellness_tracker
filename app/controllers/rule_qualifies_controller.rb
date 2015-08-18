@@ -1,0 +1,2 @@
+class RuleQualifiesController < ApplicationController
+end

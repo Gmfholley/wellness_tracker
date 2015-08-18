@@ -1,0 +1,2 @@
+class RuleEachesController < ApplicationController
+end

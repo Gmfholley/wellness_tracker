@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
   resources :challenge_participants
+  resources :rule_eaches
+  resources :rule_totals
+  resources :rule_qualifes
   
   resources :organizations do
-    resources :challenges
+    resources :challenges do
+    end
   end
   
   resources :friends, except: [:update, :edit, :create]
