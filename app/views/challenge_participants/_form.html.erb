@@ -10,7 +10,20 @@
       </ul>
     </div>
   <% end %>
-  <% if @user.blank? %>
+  <% if !@user.blank? %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this challenge_participant from being saved:</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @user.blank? || @user.id.blank? %>
     <p>Sign up for an account</p>
     <%= fields_for :user do |ff| %>
       <div class="field">
