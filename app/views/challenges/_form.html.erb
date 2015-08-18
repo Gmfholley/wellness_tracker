@@ -16,8 +16,12 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
     <%= f.label :challenge_type_id %><br>
-    <%= f.number_field :challenge_type_id %>
+    <%= f.select :challenge_type_id, ChallengeType.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :num_type %><br>
@@ -28,20 +32,12 @@
     <%= f.number_field :num_in_type %>
   </div>
   <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.datetime_select :start_date %>
+    <label for="start_date">Start Date:</label>
+    <input type="datetime" name="start_date" placeholder="mm/dd/yyyy" value=<%= @challenge.start_date %>></input>    
   </div>
   <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.datetime_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :corporation_id %><br>
-    <%= f.number_field :corporation_id %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <label for="end_date">End Date:</label>
+    <input type="datetime" name="end_date" placeholder="mm/dd/yyyy" value=<%= @challenge.end_date %>></input>
   </div>
   <div class="actions">
     <%= f.submit %>
