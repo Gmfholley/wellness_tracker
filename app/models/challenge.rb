@@ -32,6 +32,10 @@ class Challenge < ActiveRecord::Base
   has_many :rule_qualifies
   has_many :rule_totals
   
+  accepts_nested_attributes_for :rule_eaches
+  accepts_nested_attributes_for :rule_qualifies
+  accepts_nested_attributes_for :rule_totals
+  
   has_many :users, through: :challenge_participants
   has_many :teams, through: :challenge_participants
   
