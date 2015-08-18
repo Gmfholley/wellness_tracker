@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Organization:</strong>
+  <%= @challenge. %>
+</p>
 
 <p>
   <strong>Name:</strong>
@@ -6,17 +10,22 @@
 </p>
 
 <p>
-  <strong>Challenge type:</strong>
-  <%= @challenge.challenge_type_id %>
+  <strong>Description:</strong>
+  <%= @challenge.description %>
 </p>
 
 <p>
-  <strong>Num type:</strong>
+  <strong>Challenge type:</strong>
+  <%= @challenge.challenge_type.name %>
+</p>
+
+<p>
+  <strong>Number of participants allowed:</strong>
   <%= @challenge.num_type %>
 </p>
 
 <p>
-  <strong>Num in type:</strong>
+  <strong>Number of participants on a team allowed (if applicable):</strong>
   <%= @challenge.num_in_type %>
 </p>
 
@@ -30,15 +39,6 @@
   <%= @challenge.end_date %>
 </p>
 
-<p>
-  <strong>Corporation:</strong>
-  <%= @challenge.corporation_id %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @challenge.description %>
-</p>
 
 <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
 <%= link_to 'Back', challenges_path %>
