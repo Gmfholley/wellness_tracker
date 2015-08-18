@@ -40,17 +40,17 @@
     <input type="date" name="challenge[end_date]" placeholder="mm/dd/yyyy" value=<%= @challenge.end_date %>></input>
   </div>
   
-  <div class="rule_eaches">
-    <% @challenge.rule_eaches.each do |rule| %>
-      <div class="rule_each">
+  <div class="rule_qualifies">
+    <% @challenge.rule_qualifies.each do |rule| %>
+      <div class="rule_qualify">
         <% unless rule.id.blank? %>
-        <p>Each <%= rule.exercise_unit.name %> must be greater than or equal to <%= rule.num_exercise_units %>. <span><%= link_to "Edit", edit_rule_each_path(rule.id) %></span>  <span><%= link_to "Delete", rule_each_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
+        <p>To count towards the total, each day must have at least <%= rule.num_exercise_units %> <%= rule.exercise_unit.name %>. <span><%= link_to "Edit", edit_rule_qualify_path(rule.id) %></span>  <span><%= link_to "Delete", rule_qualify_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
         <% end %>
       </div>
     <% end %>
-    <%= f.fields_for :rule_eaches do |ff| %>
-      <div class="new_rule_each">
-        <p>Participants must have a minimum of Each <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> must be greater than or equal to <%= ff.number_field :num_exercise_units, placeholder: "x" %>.</p>
+    <%= f.fields_for :rule_qualifies do |ff| %>
+      <div class="new_rule_qualify">
+        <p>To count towards the total, each day must have at least <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %>.</p>
       </div>
     <% end %>
   </div>
@@ -69,17 +69,17 @@
     <% end %>
   </div>
   
-  <div class="rule_qualifies">
-    <% @challenge.rule_qualifies.each do |rule| %>
+  <div class="rule_eaches">
+    <% @challenge.rule_eaches.each do |rule| %>
     <% unless rule.id.blank? %>
-      <div class="rule_qualify">
-        <p>To count towards the total, a minimum of <%= "#{rule.num_exercise_units} #{rule.exericse_units.name} per #{rule.time_period.name}." %>  <span><%= link_to "Edit", edit_rule_qualify_path(rule.id) %></span>  <span><%= link_to "Delete", rule_qualify_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
+      <div class="rule_each">
+        <p>Participants should have at minimum <%= "#{rule.num_exercise_units} #{rule.exericse_units.name} eaach #{rule.time_period.name}." %>  <span><%= link_to "Edit", edit_rule_each_path(rule.id) %></span>  <span><%= link_to "Delete", rule_each_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
       </div>
       <% end %>
     <% end %>
-    <%= f.fields_for :rule_qualifies do |ff| %>
-      <div class="new_rule_qualify">
-        <p>To count towards the total, a minimum of <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> per <%= ff.select :time_period_id, TimePeriod.all.collect { |p| [p.name, p.id]}, include_blank: true %>.</p>
+    <%= f.fields_for :rule_eaches do |ff| %>
+      <div class="new_rule_each">
+        <p>Participants should have at minimum <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> each <%= ff.select :time_period_id, TimePeriod.all.collect { |p| [p.name, p.id]}, include_blank: true %>.</p>
       </div>
     <% end %>
   </div>
