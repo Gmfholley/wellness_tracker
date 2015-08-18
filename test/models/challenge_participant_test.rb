@@ -9,10 +9,6 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
-# Indexes
-#
-#  index_challenge_participants_on_user_id_and_challenge_id  (user_id,challenge_id) UNIQUE
-#
 
 require 'test_helper'
 
