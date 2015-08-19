@@ -1,68 +1,57 @@
-<div class="row">
-  <div class="col s12 m8 offset-m2 center-align">
-    <%= form_for(@challenge_participant) do |f| %>
-      <% if @user.errors.any? %>
-        <h5>Sorry.</h5>
-        <div id="error_explanation">
-          <ul>
-          <% if !@user.blank? %>
-            <% if @user.errors.any? %>
-              <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+<div class="card-panel">
+  <div class="row">
+    <div class="col s12 m8 offset-m2 center-align">
+      <%= form_for(@challenge_participant) do |f| %>
+        <% if @user.errors.any? %>
+          <h6>Sorry.</h6>
+          <div id="error_explanation">
+            <ul>
+            <% if !@user.blank? %>
+              <% if @user.errors.any? %>
+                <% @user.errors.full_messages.each do |message| %>
+                  <li class="small-font"><%= message %></li>
+                <% end %>
               <% end %>
             <% end %>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-  </div>
-  <div class="row">
-    <% if @user.blank? || @user.id.blank? %>
-    <div class="col s12 m6">
-      <div class="card-panel hoverable">
-      <p class="center-align">Sign up for an account</p>
-      <%= fields_for :user do |ff| %>
-        <div class="field input-field">
-           <%= ff.text_field :email, class: "validate", placeholder: "julie@example.com" %>
-        </div>
-        <div class="field input-field">
-           <%= ff.text_field :username, class: "validate", placeholder: "username" %>
-        </div>
-        <div class="field input-field">
-           <%= ff.text_field :first_name, class: "validate", placeholder: "first name" %>
-        </div>
-        <div class="field input-field">
-           <%= ff.text_field :last_name, class: "validate", placeholder: "last name" %>
-        </div>
-        <div class="field input-field">
-           <%= ff.password_field :password, class: "validate", placeholder: "password" %>
-        </div>
-        <div class="field input-field">
-           <%= ff.password_field :password_confirmation, placeholder: "confirm your password" %>
-        </div>
-      
-      <% end %>
-      </div>
-      </div>
-      <div class="col s12 m6">
-      <div class="card-panel hoverable">
-      <p class="center-align">Already have an account?  Sign in.</p>
-        <%= fields_for :login do |ff| %>
-          <div class="field input-field">
-            <%= text_field_tag :email, nil, class: "validate", placeholder: "joe@example.com" %>
-          </div>
-          <div class="field input-field">
-            <%= password_field_tag :password, nil, class: "validate", placeholder: "password" %>
+            </ul>
           </div>
         <% end %>
+    </div>
+    <div class="row">
+      <% if @user.blank? || @user.id.blank? %>
+      <div class="col s12 m6">
+        <div class="card-panel hoverable">
+        <p class="center-align">Sign up for an account.</p>
+          <%= fields_for :user do |ff| %>
+            <div class="field input-field">
+               <%= ff.text_field :email, class: "validate small-font", placeholder: "julie@example.com" %>
+               <%= ff.text_field :username, class: "validate", placeholder: "username" %>
+               <%= ff.text_field :first_name, class: "validate", placeholder: "first name" %>
+               <%= ff.text_field :last_name, class: "validate", placeholder: "last name" %>
+               <%= ff.password_field :password, class: "validate", placeholder: "password" %>
+               <%= ff.password_field :password_confirmation, placeholder: "confirm your password" %>
+            </div>
+          <% end %>
+        </div>
       </div>
+        <div class="col s12 m6">
+        <div class="card-panel hoverable">
+        <p class="center-align">Already have an account?  Sign in.</p>
+          <%= fields_for :login do |ff| %>
+            <div class="field input-field">
+              <%= text_field_tag :email, nil, class: "validate", placeholder: "joe@example.com" %>
+              <%= password_field_tag :password, nil, class: "validate", placeholder: "password" %>
+            </div>
+          <% end %>
+        </div>
+        </div>
+      <% else %>
+        <p class="center-align">Sign me up!</p>
+      <% end %>
       </div>
-    <% else %>
-      <p class="center-align">Sign me up!</p>
+      <div class="actions center-align">
+        <%= f.submit "Sign me up!", class: "center-align btn grey darken-2" %>
+      </div>
     <% end %>
-    </div>
-    <div class="actions center-align">
-      <%= f.submit "Sign me up!", class: "center-align btn" %>
-    </div>
-  <% end %>
+  </div>
 </div>

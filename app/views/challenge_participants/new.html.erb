@@ -1,3 +1,30 @@
-<h3>Sign up for the <%= @challenge.name %> Challenge!</h3>
+<div class="row center-align">
+  <div class="card-panel z-depth-5 grey darken-3 white-text">
+    <h4>Join <%= @challenge.name %>!</h4>
+    <h6>Sponsored by <%= @challenge.organization.name %></h6>
+    <h7 class="grey-text darken-4-text small-font"><%= @challenge.description %></h7>
+  </div>
+  
+
+
+  <div class="card-panel grey-text darken-4">
+    <p>Rules of the challenge:</p>
+    <ul class="small-font">
+      <li>
+        <% @challenge.rule_eaches.each do |rule| %>
+          <li><%= rule.in_english %></li>
+        <% end %>
+        <% @challenge.rule_qualifies.each do |rule| %>
+          <li><%= rule.in_english %></li>
+        <% end %>
+        <% @challenge.rule_totals.each do |rule| %>
+          <li><%= rule.in_english %></li>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
 
 <%= render 'form' %>
+
+<p class="bold grey-text darken-4-text center-align">Contact </p>
