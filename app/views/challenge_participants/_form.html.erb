@@ -1,3 +1,5 @@
+<%# Take out the depth on the first card and put them on one card; Add two buttons - one on each side  %>
+
 <div class="card-panel">
   <div class="row">
     <div class="col s12 m8 offset-m2 center-align">
@@ -20,7 +22,7 @@
     <div class="row">
       <% if @user.blank? || @user.id.blank? %>
       <div class="col s12 m6">
-        <div class="card-panel hoverable">
+        <div class="card-panel">
         <p class="center-align">Sign up for an account.</p>
           <%= fields_for :user do |ff| %>
             <div class="field input-field">
@@ -32,10 +34,13 @@
                <%= ff.password_field :password_confirmation, placeholder: "confirm your password" %>
             </div>
           <% end %>
+          <div class="actions center-align">
+            <%= f.submit "Sign me up!", class: "center-align btn grey darken-2" %>
+          </div>
         </div>
       </div>
         <div class="col s12 m6">
-        <div class="card-panel hoverable">
+        <div class="card-panel">
         <p class="center-align">Already have an account?  Sign in.</p>
           <%= fields_for :login do |ff| %>
             <div class="field input-field">
@@ -43,15 +48,19 @@
               <%= password_field_tag :password, nil, class: "validate", placeholder: "password" %>
             </div>
           <% end %>
+          <div class="actions center-align">
+            <%= f.submit "Join!", class: "center-align btn grey darken-2" %>
+          </div>
         </div>
         </div>
       <% else %>
         <p class="center-align">Sign me up!</p>
+        <div class="actions center-align">
+          <%= f.submit "Sign me up!", class: "center-align btn grey darken-2" %>
+        </div>
       <% end %>
       </div>
-      <div class="actions center-align">
-        <%= f.submit "Sign me up!", class: "center-align btn grey darken-2" %>
-      </div>
+
     <% end %>
   </div>
 </div>
