@@ -24,7 +24,7 @@
         <p class="center-align">Sign up for an account.</p>
           <%= fields_for :user do |ff| %>
             <div class="field input-field">
-               <%= ff.text_field :email, class: "validate small-font", placeholder: "julie@example.com" %>
+               <%= ff.text_field :email, class: "validate", placeholder: "julie@example.com" %>
                <%= ff.text_field :username, class: "validate", placeholder: "username" %>
                <%= ff.text_field :first_name, class: "validate", placeholder: "first name" %>
                <%= ff.text_field :last_name, class: "validate", placeholder: "last name" %>
