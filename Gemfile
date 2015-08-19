@@ -33,6 +33,7 @@ gem 'clockwork', '~> 1.2.0'
 gem 'carrierwave', '~> 0.10.0'
 gem 'email_validator', '~> 1.6.0'
 gem 'node', '~> 0.0.2'
+gem 'will_paginate', '~> 3.0.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
