@@ -11,15 +11,16 @@ class ChallengeParticipantsController < ApplicationController
   # GET /challenge_participants/new
   def new
     @challenge_participant = @challenge.challenge_participants.build
+    if @user.blank?
+      @user = User.new
+    end
   end
 
   # POST /challenge_participants
   # POST /challenge_participants.json
   def create
     logged_in_log_in_or_create_user
-    binding.pry
     @challenge_participant = @challenge.challenge_participants.build(user_id: @user.id)
-
     respond_to do |format|
       begin
         if @challenge_participant.save
