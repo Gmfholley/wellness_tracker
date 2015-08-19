@@ -1,27 +1,17 @@
 <%= form_for(@challenge_participant) do |f| %>
-  <% if @challenge_participant.errors.any? %>
+  <% if @user.errors.any? %>
+    <h5>Sorry. You weren't added to this challenge, due to the errors below.</h5>
     <div id="error_explanation">
-      <h2><%= pluralize(@challenge_participant.errors.count, "error") %> prohibited this challenge_participant from being saved:</h2>
-
       <ul>
-      <% @challenge_participant.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% if !@user.blank? %>
+        <% if @user.errors.any? %>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        <% end %>
       <% end %>
       </ul>
     </div>
-  <% end %>
-  <% if !@user.blank? %>
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this challenge_participant from being saved:</h2>
-
-        <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
   <% end %>
   <% if @user.blank? || @user.id.blank? %>
     <p>Sign up for an account</p>
@@ -70,6 +60,6 @@
     <p>Sign me up!</p>
   <% end %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Sign me up!" %>
   </div>
 <% end %>
