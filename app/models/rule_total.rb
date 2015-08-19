@@ -24,4 +24,8 @@ class RuleTotal < ActiveRecord::Base
   belongs_to :exercise_unit
   belongs_to :time_period
   
+  
+  def in_english
+    "Goal: reach #{num_exercise_units} #{exercise_unit.name} in #{num_time_periods} #{time_period.name}."
+  end
 end

@@ -19,4 +19,8 @@ class RuleQualify < ActiveRecord::Base
   
   belongs_to :challenge
   belongs_to :exercise_unit
+  
+  def in_english
+    "For a day's activities to count towards the total, the day must have at least #{num_exercise_units} #{exercise_unit.name}."
+  end
 end

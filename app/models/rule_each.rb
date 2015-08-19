@@ -22,4 +22,8 @@ class RuleEach < ActiveRecord::Base
   belongs_to :time_period
   belongs_to :exercise_unit
   
+  def in_english
+    "You should have at least #{num_exercise_units} #{exercise_unit.name} each #{time_period.name}"
+  end
+  
 end
