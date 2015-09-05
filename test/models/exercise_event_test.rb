@@ -15,7 +15,7 @@
 
 require 'test_helper'
 
-class ExerciseEventTest < ActiveSupport::TestCase
+class ActivityTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,4 +1,4 @@
-module ExerciseEventsHelper
+module ActivitiesHelper
   # pluralizes cheers into a sentence in English
   I18n.backend.store_translations :en, cheer: {
     one: '1 Cheer',

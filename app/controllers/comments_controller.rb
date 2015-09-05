@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
   
   private
   def set_activity
-    @activity = ExerciseEvent.find(params["activity_id"])
+    @activity = Activity.find(params["activity_id"])
   end
   
   def set_comment

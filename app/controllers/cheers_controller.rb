@@ -22,6 +22,6 @@ class CheersController < ApplicationController
   
   private
   def set_activity
-    @event = ExerciseEvent.find(params["activity_id"])
+    @event = Activity.find(params["activity_id"])
   end
 end

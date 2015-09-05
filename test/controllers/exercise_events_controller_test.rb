@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ExerciseEventsControllerTest < ActionController::TestCase
+class ActivitiesControllerTest < ActionController::TestCase
   setup do
     @activity = activities(:one)
   end
@@ -17,7 +17,7 @@ class ExerciseEventsControllerTest < ActionController::TestCase
   end
 
   test "should create activity" do
-    assert_difference('ExerciseEvent.count') do
+    assert_difference('Activity.count') do
       post :create, activity: { date: @activity.date, duration: @activity.duration, exercise_type_id: @activity.exercise_type_id, intensity_id: @activity.intensity_id, points: @activity.points, user_id: @activity.user_id }
     end
 
@@ -40,7 +40,7 @@ class ExerciseEventsControllerTest < ActionController::TestCase
   end
 
   test "should destroy activity" do
-    assert_difference('ExerciseEvent.count', -1) do
+    assert_difference('Activity.count', -1) do
       delete :destroy, id: @activity
     end
 

@@ -65,16 +65,16 @@ class User < ActiveRecord::Base
   #TODO - use will_paginate to get the right number
   # returns friends activities in date order
   #
-  # returns an Array of ExerciseEvent objects
+  # returns an Array of Activity objects
   def friends_activities
-    ExerciseEvent.includes(:user, :intensity, :exercise_unit, :exercise_type).includes(:comments => [:user]).includes(:cheers => [:user]).where(:user_id => [self.friends.ids]).order(date: :desc).limit(50)
+    Activity.includes(:user, :intensity, :exercise_unit, :exercise_type).includes(:comments => [:user]).includes(:cheers => [:user]).where(:user_id => [self.friends.ids]).order(date: :desc).limit(50)
   end
   
   # returns the total points from all this person's exercise events
   #
   # returns an Integer
   def total_points
-    ExerciseEvent.points_for_person(id)
+    Activity.points_for_person(id)
   end
   
   # returns the total points from all this person's exercise events between the start and end dates
@@ -84,6 +84,6 @@ class User < ActiveRecord::Base
   #
   # returns an Integer
   def points(date_start, date_end)
-    ExerciseEvent.points_for_person_within_dates(id, date_start, date_end)
+    Activity.points_for_person_within_dates(id, date_start, date_end)
   end
 end
