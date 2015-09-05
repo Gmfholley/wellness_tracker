@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905201430) do
+ActiveRecord::Schema.define(version: 20150905222159) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -57,20 +57,20 @@ ActiveRecord::Schema.define(version: 20150905201430) do
   add_index "challenges", ["token"], name: "index_challenges_on_token", unique: true
 
   create_table "cheers", force: :cascade do |t|
-    t.integer  "exercise_event_id"
+    t.integer  "activity_id"
     t.integer  "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "cheers", ["user_id", "exercise_event_id"], name: "index_cheers_on_user_id_and_exercise_event_id", unique: true
+  add_index "cheers", ["user_id", "activity_id"], name: "index_cheers_on_user_id_and_activity_id", unique: true
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "exercise_event_id"
+    t.integer  "activity_id"
     t.integer  "user_id"
     t.text     "content"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "exercise_types", force: :cascade do |t|
