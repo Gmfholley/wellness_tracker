@@ -12,5 +12,5 @@
 class Intensity < ActiveRecord::Base
   validates :name, presence: true
   
-  has_many :exercise_events
+  has_many :activities
 end

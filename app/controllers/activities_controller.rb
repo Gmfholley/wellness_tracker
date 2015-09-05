@@ -1,77 +1,77 @@
 class ExerciseEventsController < ApplicationController
   helper ExerciseEventsHelper
-  before_action :set_exercise_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
-  # GET /exercise_events
-  # GET /exercise_events.json
+  # GET /activities
+  # GET /activities.json
   def index
-    @exercise_events = @user.exercise_events
+    @activities = @user.activities
   end
 
-  # GET /exercise_events/1
-  # GET /exercise_events/1.json
+  # GET /activities/1
+  # GET /activities/1.json
   def show
-    @comments = @exercise_event.comments.includes(:user)
-    @cheers = @exercise_event.cheers.includes(:user)
+    @comments = @activity.comments.includes(:user)
+    @cheers = @activity.cheers.includes(:user)
   end
 
-  # GET /exercise_events/new
+  # GET /activities/new
   def new
-    @exercise_event = @user.exercise_events.build
+    @activity = @user.activities.build
   end
 
-  # GET /exercise_events/1/edit
+  # GET /activities/1/edit
   def edit
   end
 
-  # POST /exercise_events
-  # POST /exercise_events.json
+  # POST /activities
+  # POST /activities.json
   def create
-    @exercise_event = @user.exercise_events.create(exercise_event_params)
+    @activity = @user.activities.create(activity_params)
 
     respond_to do |format|
-      if @exercise_event.save
-        format.html { redirect_to @exercise_event, notice: 'Exercise event was successfully created.' }
-        format.json { render :show, status: :created, location: @exercise_event }
+      if @activity.save
+        format.html { redirect_to @activity, notice: 'Exercise event was successfully created.' }
+        format.json { render :show, status: :created, location: @activity }
       else
         format.html { render :new }
-        format.json { render json: @exercise_event.errors, status: :unprocessable_entity }
+        format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /exercise_events/1
-  # PATCH/PUT /exercise_events/1.json
+  # PATCH/PUT /activities/1
+  # PATCH/PUT /activities/1.json
   def update
     respond_to do |format|
-      if @exercise_event.update(exercise_event_params)
-        format.html { redirect_to @exercise_event, notice: 'Exercise event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @exercise_event }
+      if @activity.update(activity_params)
+        format.html { redirect_to @activity, notice: 'Exercise event was successfully updated.' }
+        format.json { render :show, status: :ok, location: @activity }
       else
         format.html { render :edit }
-        format.json { render json: @exercise_event.errors, status: :unprocessable_entity }
+        format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /exercise_events/1
-  # DELETE /exercise_events/1.json
+  # DELETE /activities/1
+  # DELETE /activities/1.json
   def destroy
-    @exercise_event.destroy
+    @activity.destroy
     respond_to do |format|
-      format.html { redirect_to exercise_events_url, notice: 'Exercise event was successfully destroyed.' }
+      format.html { redirect_to activities_url, notice: 'Exercise event was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_exercise_event
-      @exercise_event = ExerciseEvent.find(params[:id])
+    def set_activity
+      @activity = ExerciseEvent.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def exercise_event_params
-      params.require(:exercise_event).permit(:exercise_type_id, :exercise_unit_id, :intensity_id, :date, :num_units)
+    def activity_params
+      params.require(:activity).permit(:exercise_type_id, :exercise_unit_id, :intensity_id, :date, :num_units)
     end
 end

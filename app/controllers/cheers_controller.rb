@@ -1,8 +1,8 @@
 class CheersController < ApplicationController
-  before_action :set_exercise_event
+  before_action :set_activity
   
   def create
-    @cheer = Cheer.new(user_id: @user.id, exercise_event_id: @event.id)
+    @cheer = Cheer.new(user_id: @user.id, activity_id: @event.id)
     begin @cheer.save
       render json: @cheer
     rescue
@@ -11,7 +11,7 @@ class CheersController < ApplicationController
   end
 
   def destroy
-    @cheer = Cheer.find_by(user_id: @user.id, exercise_event_id: @event.id)
+    @cheer = Cheer.find_by(user_id: @user.id, activity_id: @event.id)
     if @cheer.destroy
       render json: { head: :no_content}
     else
@@ -21,7 +21,7 @@ class CheersController < ApplicationController
   
   
   private
-  def set_exercise_event
-    @event = ExerciseEvent.find(params["exercise_event_id"])
+  def set_activity
+    @event = ExerciseEvent.find(params["activity_id"])
   end
 end

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: exercise_events
+# Table name: activities
 #
 #  id               :integer          not null, primary key
 #  user_id          :integer

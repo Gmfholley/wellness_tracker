@@ -1,7 +1,7 @@
-<%= form_for(@comment, url: exercise_event_comments_path(@comment.exercise_event_id)) do |f| %>
+<%= form_for(@comment, url: activity_comments_path(@comment.activity_id)) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this exercise_event from being saved:</h2>
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this activity from being saved:</h2>
 
       <ul>
       <% @comment.errors.full_messages.each do |message| %>

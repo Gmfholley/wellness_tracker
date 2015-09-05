@@ -3,7 +3,7 @@
 # Table name: comments
 #
 #  id                :integer          not null, primary key
-#  exercise_event_id :integer
+#  activity_id :integer
 #  user_id           :integer
 #  content           :text
 #  created_at        :datetime         not null
@@ -13,11 +13,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  exercise_event_id: 1
+  activity_id: 1
   user_id: 1
   content: MyText
 
 two:
-  exercise_event_id: 1
+  activity_id: 1
   user_id: 1
   content: MyText

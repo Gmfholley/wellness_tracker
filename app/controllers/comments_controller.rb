@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :set_exercise_event
+  before_action :set_activity
   before_action :set_comment, only: [:edit, :update, :destroy]
   
   
   def create
     @comment = Comment.new(params_comment)
-    @comment.exercise_event_id = @exercise_event.id
+    @comment.activity_id = @activity.id
     @comment.user_id = @user.id
     if @comment.save
       render json: @comment
@@ -35,8 +35,8 @@ class CommentsController < ApplicationController
   end
   
   private
-  def set_exercise_event
-    @exercise_event = ExerciseEvent.find(params["exercise_event_id"])
+  def set_activity
+    @activity = ExerciseEvent.find(params["activity_id"])
   end
   
   def set_comment

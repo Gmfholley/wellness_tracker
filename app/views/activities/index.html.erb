@@ -15,16 +15,16 @@
   </thead>
 
   <tbody>
-    <% @exercise_events.each do |exercise_event| %>
+    <% @activities.each do |activity| %>
       <tr>
-        <td><%= exercise_event.date %></td>
-        <td><%= exercise_event.user.first_name %></td>
-        <td><%= exercise_event.exercise_type.name %></td>
-        <td><%= exercise_event.intensity.name %></td>
-        <td><%= "#{exercise_event.num_units} #{exercise_event.exercise_unit.name}" %></td>
-        <td><%= link_to 'Show', exercise_event %></td>
-        <td><%= link_to 'Edit', edit_exercise_event_path(exercise_event) %></td>
-        <td><%= link_to 'Destroy', exercise_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= activity.date %></td>
+        <td><%= activity.user.first_name %></td>
+        <td><%= activity.exercise_type.name %></td>
+        <td><%= activity.intensity.name %></td>
+        <td><%= "#{activity.num_units} #{activity.exercise_unit.name}" %></td>
+        <td><%= link_to 'Show', activity %></td>
+        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Exercise event', new_exercise_event_path %>
+<%= link_to 'New Exercise event', new_activity_path %>

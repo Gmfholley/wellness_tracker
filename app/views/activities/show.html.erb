@@ -8,22 +8,22 @@
        </div>
        <div class="col s12 m9 text-column">
          <div class="username">
-           <h5 class="center-on-small-only"><%= "#{@exercise_event.user.first_name} #{@exercise_event.user.last_name}" %></h5>
-           <p class="grey-text condensed center-on-small-only small-font"><time datetime="<%= @exercise_event.date %>"><%= "#{time_ago_in_words(@exercise_event.date)} ago" %></time></p>
+           <h5 class="center-on-small-only"><%= "#{@activity.user.first_name} #{@activity.user.last_name}" %></h5>
+           <p class="grey-text condensed center-on-small-only small-font"><time datetime="<%= @activity.date %>"><%= "#{time_ago_in_words(@activity.date)} ago" %></time></p>
          </div>
          <div class="divider"></div>
          <div class="section">
-           <p><%= "#{@exercise_event.user.first_name} did #{@exercise_event.exercise_type.name} at #{@exercise_event.intensity.name} intensity for #{@exercise_event.num_units} #{@exercise_event.exercise_unit.name}" %></p>
+           <p><%= "#{@activity.user.first_name} did #{@activity.exercise_type.name} at #{@activity.intensity.name} intensity for #{@activity.num_units} #{@activity.exercise_unit.name}" %></p>
          
          
           <div class="react-buttons">
-            <span class="grey-text small-font tooltipped", data-position="bottom", data-delay="50", data-tooltip="<%= "#{@exercise_event.cheers.map {|r| r.user.username}}"%>"><%= cheer_sentence(@exercise_event.cheers) %></span>
+            <span class="grey-text small-font tooltipped", data-position="bottom", data-delay="50", data-tooltip="<%= "#{@activity.cheers.map {|r| r.user.username}}"%>"><%= cheer_sentence(@activity.cheers) %></span>
             <%# TODO - Put the names of the cheerers in something other than an array %>         
             <span> 
-              <% if @exercise_event.user_has_cheered?(@user) %>
-                 <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, exercise_event_cheers_path(@exercise_event.id), method: "delete", class: "right" %>
+              <% if @activity.user_has_cheered?(@user) %>
+                 <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, activity_cheers_path(@activity.id), method: "delete", class: "right" %>
                <% else %>
-                 <%= link_to '<i class="material-icons">favorite</i>'.html_safe, exercise_event_cheers_path(@exercise_event.id), method: "post", class: "right" %>
+                 <%= link_to '<i class="material-icons">favorite</i>'.html_safe, activity_cheers_path(@activity.id), method: "post", class: "right" %>
                <% end %>
             </span>
          </div>
@@ -32,7 +32,7 @@
     </div>
       <div class="divider"></div>
     <div class="row">
-      <% @exercise_event.comments.each do |comment| %>
+      <% @activity.comments.each do |comment| %>
         <div class="comment">
             <div class="section">
               <div class="row">
@@ -63,7 +63,7 @@
                 </div>
                 
                 <div class="col s8 m9">
-                  <% @comment = @exercise_event.comments.build %>
+                  <% @comment = @activity.comments.build %>
                   <%= render :partial => "/comments/form", locals: {:comment => @comment } %>
                 </div>
               </div>
@@ -73,5 +73,5 @@
           
 </div>
 
-<%= link_to 'Edit', edit_exercise_event_path(@exercise_event) %> |
-<%= link_to 'Back', exercise_events_path %>
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>
