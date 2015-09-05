@@ -13,7 +13,7 @@
 #  exercise_unit_id :integer
 #
 
-class ExerciseEvent < ActiveRecord::Base
+class Activity < ActiveRecord::Base
   validates :user, presence: true
   validates :date, presence: true, date: true
   validates :exercise_type, presence: true
