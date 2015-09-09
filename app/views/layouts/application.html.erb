@@ -11,7 +11,9 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper" class="right">
-        <a href="#" class="brand-logo center">Logo</a>
+        <span class="brand-logo">
+          <a class="brand-logo" href="#"><i class="material-icons brand-logo">terrain</i></a>
+        </span>
         <ul id="nav-mobile" class="right hide-on-small-only">
           <% if current_user %>
             <li><%= link_to "Edit Profile", edit_profile_path %></li>
