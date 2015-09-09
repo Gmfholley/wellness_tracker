@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
   
-  delete 'activities/:activities_id/cheers' => 'cheers#destroy'
+  delete 'activities/:activity_id/cheers' => 'cheers#destroy'
   
   post 'password_resets' => 'password_resets#create', as: :password_resets
   get 'password_resets/:id/edit' => 'password_resets#edit', as: :edit_password_resets
