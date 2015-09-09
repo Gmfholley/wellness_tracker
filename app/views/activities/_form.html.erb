@@ -12,23 +12,23 @@
   <% end %>
   
   <div class="field input-field validate" data-error="You cannot choose a day that is older than 7 days ago or that doesn't exist.">
-    <%= f.label :date %>
+    <%= f.label :date, class: "active" %>
     <input type="date" name="activity[date]" value=<%= Date.today %>></input>
   </div>
   <div class="field input-field validate" data-error="You must choose an exercise.">
-    <%= f.label :exercise_type_id %><br>
+    <%= f.label :exercise_type_id, class: "active" %><br>
     <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: "browser-default" %>
   </div>
   <div class="field input-field validate" data-error="You must pick an intensity level.">
-    <%= f.label :intensity_id %><br>
+    <%= f.label :intensity_id, class: "active" %><br>
     <%= f.select :intensity_id, Intensity.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
   </div>
   <div class="field input-field validate" data-error="Must be a number greater than 0.">
-    <%= f.label :num_units %><br>
+    <%= f.label :num_units, class: "active" %><br>
     <%= f.number_field :num_units %>
   </div>
   <div class="field input-field validate">
-    <%= f.label :exercise_unit_id %><br>
+    <%= f.label :exercise_unit_id, class: "active" %><br>
     <%= f.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
   </div>
   <div class="actions">
