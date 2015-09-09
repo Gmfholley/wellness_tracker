@@ -1,37 +1,40 @@
-<%= form_for(@activity) do |f| %>
-  <% if @activity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
-
-      <ul>
-      <% @activity.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <div class="col s12 m10 offset-m-1 l8 offset-l2">
+    <%= form_for(@activity) do |f| %>
+      <% if @activity.errors.any? %>
+        <div id="error_explanation">
+          <h4>Sorry, we found the following <%= pluralize(@activity.errors.count, "error") %></h4>
+          <ul>
+          <% @activity.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <div class="field input-field validate" data-error="You cannot choose a day that is older than 7 days ago or that doesn't exist.">
-    <%= f.label :date, class: "active" %>
-    <input type="date" name="activity[date]" value=<%= Date.today %>></input>
+
+      <div class="field input-field validate" data-error="You cannot choose a day that is older than 7 days ago or that doesn't exist.">
+        <%= f.label :date, class: "active" %>
+        <input type="date" name="activity[date]" value=<%= Date.today %>></input>
+      </div>
+      <div class="field input-field validate" data-error="You must choose an exercise.">
+        <%= f.label :exercise_type_id, class: "active" %><br>
+        <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: "browser-default" %>
+      </div>
+      <div class="field input-field validate" data-error="You must pick an intensity level.">
+        <%= f.label :intensity_id, class: "active" %><br>
+        <%= f.select :intensity_id, Intensity.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
+      </div>
+      <div class="field input-field validate" data-error="Must be a number greater than 0.">
+        <%= f.label :num_units, class: "active" %><br>
+        <%= f.number_field :num_units %>
+      </div>
+      <div class="field input-field validate">
+        <%= f.label :exercise_unit_id, class: "active" %><br>
+        <%= f.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
+      </div>
+      <div class="actions">
+        <%= f.submit nil, :class => "btn" %>
+      </div>
+    <% end %>
   </div>
-  <div class="field input-field validate" data-error="You must choose an exercise.">
-    <%= f.label :exercise_type_id, class: "active" %><br>
-    <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: "browser-default" %>
-  </div>
-  <div class="field input-field validate" data-error="You must pick an intensity level.">
-    <%= f.label :intensity_id, class: "active" %><br>
-    <%= f.select :intensity_id, Intensity.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
-  </div>
-  <div class="field input-field validate" data-error="Must be a number greater than 0.">
-    <%= f.label :num_units, class: "active" %><br>
-    <%= f.number_field :num_units %>
-  </div>
-  <div class="field input-field validate">
-    <%= f.label :exercise_unit_id, class: "active" %><br>
-    <%= f.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
