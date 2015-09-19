@@ -16,3 +16,7 @@
 .hidden {
   display: none;
 }
+
+.noun-sm {
+  width: 3rem;
+}
