@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col s12 m10 offset-m-1 l8 offset-l2 form-control">
+  <div class="col s12 m10 offset-m-1 l8 offset-l2">
     <%= form_for(@activity) do |f| %>
       <% if @activity.errors.any? %>
         <div id="error_explanation">
@@ -13,18 +13,21 @@
       <% end %>
 
       <div class="form-group" data-error="You cannot choose a day that is older than 7 days ago or that doesn't exist.">
-        <i class="fa fa-calendar input-group-addon"></i>
-        <%= f.text_field :date, class: "form-control" %>
         <%= f.label :date, class: "control-label" %>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+          <%= f.text_field :date, class: "form-control" %>
+        </div>
       </div>
       <div class="form-group" data-error="You must choose an exercise.">
-        
-        <img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="input-group-addon">
-        <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: "form-control" %>
         <%= f.label :exercise_type_id, class: "control-label" %><br>
+        <div class="input-group">
+          <span class="input-group-addon"><img src="/assets/wellness/noun_exercise.svg" alt="exercise"></span>
+          <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, {include_blank: true}, {class: "form-control selectpicker"} %>
+        </div>
       </div>
       <div class="form-group" data-error="You must pick an intensity level.">
-        <%= f.select :intensity_id, Intensity.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: "form-control" %>
+        <%= f.select :intensity_id, Intensity.all.collect { |p| [ p.name, p.id ] }, {include_blank: true}, {class: "form-control selectpicker"} %>
         <%= f.label :intensity_id, class: "control-label" %><br>
       </div>
       <div class="form-group" data-error="Must be a number greater than 0.">
@@ -32,7 +35,7 @@
         <%= f.label :num_units, class: "control-label" %><br>
       </div>
       <div class="form-group">
-        <%= f.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: "form-control" %>
+        <%= f.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [ p.name, p.id ] }, {include_blank: true}, {class: "form-control selectpicker"} %>
         <%= f.label :exercise_unit_id, class: "control-label" %><br>
       </div>
       <div class="actions">
