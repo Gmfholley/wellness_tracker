@@ -14,8 +14,7 @@
 
       <div class="field input-field validate" data-error="You cannot choose a day that is older than 7 days ago or that doesn't exist.">
         <i class="fa fa-calendar prefix"></i>
-        <input type="date" name="activity[date]" value=<%= Date.today %>></input>
-        <%= f.label :date, class: "active" %>
+        <%= f.text_field :date %>
       </div>
       <div class="field input-field validate" data-error="You must choose an exercise.">
         <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: "browser-default" %>
