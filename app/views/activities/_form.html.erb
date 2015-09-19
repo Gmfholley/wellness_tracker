@@ -19,21 +19,21 @@
       </div>
       <div class="field input-field validate" data-error="You must choose an exercise.">
         
-        <img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="noun-sm">
+        <img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="noun-sm prefix">
         <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: "browser-default" %>
-        <%= f.label :exercise_type_id, class: "active" %><br>
+        <%= f.label :exercise_type_id, class: "active hidden" %><br>
       </div>
       <div class="field input-field validate" data-error="You must pick an intensity level.">
         <%= f.select :intensity_id, Intensity.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
-        <%= f.label :intensity_id, class: "active" %><br>
+        <%= f.label :intensity_id, class: "active hidden" %><br>
       </div>
       <div class="field input-field validate" data-error="Must be a number greater than 0.">
         <%= f.number_field :num_units %>
-        <%= f.label :num_units, class: "active" %><br>
+        <%= f.label :num_units, class: "active hidden" %><br>
       </div>
       <div class="field input-field validate">
         <%= f.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
-        <%= f.label :exercise_unit_id, class: "active" %><br>
+        <%= f.label :exercise_unit_id, class: "active hidden" %><br>
       </div>
       <div class="actions">
         <%= f.submit nil, :class => "btn btn-default" %>
