@@ -23,7 +23,7 @@
       <div class="form-group" data-error="You must choose an exercise.">
         <%= f.label :exercise_type_id, class: "control-label" %><br>
         <div class="input-group">
-          <span class="input-group-addon"><img src="/assets/wellness/noun_exercise.svg" alt="exercise"></span>
+          <span class="input-group-addon"><img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="noun-sm"></span>
           <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, {include_blank: true}, {class: "form-control selectpicker"} %>
         </div>
       </div>
