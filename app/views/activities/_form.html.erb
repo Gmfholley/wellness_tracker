@@ -14,6 +14,7 @@
 
       <div class="field input-field validate" data-error="You cannot choose a day that is older than 7 days ago or that doesn't exist.">
         <%= f.label :date, class: "active" %>
+        <i class="fa fa-calendar"></i>
         <input type="date" name="activity[date]" value=<%= Date.today %>></input>
       </div>
       <div class="field input-field validate" data-error="You must choose an exercise.">
