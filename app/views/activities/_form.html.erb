@@ -17,11 +17,11 @@
         <%= f.label :date, class: "control-label" %>
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-          <%= f.text_field :date, class: "form-control" %>
+          <%= f.text_field :date, class: "form-control", placeholder: "Enter date" %>
         </div>
       </div>
       <div class="form-group" data-error="You must choose an exercise.">
-        <%= f.label :exercise_type_id, class: "control-label" %><br>
+        <%= f.label :exercise_type_id, class: "control-label", placeholder: "Choose an exercise from the list." %><br>
         <div class="input-group">
           <span class="input-group-addon"><img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="noun-sm"></span>
           <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, {include_blank: true}, {class: "form-control selectpicker"} %>
