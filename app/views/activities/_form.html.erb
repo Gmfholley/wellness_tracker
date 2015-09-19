@@ -18,7 +18,8 @@
         <%= f.label :date, class: "hidden" %>
       </div>
       <div class="field input-field validate" data-error="You must choose an exercise.">
-        <img class="noun-project-sm prefix" src="/app/assets/wellness/noun_exercise.svg"></img>
+        
+        <img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="noun-sm">
         <%= f.select :exercise_type_id, ExerciseType.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: "browser-default" %>
         <%= f.label :exercise_type_id, class: "active" %><br>
       </div>
