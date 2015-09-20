@@ -26,12 +26,12 @@ a.no-dark-hover:hover {
   background-color: white;
 }
 
-a:hover .svg {
+a:hover svg {
   background-color: blue;
   border-radius: 50%;
 }
 
-a svg:hover path {
+a:hover svg path, a:hover svg polygon {
   fill: white;
 }
 
