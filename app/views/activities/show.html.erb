@@ -30,7 +30,6 @@
                 <p><span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name}" %></span> says...</p>
                 <%#Add material icons for editing and deleting here (edit and remove trash?)  %>
                 <%= link_to '<i class="material-icons">edit</i>'.html_safe, "/some path", method: "post" %>
-              </div>
               <p><%= comment.content %></p>
               <span class="grey-text small-font"><%= "#{time_ago_in_words(comment.updated_at)} ago" %></span>
             </div>
