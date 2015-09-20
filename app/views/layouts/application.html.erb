@@ -12,11 +12,11 @@
   <div class="navbar-fixed">
     <nav>
       
-      <div class="nav-wrapper" class="right">
+      <div class="nav-wrapper" class="pull-right">
         <span class="brand-logo">
           <a class="brand-logo" href="#"><i class="material-icons brand-logo">terrain</i></a>
         </span>
-        <ul id="nav-mobile" class="right hidden-sm hidden-xs">
+        <ul id="nav-mobile" class="pull-right hidden-sm hidden-xs">
           <% if current_user %>
             <li><%= link_to "Edit Profile", edit_profile_path %></li>
             <li><%= link_to "Logout", :logout, method: :delete %></li>
