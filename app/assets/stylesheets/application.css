@@ -23,9 +23,12 @@
 
 .svg:hover {
   background-color: blue;
+}
+
+svg path:hover {
   fill: white;
 }
 
-path:hover {
+object svg path:hover {
   fill: white;
 }
