@@ -4,15 +4,15 @@
 <% @users.each do |user| %>
 
         <div class="col col-sm-12 col-md-6 l4">
-          <div class="card darken-1">
-            <div class="card-content black-text">
-              <span class="card-title black-text"><%= "#{user.first_name} #{user.last_name}" %></span>
-              <p>I am a very simple card. I am good at containing small bits of information.
+          <div class="panel panel-default darken-1">
+            <div class="panel-body black-text">
+              <span class="panel panel-default-title black-text"><%= "#{user.first_name} #{user.last_name}" %></span>
+              <p>I am a very simple panel panel-default. I am good at containing small bits of information.
               I am convenient because I require little markup to use effectively.</p>
               <%# TODO - display organizations %>
               <%# TODO - display team information %>
             </div>
-            <div class="card-action">
+            <div class="panel panel-default-action">
               <a href="<%= user_path(user.username) %>"><i class="material-icons">person</i>Profile</a>
               <% if @user.friends.exists?(user) %>
                 <%= link_to "Friend", friend_path(user.id), method: "delete", class: "tooltipped", "data-position": "bottom", "data-delay": "50", "data-tooltip": "Click to unfriend" %>
