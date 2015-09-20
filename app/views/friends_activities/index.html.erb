@@ -31,11 +31,11 @@
          
          <div class="react-buttons">
           <span class="grey-text small-font"><span><%= activity.cheers.size %> Cheers</span>                                   <span><%= activity.comments.size %> Comments</span></span>
-          <%= link_to '<i class="material-icons">comment</i>'.html_safe, activity_path(activity.id), class: "right" %>
+          <%= link_to '<i class="material-icons">comment</i>'.html_safe, activity_path(activity.id), class: "pull-right" %>
           <% if activity.user_has_cheered?(@user) %>
-            <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, activity_cheers_path(activity.id), method: "delete", class: "right" %>
+            <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, activity_cheers_path(activity.id), method: "delete", class: "pull-right" %>
           <% else %>
-            <%= link_to '<i class="material-icons">favorite</i>'.html_safe, activity_cheers_path(activity.id), method: "post", class: "right" %>
+            <%= link_to '<i class="material-icons">favorite</i>'.html_safe, activity_cheers_path(activity.id), method: "post", class: "pull-right" %>
           <% end %>
          </div>
          
