@@ -9,8 +9,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar-fixed">
-    <nav>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
       
       <div class="nav-wrapper" class="pull-right">
         <span class="brand-logo">
@@ -36,8 +36,9 @@
           <% end %>
         </ul>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
+
   <div>
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>
