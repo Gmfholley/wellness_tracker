@@ -20,6 +20,7 @@
             </span>
          </div>
         </div>
+        <div class="divider"></div>
         <ul class="media-list">
       <% @activity.comments.each do |comment| %>
           <li class="media">
@@ -27,11 +28,12 @@
               <img class="media-object" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg">
             </div>
             <div class="media-body">
-                <p><span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name}" %></span> says...</p>
+                <p class="media-heading"><span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name}" %></span> says...</p>
+                <span class="grey-text small condensed"><%= "#{time_ago_in_words(comment.updated_at)} ago" %></span>
+                
                 <%#Add material icons for editing and deleting here (edit and remove trash?)  %>
                  <%= link_to '<img src="/assets/noun_edit.svg" alt="edit" class="noun-sm svg">Edit'.html_safe, "/some_path", method: "post", class: "pull-right no-dark-hover" %>
               <p><%= comment.content %></p>
-              <span class="grey-text small"><%= "#{time_ago_in_words(comment.updated_at)} ago" %></span>
             </div>
           </li>
         
