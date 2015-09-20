@@ -31,11 +31,7 @@ a:hover .svg {
   border-radius: 50%;
 }
 
-svg:hover path {
-  fill: white;
-}
-
-object svg path:hover {
+a svg:hover path {
   fill: white;
 }
 
