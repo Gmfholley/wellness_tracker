@@ -19,16 +19,28 @@
 
 .noun-sm {
   width: 2rem;
+  height: 2rem;
 }
 
-.svg:hover {
+a.no-dark-hover:hover {
+  background-color: white;
+}
+
+a:hover .svg {
   background-color: blue;
+  border-radius: 50%;
 }
 
-svg path:hover {
+svg:hover path {
   fill: white;
 }
 
 object svg path:hover {
   fill: white;
+}
+
+.divider {
+  height: 0px;
+  margin: 30px 0 30px 0;
+  border-bottom: 1px solid gray;
 }
