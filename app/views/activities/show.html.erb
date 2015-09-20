@@ -18,9 +18,9 @@
             <%# TODO - Put the names of the cheerers in something other than an array %>         
             <span> 
               <% if @activity.user_has_cheered?(@user) %>
-                 <%= link_to '<img src="/assets/noun_bull_horn.svg" class="small added" class="small">'.html_safe, activity_cheers_path(@activity.id), method: "delete", class: "right" %>
+                 <%= link_to '<img src="/assets/noun_bull_horn.svg" class="noun-sm">'.html_safe, activity_cheers_path(@activity.id), method: "delete", class: "right" %>
                <% else %>
-                 <%= link_to '<img src="/assets/noun_bull_horn.svg" alt="cheer" class="small">'.html_safe, activity_cheers_path(@activity.id), method: "post", class: "right" %>
+                 <%= link_to '<img src="/assets/noun_bull_horn.svg" alt="cheer" class="noun-sm">'.html_safe, activity_cheers_path(@activity.id), method: "post", class: "right" %>
                <% end %>
             </span>
          </div>
