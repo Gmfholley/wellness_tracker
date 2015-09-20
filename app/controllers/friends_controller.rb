@@ -8,7 +8,7 @@ class FriendsController < ApplicationController
   end
 
   def create
-    @friend = User.find(params["user_id"])
+    @friend = User.find_by(username: params["user_id"])
     if @user.friends.push(@friend)
       redirect_to friends_path, notice: "You have added #{@friend.first_name} as your friend."
     else
