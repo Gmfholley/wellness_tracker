@@ -9,7 +9,7 @@
             <% if !@user.blank? %>
               <% if @user.errors.any? %>
                 <% @user.errors.full_messages.each do |message| %>
-                  <li class="small-font"><%= message %></li>
+                  <li class="small"><%= message %></li>
                 <% end %>
               <% end %>
             <% end %>

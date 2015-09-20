@@ -20,7 +20,7 @@
          
          <div class="username">
            <h5 class="center-on-small-only"><%= "#{activity.user.first_name} #{activity.user.last_name}" %></h5>
-           <p class="grey-text condensed center-on-small-only small-font"><time datetime="<%= activity.date %>"><%= "#{time_ago_in_words(activity.date)} ago" %></time></p>
+           <p class="grey-text condensed center-on-small-only small"><time datetime="<%= activity.date %>"><%= "#{time_ago_in_words(activity.date)} ago" %></time></p>
          </div>
     
          <div class="divider"></div>
@@ -30,7 +30,7 @@
          </div>
          
          <div class="react-buttons">
-          <span class="grey-text small-font"><span><%= activity.cheers.size %> Cheers</span>                                   <span><%= activity.comments.size %> Comments</span></span>
+          <span class="grey-text small"><span><%= activity.cheers.size %> Cheers</span>                         <span><%= activity.comments.size %> Comments</span></span>
           <%= link_to '<i class="material-icons">comment</i>'.html_safe, activity_path(activity.id), class: "pull-right" %>
           <% if activity.user_has_cheered?(@user) %>
             <%= link_to '<i class="material-icons added">favorite</i>'.html_safe, activity_cheers_path(activity.id), method: "delete", class: "pull-right" %>

@@ -4,7 +4,7 @@
       <div style="padding-top:30px"></div>
       <h4>Join <%= @challenge.name %>!</h4>
       <h6>Sponsored by <%= @challenge.organization.name %></h6>
-      <h7 class="grey-text darken-4-text small-font"><%= @challenge.description %></h7>
+      <h7 class="grey-text darken-4-text small"><%= @challenge.description %></h7>
       <div style="padding-bottom:20px"></div>
     </div>
 
@@ -12,7 +12,7 @@
 
     <div class="row grey-text darken-4">
       <p>Rules of the challenge:</p>
-      <ul class="small-font">
+      <ul class="small">
         <li>
           <% @challenge.rule_eaches.each do |rule| %>
             <li><%= rule.in_english %></li>
