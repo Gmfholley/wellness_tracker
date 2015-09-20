@@ -1,5 +1,5 @@
      <div class="row">
-       <div class="col s8 offset-s2 m3 picture-column">
+       <div class="col col-sm-8 offset-s2 m3 picture-column">
          <div class="section">
            <img class="img-responsive img-circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
          </div>
@@ -37,7 +37,7 @@
                   <img class="img-responsive img-circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
                 </div>
                 
-                <div class="col s8 m9">
+                <div class="col col-sm-8 m9">
                   <div class="row">
                     <p><span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name}" %></span> says...</p>
                     <%#Add material icons for editing and deleting here (edit and remove trash?)  %>
@@ -59,7 +59,7 @@
                   <img class="img-responsive img-circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
                 </div>
                 
-                <div class="col s8 m9">
+                <div class="col col-sm-8 m9">
                   <% @comment = @activity.comments.build %>
                   <%= render :partial => "/comments/form", locals: {:comment => @comment } %>
                 </div>
