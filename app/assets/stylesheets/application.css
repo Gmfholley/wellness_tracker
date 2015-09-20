@@ -44,3 +44,8 @@ object svg path:hover {
   margin: 30px 0 30px 0;
   border-bottom: 1px solid gray;
 }
+
+img.media-object {
+  height: 64px;
+  width: 64px;
+}
