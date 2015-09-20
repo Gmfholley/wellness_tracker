@@ -19,11 +19,9 @@
                <% end %>
             </span>
          </div>
-        </div>
         <div class="divider"></div>
-        <ul class="media-list">
       <% @activity.comments.each do |comment| %>
-          <li class="media">
+          <div class="media">
             <div class="media-left">
               <img class="media-object" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg">
             </div>
@@ -35,10 +33,10 @@
                  <%= link_to '<img src="/assets/noun_edit.svg" alt="edit" class="noun-sm svg">Edit'.html_safe, "/some_path", method: "post", class: "pull-right no-dark-hover" %>
               <p><%= comment.content %></p>
             </div>
-          </li>
-        
+          </div>      
       <% end %>
-          <li class="media">
+          <div class="divider"></div>
+          <div class="media">
             <div class="media-left">
               <img class="media-object" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg">
             </div>
@@ -46,8 +44,8 @@
               <% @comment = @activity.comments.build %>
               <%= render :partial => "/comments/form", locals: {:comment => @comment } %>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
