@@ -1,10 +1,10 @@
      <div class="row">
-       <div class="col col-sm-8 offset-s2 m3 picture-column">
+       <div class="col-sm-8 col-sm-offset-2 col-md-3 picture-column">
          <div class="section">
            <img class="img-responsive img-circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
          </div>
        </div>
-       <div class="col s12 m9 text-column">
+       <div class="col col-sm-12 col-md-9 text-column">
          <div class="username">
            <h5 class="center-on-small-only"><%= "#{@activity.user.first_name} #{@activity.user.last_name}" %></h5>
            <p class="grey-text condensed center-on-small-only small-font"><time datetime="<%= @activity.date %>"><%= "#{time_ago_in_words(@activity.date)} ago" %></time></p>
@@ -33,11 +33,11 @@
         <div class="comment">
             <div class="section">
               <div class="row">
-                <div class="col s4 m3 center-align">
+                <div class="col-xs-4 col-md-3 center-align">
                   <img class="img-responsive img-circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
                 </div>
                 
-                <div class="col col-sm-8 m9">
+                <div class="col-xs-8 col-md-9">
                   <div class="row">
                     <p><span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name}" %></span> says...</p>
                     <%#Add material icons for editing and deleting here (edit and remove trash?)  %>
@@ -55,11 +55,11 @@
       <div class="comment">
             <div class="section">
               <div class="row">
-                <div class="col s4 m3 center-align">
+                <div class="col-xs-4 col-md-3 text-center">
                   <img class="img-responsive img-circle" src="http://www.pageresource.com/wallpapers/wallpaper/cats-cute-cat-animal-cute-grass-photo.jpg"></img>
                 </div>
                 
-                <div class="col col-sm-8 m9">
+                <div class="col-xs-8 col-md-9">
                   <% @comment = @activity.comments.build %>
                   <%= render :partial => "/comments/form", locals: {:comment => @comment } %>
                 </div>
