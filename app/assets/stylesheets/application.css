@@ -20,3 +20,12 @@
 .noun-sm {
   width: 2rem;
 }
+
+.svg:hover {
+  background-color: blue;
+  fill: white;
+}
+
+path:hover {
+  fill: white;
+}
