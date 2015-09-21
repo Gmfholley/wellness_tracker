@@ -6,7 +6,7 @@
   <% @activities.each do |activity| %>
     <li class="media">
       <div class="media-left">
-        <img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="media-object">
+       <%= link_to '<img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="media-object">'.html_safe, activity_path(activity.id) %>
       </div>
       <div class="media-body">
         <h5 class="media-heading"><%= activity.exercise_type.name %></h5>
@@ -19,8 +19,8 @@
            <span class="grey-text small tooltipped", data-position="bottom", data-delay="50", data-tooltip="<%= "#{activity.cheers.map {|r| r.user.username}}"%>"><%= cheer_sentence(activity.cheers) %><img src="/assets/noun_bull_horn.svg" alt="cheer" class="noun-sm svg"></span>
           <span class="grey-text small tooltipped", data-position="bottom", data-delay="50", data-tooltip="<%= "#{activity.comments.map {|r| r.user.username}}"%>"><%= comment_sentence(activity.comments) %><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg"></span>
         </div>
-        
       </div>
+      <div class="divider"></div>
     </li>
   <% end %>
   
