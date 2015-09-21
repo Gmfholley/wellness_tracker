@@ -7,7 +7,7 @@
     <li class="media">
       <div class="media-left">
         <%= @icon = exercise_svg(activity.exercise_type.name) %>
-       <%= link_to '<img src="/assets/wellness/#{@icon}" alt="exercise" class="media-object">'.html_safe, activity_path(activity.id) %>
+        <a href="<%= activity_path(activity.id) %>"><img src="<%= "/assets/wellness/#{@icon}" %>" alt="exercise" class="media-object"></a>
       </div>
       <div class="media-body">
         <h5 class="media-heading"><%= activity.exercise_type.name %></h5>
