@@ -3,8 +3,17 @@
 <h1 class="center-align grey">Listing Exercise Events</h1>
 
 <ul class="media-list">
-  <li class="media">
-  </li>
+  <% @activities.each do |activity| %>
+    <li class="media">
+      <div class="media-left">
+        <img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="svg noun-sm media-object">
+      </div>
+      <div class="media-body">
+        <h5 class="media-heading"></h5>
+      </div>
+    </li>
+  <% end %>
+  
 </ul>
 
 
@@ -21,7 +30,7 @@
   </thead>
 
   <tbody>
-    <% @activities.each do |activity| %>
+    
       <tr>
         <td><%= activity.date %></td>
         <td><%= activity.user.first_name %></td>
@@ -32,7 +41,6 @@
         <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
         <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 
