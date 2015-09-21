@@ -14,13 +14,11 @@
       </div>
       <div class="collapse navbar-collapse" id="my-navbar">
         <ul id="main-menu" class="nav navbar-nav">    
-          <% if current_user %>
-            <li><%= link_to "Edit Profile", edit_profile_path %></li>
-            <li><%= link_to "Logout", :logout, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "Register", new_user_path %></li>
+            <li><%= link_to '<i class="fa fa-plus-circle"></i>Create New'.html_safe, new_activity_path %></li>
+            <li><%= link_to '<i class="fa fa-rss-square"></i>Friends Activity Feed'.html_safe, friends_feed_path %></li>
+            <li><%= link_to '<i class="fa fa-line-chart"></i>Graph Form', graph_activities_path %></li>
+            <li><%= link_to '<i class="fa fa-calendart"></i>Calendar Form', calendar_activities_path %></li>
             <li><%= link_to "Login", :login %></li>
-          <% end %>
         </ul>
       </div>
     </div>
