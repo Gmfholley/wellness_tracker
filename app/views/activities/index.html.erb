@@ -18,7 +18,7 @@
         </div>
          <div class="react-buttons">
            <span class="grey-text small content show-tooltip" data-placement="top" data-html="true" title="<%= html_cheerers(activity) %>"><%= cheer_sentence(activity.cheers) %><img src="/assets/noun_bull_horn.svg" alt="cheer" class="noun-sm svg"></span>
-          <span class="grey-text small tooltipped" data-placement="top" data-html="true" title="<%= html_commenters(activity) %>"><%= comment_sentence(activity.comments) %><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg"></span>
+          <span class="grey-text small tooltipped" data-placement="top" data-html="true" title="<%= html_commenters(activity) %>"><%= comment_sentence(activity.comments) %><a href="<%= activity_path(activity.id) %>"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg"></a></a></span>
         </div>
       </div>
       <div class="divider"></div>
