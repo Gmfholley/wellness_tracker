@@ -44,4 +44,38 @@ module ActivitiesHelper
     end
   end
   
+  # returns a sentence saying the user of this cheer cheered this
+  #
+  # cheer - Cheer object
+  #
+  # returns a String
+  def user_commented_this_sentence(comment)
+    "#{comment.user.first_name} #{comment.user.last_name} commented on this"
+  end
+  
+  # returns a sentence of the first user and the number of others who cheered this
+  #
+  # cheers - Array of Cheer objects
+  #
+  # returns a String
+  def user_and_others_commented_this(comments)
+    "#{comment.first.user.first_name} #{comment.first.user.last_name} and #{comments.size - 1} commented on this"
+  end  
+  
+  # returns a sentence about the cheers in English
+  #
+  # cheers - Array of Cheer Objects
+  #
+  # returns a String
+  def comment_sentence(comments)
+    case comments.size
+    when 0
+      I18n.translate :comment, count: 0
+    when 1
+      user_commented_this_sentence(comments.first)
+    else
+      user_and_others_commented_this(comments)
+    end
+  end
+  
 end
