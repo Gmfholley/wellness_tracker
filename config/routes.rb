@@ -19,15 +19,15 @@ Rails.application.routes.draw do
   resources :friends, except: [:update, :edit, :create]
   post 'friends/new/:user_id' => 'friends#create', as: :add_friend
   
+  get 'activities/graph' => 'activities#graph', as: :graph_activities
+  get 'activities/calendar' => 'activities#calendar', as: :calendar_activities
+  
   #resources :exercise_types
   resources :activities do
     resources :cheers, only: [:create]
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
-  
-  get 'activities/graph' => 'activities#graph', as: :graph_activities
-  get 'activities/calendar' => 'activities#calendar', as: :calendar_activities
-  
+    
   delete 'activities/:activity_id/cheers' => 'cheers#destroy'
   
   post 'password_resets' => 'password_resets#create', as: :password_resets
