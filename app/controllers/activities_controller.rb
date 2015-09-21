@@ -8,6 +8,16 @@ class ActivitiesController < ApplicationController
     @activities = @user.activities
   end
 
+  # GET /activities/graph
+  def graph
+    @activities = @user.activities
+  end
+  
+  # GET /activities/calendar
+  def calendar
+    @activities = @user.activities
+  end
+  
   # GET /activities/1
   # GET /activities/1.json
   def show

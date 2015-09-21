@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
   
-  get 'activities/graph', as: :graph_activities
-  get 'activities/calendar', as: :calendar_activities
+  get 'activities/graph' => 'activities#graph', as: :graph_activities
+  get 'activities/calendar' => 'activities#calendar', as: :calendar_activities
   
   delete 'activities/:activity_id/cheers' => 'cheers#destroy'
   
