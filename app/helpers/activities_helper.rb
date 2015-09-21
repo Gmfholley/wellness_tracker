@@ -78,4 +78,19 @@ module ActivitiesHelper
     end
   end
   
+  # returns the svg file to be used to represent this exercise
+  #
+  # exercise - Exercise Object
+  #
+  # returns a string of the filename
+  def exercise_svg(exercise)
+    exercise_svg_hash(exercise) || "noun_exercise.svg" 
+  end
+  
+  
+  private
+  def exercise_svg_hash
+    {"running" => "noun_running.svg", "walking" => "noun_walking.svg" "yoga" => "noun_yoga.svg", "swimming" => "noun_swimming.svg", "softball" => "noun_baseball.svg", "baseball" => "nouN_baseball.svg", "basketball" => "noun_basketball.svg", "tennis" => "noun_tennis.svg", "weight lifting" => "noun_dumbbell.svg", "hiking" => "noun_walking.svg" }
+  end
+  
 end
