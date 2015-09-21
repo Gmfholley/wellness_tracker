@@ -6,7 +6,8 @@
   <% @activities.each do |activity| %>
     <li class="media">
       <div class="media-left">
-       <%= link_to '<img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="media-object">'.html_safe, activity_path(activity.id) %>
+        <%= @icon = exercise_svg(activity.exercise_type.name) %>
+       <%= link_to '<img src="/assets/wellness/#{@icon}" alt="exercise" class="media-object">'.html_safe, activity_path(activity.id) %>
       </div>
       <div class="media-body">
         <h5 class="media-heading"><%= activity.exercise_type.name %></h5>
