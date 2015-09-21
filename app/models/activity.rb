@@ -37,4 +37,14 @@ class Activity < ActiveRecord::Base
   def user_has_cheered?(user)
     !self.cheers.where(user_id: user.id).empty?
   end
+  
+  def cheerers
+    cheers = cheers.includes(:user)
+    cheerers = []
+    cheers.each do |cheerer|
+      cheerers.push("#{cheerer.first_name cheerer.last_name}")
+    end
+    cheerers
+  end
+  
 end
