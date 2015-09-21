@@ -27,6 +27,7 @@ gem 'figaro', '~> 1.1.0'
 gem 'google_drive', '~> 1.0.1'
 gem 'sorcery', '0.9.1'
 gem "chartkick"
+gem "simple_calendar", "~> 2.0"
 gem 'date_validator', '~> 0.8.1'
 gem 'clockwork', '~> 1.2.0'
 # for documentation
