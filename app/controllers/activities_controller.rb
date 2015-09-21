@@ -1,5 +1,4 @@
 class ActivitiesController < ApplicationController
-  require 'chronic'
   
   helper ActivitiesHelper
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
