@@ -1,7 +1,11 @@
 class ActivitiesController < ApplicationController
+  require 'chronic'
+  
   helper ActivitiesHelper
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :set_month, only: [:graph_month, :calendar_month]
 
+  
   # GET /activities
   # GET /activities.json
   def index
@@ -13,8 +17,20 @@ class ActivitiesController < ApplicationController
     @activities = @user.activities
   end
   
+  # GET /activities/graph/months/:months_past
+  # GET /activities/graph/months/:months_past.json
+  def graph_month
+    @activities = @user.activities
+  end
+  
   # GET /activities/calendar
   def calendar
+    @activities = @user.activities
+  end
+  
+  # GET /activities/calendar/months/:months_past
+  # GET /activities/calendar/months/:months_past.json  
+  def graph_month
     @activities = @user.activities
   end
   
@@ -78,6 +94,12 @@ class ActivitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
       @activity = Activity.find(params[:id])
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_month
+      @month = params[:months_past]
+      @date = Chronic.parse("#{@month} months ago")
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

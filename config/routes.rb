@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post 'friends/new/:user_id' => 'friends#create', as: :add_friend
   
   get 'activities/graph' => 'activities#graph', as: :graph_activities
-  get 'activities/graph/month/:months_past' => 'activities#graph_month', as: :graph_past_month_activities
+  get 'activities/graph/months/:months_past' => 'activities#graph_month', as: :graph_past_month_activities
   get 'activities/calendar' => 'activities#calendar', as: :calendar_activities
   get 'activities/calendar/months/:months_past' => 'activities#calendar_month', as: :calendar_past_month_activities
   
