@@ -1,1 +1,10 @@
 <%= render 'navbar' %>
+<%= month_calendar(attribute: :date, events: @activities) do |date, activities| %>
+  <%= date %>
+
+  <% activities.each do |activity| %>
+    <div>
+      <%= activity.exercise_type.name %>
+    </div>
+  <% end %>
+<% end %>

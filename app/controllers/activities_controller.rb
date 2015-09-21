@@ -23,7 +23,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/graph/months/:months_past
   # GET /activities/graph/months/:months_past.json
   def graph_month
-    @activities = @user.activities
+    @activities = @user.activities.where()
     respond_to do |format|
       format.html { render :graph }
       format.json { render json: @activities }
