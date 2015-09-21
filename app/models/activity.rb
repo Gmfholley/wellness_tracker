@@ -39,10 +39,10 @@ class Activity < ActiveRecord::Base
   end
   
   def cheerers
-    cheers = cheers.includes(:user)
+    cheersArr = self.cheers.includes(:user)
     cheerersArr = []
-    cheers.each do |cheerer|
-      cheerersArr.push("#{cheerer.first_name cheerer.last_name}")
+    cheersArr.each do |cheer|
+      cheerersArr.push("#{cheer.user.first_name} #{cheer.user.last_name}")
     end
     cheerersArr
   end
