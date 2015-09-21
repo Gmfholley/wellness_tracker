@@ -15,23 +15,39 @@ class ActivitiesController < ApplicationController
   # GET /activities/graph
   def graph
     @activities = @user.activities
+    respond_to do |format|
+      format.html { render :graph }
+      format.json { render json: @activities }
+    end
   end
   
   # GET /activities/graph/months/:months_past
   # GET /activities/graph/months/:months_past.json
   def graph_month
     @activities = @user.activities
+    respond_to do |format|
+      format.html { render :graph }
+      format.json { render json: @activities }
+    end
   end
   
   # GET /activities/calendar
   def calendar
     @activities = @user.activities
+    respond_to do |format|
+      format.html { render :calendar }
+      format.json { render json: @activities }
+    end
   end
   
   # GET /activities/calendar/months/:months_past
   # GET /activities/calendar/months/:months_past.json  
-  def graph_month
+  def calendar_month
     @activities = @user.activities
+    respond_to do |format|
+      format.html { render :calendar }
+      format.json { render json: @activities }
+    end
   end
   
   # GET /activities/1
