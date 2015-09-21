@@ -4,21 +4,20 @@
       
       <div class="nav-header">
         <span class="navbar-brand">
-          <a class="Brand" href="#"><i class="material-icons brand-logo">terrain</i></a>
+          <a class="Brand" href="#"><img src="/assets/wellness/noun_exercise.svg" alt="exercise" class="noun-sm"></a>
         </span>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-subnavbar" aria-expanded="false">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
       </div>
-      <div class="collapse navbar-collapse" id="my-navbar">
+      <div class="collapse navbar-collapse" id="my-subnavbar">
         <ul id="main-menu" class="nav navbar-nav">    
             <li><%= link_to '<i class="fa fa-plus-circle"></i>Create New'.html_safe, new_activity_path %></li>
             <li><%= link_to '<i class="fa fa-rss-square"></i>Friends Activity Feed'.html_safe, friends_feed_path %></li>
-            <li><%= link_to '<i class="fa fa-line-chart"></i>Graph Form', graph_activities_path %></li>
-            <li><%= link_to '<i class="fa fa-calendart"></i>Calendar Form', calendar_activities_path %></li>
-            <li><%= link_to "Login", :login %></li>
+            <li><%= link_to '<i class="fa fa-line-chart"></i>Graph Form'.html_safe, graph_activities_path %></li>
+            <li><%= link_to '<i class="fa fa-calendar"></i>Calendar Form'.html_safe, calendar_activities_path %></li>
         </ul>
       </div>
     </div>
