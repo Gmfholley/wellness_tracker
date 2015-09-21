@@ -23,8 +23,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'figaro', '~> 1.1.0' 
-# creates ability to save files
-gem 'google_drive', '~> 1.0.1'
+gem 'chronic', '~> 0.10.2'
 gem 'sorcery', '0.9.1'
 gem "chartkick"
 gem "simple_calendar", "~> 2.0"
