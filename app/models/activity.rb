@@ -47,4 +47,13 @@ class Activity < ActiveRecord::Base
     cheerersArr
   end
   
+  def commenters
+    commentsArr = self.comments.includes(:user)
+    commentersArr = []
+    commentsArr.each do |comment|
+      commentersArr.push("#{comment.user.first_name} #{comment.user.last_name}")
+    end
+    commentersArr
+  end
+  
 end

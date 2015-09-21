@@ -87,10 +87,23 @@ module ActivitiesHelper
     exercise_svg_hash[exercise] || "noun_exercise.svg" 
   end
   
+  # returns html of all the cheerer' names
+  #
+  # activity - Activity object
+  #
+  # returns a string of html  
   def html_cheerers(activity)
     activity.cheerers.to_sentence(:words_connector => " <br> ", :two_words_connector => " <br> ", :last_word_connector => " <br> ")
   end
   
+  # returns html of all the commenters' names
+  #
+  # activity - Activity object
+  #
+  # returns a string of html
+  def html_commenters(activity)
+    activity.commenters.to_sentence(:words_connector => " <br> ", :two_words_connector => " <br> ", :last_word_connector => " <br> ")
+  end
   
   private
   def exercise_svg_hash
