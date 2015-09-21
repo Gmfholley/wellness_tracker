@@ -44,27 +44,27 @@ module ActivitiesHelper
     end
   end
   
-  # returns a sentence saying the user of this cheer cheered this
+  # returns a sentence saying the user of this comment commented this
   #
-  # cheer - Cheer object
+  # comment - Cheer object
   #
   # returns a String
   def user_commented_this_sentence(comment)
     "#{comment.user.first_name} #{comment.user.last_name} commented on this"
   end
   
-  # returns a sentence of the first user and the number of others who cheered this
+  # returns a sentence of the first user and the number of others who commented this
   #
-  # cheers - Array of Cheer objects
+  # comments - Array of Cheer objects
   #
   # returns a String
   def user_and_others_commented_this(comments)
     "#{comment.first.user.first_name} #{comment.first.user.last_name} and #{comments.size - 1} commented on this"
   end  
   
-  # returns a sentence about the cheers in English
+  # returns a sentence about the comments in English
   #
-  # cheers - Array of Cheer Objects
+  # comments - Array of Cheer Objects
   #
   # returns a String
   def comment_sentence(comments)
