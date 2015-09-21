@@ -25,7 +25,7 @@ module ActivitiesHelper
   #
   # returns a String
   def user_and_others_cheered_this(cheers)
-    "#{cheers.first.user.first_name} #{cheers.first.user.last_name} and #{cheers.size - 1} cheered this"
+    "#{cheers.first.user.first_name} #{cheers.first.user.last_name} and #{cheers.size - 1} more cheered this"
   end  
   
   # returns a sentence about the cheers in English
@@ -59,7 +59,7 @@ module ActivitiesHelper
   #
   # returns a String
   def user_and_others_commented_this(comments)
-    "#{comment.first.user.first_name} #{comment.first.user.last_name} and #{comments.size - 1} commented on this"
+    "#{comment.first.user.first_name} #{comment.first.user.last_name} and #{comments.size - 1} more commented on this"
   end  
   
   # returns a sentence about the comments in English
