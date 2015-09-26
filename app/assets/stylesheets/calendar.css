@@ -15,8 +15,8 @@
 
 .start-date {}
 
-.prev-month {}
-.next-month { }
+.prev-month {background-color: #DDDDDD;}
+.next-month {background-color: #DDDDDD;}
 .current-month {}
 
 .has-events {}
