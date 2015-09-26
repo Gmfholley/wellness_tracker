@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   
   helper ActivitiesHelper
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  before_action :set_month, only: [:graph_month, :calendar_month, :calendar, :graph]
+  before_action :set_start_date, only: [:graph_month, :calendar_month, :calendar, :graph]
 
   
   # GET /activities
@@ -22,7 +22,7 @@ class ActivitiesController < ApplicationController
   
   # GET /activities/calendar
   def calendar
-    @activities = @user.activities
+    @activities = @user.activities.where(date: @start_date.at_beginning_of_month..@start_date.at_end_of_month)
     respond_to do |format|
       format.html { render :calendar }
       format.json { render json: @activities }
@@ -96,7 +96,8 @@ class ActivitiesController < ApplicationController
       begin
         @start_date = Date.parse(params["start_date"])
       rescue
-        @start_date = Date.today.month
+        @start_date = Date.today
+        params["start_date"] = @start_date
       end
     end
 
