@@ -1,23 +1,22 @@
-.simple-calendar {
-  .day {height:20px;}
+.simple-calendar{}
+.day {height:60px;}
 
-  .wday-0 {}
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
+.wday-0 {}
+.wday-1 {}
+.wday-2 {}
+.wday-3 {}
+.wday-4 {}
+.wday-5 {}
+.wday-6 {}
 
-  .today {}
-  .past {}
-  .future {}
+.today {}
+.past {}
+.future {}
 
-  .start-date {}
+.start-date {}
 
-  .prev-month {}
-  .next-month { }
-  .current-month {}
+.prev-month {}
+.next-month { }
+.current-month {}
 
-  .has-events {}
-}
+.has-events {}
