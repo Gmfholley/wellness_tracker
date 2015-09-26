@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   
   helper ActivitiesHelper
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  before_action :set_month, only: [:graph_month, :calendar_month]
+  before_action :set_month, only: [:graph_month, :calendar_month, :calendar, :graph]
 
   
   # GET /activities
@@ -20,28 +20,8 @@ class ActivitiesController < ApplicationController
     end
   end
   
-  # GET /activities/graph/months/:months_past
-  # GET /activities/graph/months/:months_past.json
-  def graph_month
-    @activities = @user.activities.where()
-    respond_to do |format|
-      format.html { render :graph }
-      format.json { render json: @activities }
-    end
-  end
-  
   # GET /activities/calendar
   def calendar
-    @activities = @user.activities
-    respond_to do |format|
-      format.html { render :calendar }
-      format.json { render json: @activities }
-    end
-  end
-  
-  # GET /activities/calendar/months/:months_past
-  # GET /activities/calendar/months/:months_past.json  
-  def calendar_month
     @activities = @user.activities
     respond_to do |format|
       format.html { render :calendar }
@@ -111,13 +91,12 @@ class ActivitiesController < ApplicationController
       @activity = Activity.find(params[:id])
     end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_month
-      binding.pry
+    # sets the date from params which will be used to set the month
+    def set_start_date
       begin
-        @month = Date.parse(params["start_date"]).month
+        @start_date = Date.parse(params["start_date"])
       rescue
-        @month = Date.today.month
+        @start_date = Date.today.month
       end
     end
 
