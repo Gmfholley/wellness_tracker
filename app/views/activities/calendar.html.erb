@@ -1,10 +1,12 @@
 <%= render 'navbar' %>
 <%= month_calendar(attribute: :date, events: @activities) do |date, activities| %>
-  <%= date %>
+  <%= date.day %>
 
   <% activities.each do |activity| %>
     <div>
-      <%= activity.exercise_type.name %>
+      <a href="<%= activity_path(activity.id) %>">
+        <img src="<%= "/assets/wellness/#{exercise_svg(activity.exercise_type.name)}" %>" alt="<%= activity.exercise_type.name %>"class="noun-sm" />
+      </a>
     </div>
   <% end %>
 <% end %>
