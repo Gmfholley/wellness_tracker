@@ -28,7 +28,7 @@
             <% if activity.user_has_commented?(@user) %>
               <a href="<%= activity_path(activity.id) %>" class="small commented no-dark-hover"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg" />Commented</a>
             <% else %>
-              <a href="<%= activity_path(activity.id) %>" class="small commented no-dark-hover"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg" />Comment</a>
+              <a href="<%= activity_path(activity.id) %>" class="small no-dark-hover"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg" />Comment</a>
             <% end %>
             </span>
          </div>
