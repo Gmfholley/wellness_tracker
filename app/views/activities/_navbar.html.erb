@@ -14,10 +14,11 @@
       </div>
       <div class="collapse navbar-collapse" id="my-subnavbar">
         <ul id="main-menu" class="nav navbar-nav">    
-            <li><%= link_to '<i class="fa fa-plus-circle"></i>Create New'.html_safe, new_activity_path %></li>
-            <li><%= link_to '<i class="fa fa-rss-square"></i>Friends Activity Feed'.html_safe, friends_feed_path %></li>
-            <li><%= link_to '<i class="fa fa-line-chart"></i>Graph Form'.html_safe, graph_activities_path %></li>
-            <li><%= link_to '<i class="fa fa-calendar"></i>Calendar Form'.html_safe, calendar_activities_path %></li>
+            <li><%= link_to '<i class="fa fa-plus-circle"></i>New'.html_safe, new_activity_path %></li>
+            <li><%= link_to '<i class="fa fa-list-alt"></i>All Activities'.html_safe, activities_path %></li>
+            <li><%= link_to '<i class="fa fa-rss-square"></i>Friends Feed'.html_safe, friends_feed_path %></li>
+            <li><%= link_to '<i class="fa fa-line-chart"></i>Graph'.html_safe, graph_activities_path %></li>
+            <li><%= link_to '<i class="fa fa-calendar"></i>Calendar View'.html_safe, calendar_activities_path %></li>
         </ul>
       </div>
     </div>
