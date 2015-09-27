@@ -15,7 +15,6 @@
          
           <div class="react-buttons">
             <span class="grey-text small tooltipped" data-toggle="tooltip" data-placement="top" data-html="true" title="<%= html_cheerers(activity) %>"><%= cheer_sentence(activity.cheers) %></span>
-            <%# TODO - Put the names of the cheerers in something other than an array %>         
             <span> 
               <% if activity.user_has_cheered?(@user) %>
                  <%= link_to '<img src="/assets/noun_bull_horn.svg" class="noun-sm svg" />Cheered'.html_safe, activity_cheers_path(activity.id), method: "delete", class: "cheered no-dark-hover small" %>
