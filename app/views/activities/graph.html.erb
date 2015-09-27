@@ -2,8 +2,8 @@
 
 <%= render 'navbar' %>
 
-<h3 class="text-center"><%= I18n.t("date.month_names")[@activities.first.date.month] %></h3>
-<p class="text-center"><a href="<%= "/activities/graph?start_date=#{@activities.first.date.at_beginning_of_month - 1.day}" %>">Previous</a>
-<a href="<%= "/activities/graph?start_date=#{@activities.first.date.at_end_of_month + 1.day}" %>">Next</a></p>
+<h3 class="text-center"><%= I18n.t("date.month_names")[@start_date.month] %></h3>
+<p class="text-center"><a href="<%= "/activities/graph?start_date=#{@start_date.at_beginning_of_month - 1.day}" %>">Previous</a>
+<a href="<%= "/activities/graph?start_date=#{@start_date.at_end_of_month + 1.day}" %>">Next</a></p>
 
 <%= line_chart @activities.group(:date).sum(:num_units) %>
