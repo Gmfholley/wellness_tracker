@@ -29,9 +29,7 @@
             <div class="media-body">
                 <p class="media-heading"><span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name}" %></span> says...</p>
                 <span class="grey-text small condensed"><%= "#{time_ago_in_words(comment.updated_at)} ago" %></span>
-                
-                <%#Add material icons for editing and deleting here (edit and remove trash?)  %>
-                 <%= link_to '<img src="/assets/noun_edit.svg" alt="edit" class="noun-sm svg">Edit'.html_safe, "/some_path", method: "post", class: "pull-right no-dark-hover" %>
+                 <%= link_to '<img src="/assets/noun_edit.svg" alt="edit" class="noun-sm svg">Edit'.html_safe, edit_activity_comment_path(@activity.id, comment.id), class: "pull-right no-dark-hover" %>
               <p><%= comment.content %></p>
             </div>
           </div>      
