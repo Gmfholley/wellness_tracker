@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = @user.activities.paginate(:page => params[:page])
+    @activities = @user.activities.includes(:user, :intensity, :exercise_unit, :exercise_type).includes(:comments => [:user]).includes(:cheers => [:user]).order(:date).paginate(:page => params[:page])
   end
 
   # GET /activities/graph

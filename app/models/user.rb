@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
   #
   # returns an Array of Activity objects
   def friends_activities
-    Activity.includes(:user, :intensity, :exercise_unit, :exercise_type).includes(:comments => [:user]).includes(:cheers => [:user]).where(:user_id => [self.friends.ids]).order(date: :desc).limit(50)
+    Activity.includes(:user, :intensity, :exercise_unit, :exercise_type).includes(:comments => [:user]).includes(:cheers => [:user]).where(:user_id => [self.friends.ids]).order(date: :desc)
   end
   
   # returns the total points from all this person's exercise events
