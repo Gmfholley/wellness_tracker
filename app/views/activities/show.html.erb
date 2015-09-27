@@ -29,7 +29,9 @@
             <div class="media-body">
                 <p class="media-heading"><span class="bold"><%= "#{comment.user.first_name} #{comment.user.last_name}" %></span> says...</p>
                 <span class="grey-text small condensed"><%= "#{time_ago_in_words(comment.updated_at)} ago" %></span>
+                <% if comment.user = @user %>
                  <%= link_to '<img src="/assets/noun_edit.svg" alt="edit" class="noun-sm svg">Edit'.html_safe, edit_activity_comment_path(@activity.id, comment.id), class: "pull-right no-dark-hover" %>
+                <% end %>
               <p><%= comment.content %></p>
             </div>
           </div>      
