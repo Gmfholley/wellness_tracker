@@ -18,12 +18,19 @@
             <%# TODO - Put the names of the cheerers in something other than an array %>         
             <span> 
               <% if activity.user_has_cheered?(@user) %>
-                 <%= link_to '<img src="/assets/noun_bull_horn.svg" class="noun-sm svg">Cheered'.html_safe, activity_cheers_path(activity.id), method: "delete", class: "cheered no-dark-hover" %>
+                 <%= link_to '<img src="/assets/noun_bull_horn.svg" class="noun-sm svg" />Cheered'.html_safe, activity_cheers_path(activity.id), method: "delete", class: "cheered no-dark-hover small" %>
                <% else %>
-                 <%= link_to '<img src="/assets/noun_bull_horn.svg" alt="cheer" class="noun-sm svg">Cheer'.html_safe, activity_cheers_path(activity.id), method: "post", class: "cheered no-dark-hover" %>
+                 <%= link_to '<img src="/assets/noun_bull_horn.svg" alt="cheer" class="noun-sm svg" />Cheer'.html_safe, activity_cheers_path(activity.id), method: "post", class: "cheered no-dark-hover small" %>
                <% end %>
             </span>
-            <span class="grey-text small tooltipped" data-placement="top" data-html="true" title="<%= html_commenters(activity) %>"><%= comment_sentence(activity.comments) %><a href="<%= activity_path(activity.id) %>"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg"></a></span>
+            <span class="grey-text small tooltipped" data-placement="top" data-html="true" title="<%= html_commenters(activity) %>"><%= comment_sentence(activity.comments) %></span>
+            <span>
+            <% if activity.user_has_commented?(@user) %>
+              <a href="<%= activity_path(activity.id) %>" class="small commented no-dark-hover"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg" />Commented</a>
+            <% else %>
+              <a href="<%= activity_path(activity.id) %>" class="small commented no-dark-hover"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg" />Comment</a>
+            <% end %>
+            </span>
          </div>
        
       </div>
