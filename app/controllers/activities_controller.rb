@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = @user.activities
+    @activities = @user.activities.paginate(:page => params[:page])
   end
 
   # GET /activities/graph
@@ -88,7 +88,12 @@ class ActivitiesController < ApplicationController
     def set_activity
       @activity = Activity.find(params[:id])
     end
-
+    
+    # sets the activites by pagination
+    def set_activities_for_pagination
+      
+    end
+    
     # sets the date from params which will be used to set the month
     def set_activities_by_month
       begin
