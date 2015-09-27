@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   
   helper ActivitiesHelper
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  before_action :set_start_date, only: [:graph_month, :calendar_month, :calendar, :graph]
+  before_action :set_activities_by_month, only: [:calendar, :graph]
 
   
   # GET /activities
@@ -13,7 +13,6 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/graph
   def graph
-    @activities = @user.activities
     respond_to do |format|
       format.html { render :graph }
       format.json { render json: @activities }
@@ -22,7 +21,6 @@ class ActivitiesController < ApplicationController
   
   # GET /activities/calendar
   def calendar
-    @activities = @user.activities.where(date: @start_date.at_beginning_of_month..@start_date.at_end_of_month)
     respond_to do |format|
       format.html { render :calendar }
       format.json { render json: @activities }
@@ -92,13 +90,14 @@ class ActivitiesController < ApplicationController
     end
 
     # sets the date from params which will be used to set the month
-    def set_start_date
+    def set_activities_by_month
       begin
         @start_date = Date.parse(params["start_date"])
       rescue
         @start_date = Date.today
         params["start_date"] = @start_date
       end
+      @activities = @user.activities.where(date: @start_date.at_beginning_of_month..@start_date.at_end_of_month)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
