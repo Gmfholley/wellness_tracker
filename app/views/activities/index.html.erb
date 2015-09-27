@@ -6,19 +6,26 @@
   <% @activities.each do |activity| %>
     <li class="media">
       <div class="media-left">
-        <% @icon = exercise_svg(activity.exercise_type.name) %>
+        <% @icon = exercise_svg(activity.exercise_type.name)  %>
         <a href="<%= activity_path(activity.id) %>"><img src="<%= "/assets/wellness/#{@icon}" %>" alt="exercise" class="media-object"></a>
       </div>
       <div class="media-body">
-        <h5 class="media-heading"><%= activity.exercise_type.name %></h5>
-        <p class="grey-text small"><%= activity.date%></p>
-        <h6>You did <%= "#{activity.exercise_type.name} for #{activity.num_units} #{activity.exercise_unit.name} at #{activity.intensity.name} intensity." %></h6>
-        <div class="react">
-          <p class="grey-text small"></p>
-        </div>
-         <div class="react-buttons">
-           <span class="grey-text small content show-tooltip" data-placement="top" data-html="true" title="<%= html_cheerers(activity) %>"><%= cheer_sentence(activity.cheers) %><img src="/assets/noun_bull_horn.svg" alt="cheer" class="noun-sm svg"></span>
-          <span class="grey-text small tooltipped" data-placement="top" data-html="true" title="<%= html_commenters(activity) %>"><%= comment_sentence(activity.comments) %><a href="<%= activity_path(activity.id) %>"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg"></a></a></span>
+        <div class="row">
+          <div class="col col-xs-10">
+            <h5 class="media-heading"><%= activity.exercise_type.name %></h5>
+            <p class="grey-text small"><%= activity.date%></p>
+            <h6>You did <%= "#{activity.exercise_type.name} for #{activity.num_units} #{activity.exercise_unit.name} at #{activity.intensity.name} intensity." %></h6>
+            <div class="react">
+              <p class="grey-text small"></p>
+            </div>
+             <div class="react-buttons">
+               <span class="grey-text small content show-tooltip" data-placement="top" data-html="true" title="<%= html_cheerers(activity) %>"><%= cheer_sentence(activity.cheers) %><img src="/assets/noun_bull_horn.svg" alt="cheer" class="noun-sm svg"></span>
+              <span class="grey-text small tooltipped" data-placement="top" data-html="true" title="<%= html_commenters(activity) %>"><%= comment_sentence(activity.comments) %><a href="<%= activity_path(activity.id) %>"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg"></a></a></span>
+            </div>
+            <div class="col col-xs-2">
+              <%= link_to '<i class="fa fa-trash" tooltip="Delete Record"></i>'.html_safe delete_activity_path(activity.id), method: :delete %>
+              <%= link_to '<i class="fa fa-pencil"></i>'.html_safe edit_activity_path(activity.id) %>
+            </div>
         </div>
       </div>
       <div class="divider"></div>
