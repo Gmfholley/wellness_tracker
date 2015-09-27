@@ -24,8 +24,8 @@ Rails.application.routes.draw do
   
   #resources :exercise_types
   resources :activities do
-    resources :cheers, only: [:create]
-    resources :comments, only: [:create, :edit, :update, :destroy]
+    resources :cheers, only: [:create, :destroy]
+    resources :comments
   end
     
   delete 'activities/:activity_id/cheers' => 'cheers#destroy'

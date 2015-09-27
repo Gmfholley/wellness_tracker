@@ -15,14 +15,15 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    #TODO - I don't think I need this.
   end
 
   def update
     if @comment.update(params_comment)
-      render json: @comment
+      # render json: @comment
+      redirect_to activity_path(@activity.id)
     else
-      render :json => { :errors => @comment.errors.full_messages }
+      
+      # render :json => { :errors => @comment.errors.full_messages }
     end
   end
 
