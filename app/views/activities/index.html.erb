@@ -23,7 +23,7 @@
                  <span class="grey-text small content show-tooltip" data-placement="top" data-html="true" title="<%= html_cheerers(activity) %>"><%= cheer_sentence(activity.cheers) %><img src="/assets/noun_bull_horn.svg" alt="cheer" class="noun-sm svg no-dark-hover"></span>
                </div>
               <div class="col col-xs-12 col-sm-6">
-                <span class="grey-text small tooltipped" data-placement="top" data-html="true" title="<%= html_commenters(activity) %>"><%= comment_sentence(activity.comments) %><a href="<%= activity_path(activity.id) %>"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg no-dark-hover"></a></span>
+                <span class="grey-text small tooltipped" data-placement="top" data-html="true" title="<%= html_commenters(activity) %>"><%= comment_sentence(activity.comments) %><a href="<%= activity_path(activity.id) %>" class="no-dark-hover"><img src="/assets/noun_comment.svg" alt="comment" class="noun-sm svg no-dark-hover"></a></span>
               </div>            
             </div>
           </div>
