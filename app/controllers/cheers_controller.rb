@@ -7,7 +7,7 @@ class CheersController < ApplicationController
     respond_to do |format|
       begin @cheer.save
         format.json {render json: @cheer}
-        format.html {redirect_to activities_path}
+        format.html {redirect_to friends_feed_path}
       rescue
         format.json {render :json => { :errors => "unique constraint failed" }}
         format.html {redirect_to @activity, notice: "Uh oh.  Something went wrong."}
@@ -20,7 +20,7 @@ class CheersController < ApplicationController
     respond_to do |format|
       if @cheer.destroy
         format.json {render json: { head: :no_content}}
-        format.html {redirect_to activities_path}
+        format.html {redirect_to friends_feed_path}
       else
         format.json  {render :json => { :errors => @cheer.errors.full_messages }}
         format.html {redirect_to @activity, notice: "Uh oh. Something went wrong."}
