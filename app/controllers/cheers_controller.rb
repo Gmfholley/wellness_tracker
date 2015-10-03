@@ -3,10 +3,15 @@ class CheersController < ApplicationController
   
   def create
     @cheer = Cheer.new(user_id: @user.id, activity_id: @event.id)
-    begin @cheer.save
-      render json: @cheer
-    rescue
-      render :json => { :errors => "unique constraint failed" }
+    
+    respond_to do |format|
+      begin @cheer.save
+        format.json {json: @cheer}
+        format.html {redirect_to activities_path}
+      rescue
+        format.json {render :json => { :errors => "unique constraint failed" }}
+        format.html {redirect_to @activity, notice: "Uh oh.  Something went wrong."}
+      end
     end
   end
 
