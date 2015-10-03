@@ -47,3 +47,7 @@ img.media-object {
   height: 64px;
   width: 64px;
 }
+
+textarea {
+  width: 100%;
+}
