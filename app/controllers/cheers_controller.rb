@@ -6,7 +6,7 @@ class CheersController < ApplicationController
     
     respond_to do |format|
       begin @cheer.save
-        format.json {json: @cheer}
+        format.json {render json: @cheer}
         format.html {redirect_to activities_path}
       rescue
         format.json {render :json => { :errors => "unique constraint failed" }}
@@ -19,7 +19,7 @@ class CheersController < ApplicationController
     @cheer = Cheer.find_by(user_id: @user.id, activity_id: @event.id)
     respond_to do |format|
       if @cheer.destroy
-        format.json {  render json: { head: :no_content}}
+        format.json {render json: { head: :no_content}}
         format.html {redirect_to activities_path}
       else
         format.json  {render :json => { :errors => @cheer.errors.full_messages }}
