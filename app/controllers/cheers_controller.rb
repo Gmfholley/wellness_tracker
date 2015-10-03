@@ -17,10 +17,12 @@ class CheersController < ApplicationController
 
   def destroy
     @cheer = Cheer.find_by(user_id: @user.id, activity_id: @event.id)
-    if @cheer.destroy
-      render json: { head: :no_content}
-    else
-      render :json => { :errors => @cheer.errors.full_messages }
+    respond_to do |format|
+      if @cheer.destroy
+        render json: { head: :no_content}
+      else
+        render :json => { :errors => @cheer.errors.full_messages }
+      end
     end
   end
   
