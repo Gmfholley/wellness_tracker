@@ -19,9 +19,11 @@ class CheersController < ApplicationController
     @cheer = Cheer.find_by(user_id: @user.id, activity_id: @event.id)
     respond_to do |format|
       if @cheer.destroy
-        render json: { head: :no_content}
+        format.json {  render json: { head: :no_content}}
+        format.html {redirect_to activities_path}
       else
-        render :json => { :errors => @cheer.errors.full_messages }
+        format.json  {render :json => { :errors => @cheer.errors.full_messages }}
+        format.html {redirect_to @activity, notice: "Uh oh. Something went wrong."}
       end
     end
   end
