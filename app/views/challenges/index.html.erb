@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Challenges</h1>
+<h3 class="text-center">Your Challenges</h1>
 
 <div class="row">
   <% @challenges.each do |challenge| %>  
     <div class="col col-xs-12 col-sm-6 col-md-3">
         <div class="challenge panel panel-default">
           <div class="panel-heading">
-            <h4 class="panel-title"><%= challenge.name %></h4>
+            <h4 class="panel-title"><%= link_to challenge.name, organization_challenge_path(challenge.organization.id, challenge.id) %></h4>
             <h6>By <%= challenge.organization.name %></h6>
           </div>
           <div class="panel-body">
