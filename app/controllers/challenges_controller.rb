@@ -23,9 +23,6 @@ class ChallengesController < ApplicationController
 
   # GET /challenges/1/edit
   def edit
-    @challenge.rule_qualifies.build
-    @challenge.rule_eaches.build
-    @challenge.rule_totals.build
   end
 
   # POST /challenges
