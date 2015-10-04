@@ -4,11 +4,11 @@
 
 <div class="row">
   <% @challenges.each do |challenge| %>  
-    <div class="col col-xs-1 col-sm-2 col-md-4">
+    <div class="col col-xs-12 col-sm-6 col-md-3">
         <div class="challenge panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title"><%= challenge.name %></h4>
-            <h6 class="panel-title"><%= challenge.organization.name %></h6>
+            <p class="panel-title">By <%= challenge.organization.name %></p>
           </div>
           <div class="panel-body">
             <p><%= challenge.description %></p>
@@ -24,9 +24,8 @@
         </div>
     </div>
   <% end %>
-  
 </div>
-
+<%= will_paginate @challenges %>
 <table>
   <thead>
     <tr>
@@ -43,6 +42,7 @@
   </thead>
 
   <tbody>
+  <% @challenges.each do |challenge| %>  
       <tr>
         <td><%= challenge.organization.name %></td>
         <td><%= challenge.name %></td>
@@ -61,5 +61,3 @@
 </table>
 
 <br>
-
-<%= will_paginate @challenges %>
