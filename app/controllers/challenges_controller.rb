@@ -44,6 +44,7 @@ class ChallengesController < ApplicationController
   # PATCH/PUT /challenges/1
   # PATCH/PUT /challenges/1.json
   def update
+    binding.pry
     respond_to do |format|
       if @challenge.update(challenge_params)
         format.html { redirect_to organization_challenge_path(@organization.id, @challenge.id), notice: 'Challenge was successfully updated.' }
