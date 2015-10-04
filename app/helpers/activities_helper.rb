@@ -59,7 +59,7 @@ module ActivitiesHelper
   #
   # returns a String
   def user_and_others_commented_this(comments)
-    "#{comment.first.user.first_name} #{comment.first.user.last_name} and #{comments.size - 1} more commented on this"
+    "#{comments.first.user.first_name} #{comments.first.user.last_name} and #{comments.size - 1} more commented on this"
   end  
   
   # returns a sentence about the comments in English
