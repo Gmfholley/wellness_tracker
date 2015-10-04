@@ -1,4 +1,7 @@
 class ChallengeParticipantsController < ApplicationController
+  # way for participants to sign up for a challenge
+  # way to get a list of participants
+  
   skip_before_action :require_login, only: [:new, :create]
   before_action :set_challenge
 
