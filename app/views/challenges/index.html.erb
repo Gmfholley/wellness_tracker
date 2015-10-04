@@ -14,9 +14,9 @@
             <p><%= challenge.description %></p>
             <% if Date.today <= challenge.end_date %>
               <% if Date.today >= challenge.start_date %>
-                <span class="badge pull-right"><i class="fa fa-calendar-check-o"></i>In progress</span>
+                <span class="badge pull-right"><i class="fa fa-calendar-check-o"></i> In progress</span>
               <% else %>
-                <span class="badge pull-right"><i class="fa fa-calendar"></i>Starts <%= challenge.start_date %></span>
+                <span class="badge pull-right"><i class="fa fa-calendar"></i> Starts <%= challenge.start_date.to_date %></span>
               <% end %>
             <% end %>
           </div>
@@ -26,38 +26,3 @@
   <% end %>
 </div>
 <%= will_paginate @challenges %>
-<table>
-  <thead>
-    <tr>
-      <th>Organization</th>
-      <th>Challenge name</th>
-      <th>Description</th>
-      <th>Type of Challenge</th>
-      <th>Number of participants allowed</th>
-      <th>Number of members of a team allowed (if applicable)</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @challenges.each do |challenge| %>  
-      <tr>
-        <td><%= challenge.organization.name %></td>
-        <td><%= challenge.name %></td>
-        <td><%= challenge.description %></td>
-        <td><%= challenge.challenge_type.name %></td>
-        <td><%= challenge.num_type %></td>
-        <td><%= challenge.num_in_type %></td>
-        <td><%= challenge.start_date %></td>
-        <td><%= challenge.end_date %></td>
-        <td><%= link_to 'Show', organization_challenge_path(challenge.organization_id, challenge.id) %></td>
-        <td><%= link_to 'Edit', edit_organization_challenge_path(challenge.organization_id, challenge.id) %></td>
-        <td><%= link_to 'Destroy', organization_challenge_path(challenge.organization_id, challenge.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
