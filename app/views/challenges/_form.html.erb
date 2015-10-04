@@ -58,7 +58,7 @@
     <% @challenge.rule_totals.each do |rule| %>
     <% unless rule.id.blank? %>
       <div class="rule_total">
-        <p>Users must have at least <%= "#{rule.num_exercise_units} #{rule.exericse_units.name} in #{rule.num_time_periods} #{rule.time_period.name}." %>  <span><%= link_to "Edit", edit_rule_total_path(rule.id) %></span>  <span><%= link_to "Delete", organization_challenge_rule_total_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
+        <p>Users must have at least <%= "#{rule.num_exercise_units} #{rule.exercise_unit.name} in #{rule.num_time_periods} #{rule.time_period.name}." %>  <span><%= link_to "Edit", edit_rule_total_path(rule.id) %></span>  <span><%= link_to "Delete", rule_total_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
       </div>
       <% end %>
     <% end %>
@@ -73,7 +73,7 @@
     <% @challenge.rule_eaches.each do |rule| %>
     <% unless rule.id.blank? %>
       <div class="rule_each">
-        <p>Participants should have at minimum <%= "#{rule.num_exercise_units} #{rule.exericse_units.name} eaach #{rule.time_period.name}." %>  <span><%= link_to "Edit", edit_rule_each_path(rule.id) %></span>  <span><%= link_to "Delete", rule_each_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
+        <p>Participants should have at minimum <%= "#{rule.num_exercise_units} #{rule.exercise_unit.name} eaach #{rule.time_period.name}." %>  <span><%= link_to "Edit", edit_rule_each_path(rule.id) %></span>  <span><%= link_to "Delete", rule_each_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
       </div>
       <% end %>
     <% end %>
