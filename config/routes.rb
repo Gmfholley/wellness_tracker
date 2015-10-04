@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   resources :rule_qualifes
   
   resources :organizations do
-    resources :challenges
+    resources :challenges, only: [:create, :new, :edit, :update, :destroy, :show]
   end
-  
+  get 'challenges' => 'challenges#index', as: :challenges
   get 'challenges/:token_id/sign_up' => 'challenge_participants#new', as: :challenge_sign_up
   post 'challenges/:token_id/participants' => 'challenge_participants#create'
   delete 'challenges/:token_id/participants' => 'challenge_participants#destroy', as: :challenge_participants
