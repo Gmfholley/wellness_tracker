@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :rule_eaches
   resources :rule_totals
-  resources :rule_qualifes
+  resources :rule_qualifies
   
   resources :organizations do
     resources :challenges, only: [:create, :new, :edit, :update, :destroy, :show]
