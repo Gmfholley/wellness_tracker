@@ -2,6 +2,31 @@
 
 <h1>Listing Challenges</h1>
 
+<div class="row">
+  <% @challenges.each do |challenge| %>  
+    <div class="col col-xs-1 col-sm-2 col-md-4">
+        <div class="challenge panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title"><%= challenge.name %></h4>
+            <h6 class="panel-title"><%= challenge.organization.name %></h6>
+          </div>
+          <div class="panel-body">
+            <p><%= challenge.description %></p>
+            <% if Date.today <= challenge.end_date %>
+              <% if Date.today >= challenge.start_date %>
+                <span class="badge pull-right"><i class="fa fa-calendar-check-o"></i>In progress</span>
+              <% else %>
+                <span class="badge pull-right"><i class="fa fa-calendar"></i>Starts <%= challenge.start_date %></span>
+              <% end %>
+            <% end %>
+          </div>
+      
+        </div>
+    </div>
+  <% end %>
+  
+</div>
+
 <table>
   <thead>
     <tr>
@@ -18,7 +43,6 @@
   </thead>
 
   <tbody>
-    <% @challenges.each do |challenge| %>
       <tr>
         <td><%= challenge.organization.name %></td>
         <td><%= challenge.name %></td>
