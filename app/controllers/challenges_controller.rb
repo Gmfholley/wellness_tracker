@@ -5,7 +5,7 @@ class ChallengesController < ApplicationController
   # GET /challenges
   # GET /challenges.json
   def index
-    @challenges = @user.challenges
+    @challenges = @user.challenges.paginate(:page => params[:page])
   end
 
   # GET /challenges/1
