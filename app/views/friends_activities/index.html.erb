@@ -14,8 +14,8 @@
            <p><%= "#{activity.user.first_name} did #{activity.exercise_type.name} at #{activity.intensity.name} intensity for #{activity.num_units} #{activity.exercise_unit.name}" %></p>
          
           <div class="react-buttons">
-            <div class="row">
-              <div class="col col-xs-12 col-sm-6">
+            <div class="col">
+              <div class="pull-left">
                 <span class="grey-text small tooltipped" data-toggle="tooltip" data-placement="top" data-html="true" title="<%= html_cheerers(activity) %>"><%= cheer_sentence(activity.cheers) %></span>
                 <span> 
                   <% if activity.user_has_cheered?(@user) %>
@@ -25,7 +25,7 @@
                    <% end %>
                 </span>
               </div>
-              <div class="col col-xs-12 col-sm-6">
+              <div class="pull-right">
                 <span class="grey-text small tooltipped" data-toggle="tooltip" data-placement="top" data-html="true" title="<%= html_commenters(activity) %>"><%= comment_sentence(activity.comments) %></span>
                 <span>
                 <% if activity.user_has_commented?(@user) %>
