@@ -42,31 +42,34 @@
   
   <div class="rule_qualifies">
     <% @challenge.rule_qualifies.each do |rule| %>
-    <%= f.fields_for :rule_qualifies do |ff| %>
+    <%= f.fields_for rule do |ff| %>
       <div class="rule_qualify">
         <p>To count towards the total, each day must have at least <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %>. <span><%= link_to "Delete", rule_qualify_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
       </div>
     <% end %>
+    <% end %>
   </div>
   <div class="rule_totals">
     <% @challenge.rule_totals.each do |rule| %>
-    <%= f.fields_for :rule_totals do |ff| %>
+    <%= f.fields_for rule do |ff| %>
       <div class="rule_total">
         <p>Users must have at least <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> in <%= ff.number_field :num_time_periods %> <%= ff.select :time_period_id, TimePeriod.all.collect { |p| [p.name, p.id]}, include_blank: true %>.  <span><%= link_to "Delete", rule_total_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
       </div>
+    <% end %>
     <% end %>
   </div>
   
   <div class="rule_eaches">
     <% @challenge.rule_eaches.each do |rule| %>
-    <%= f.fields_for :rule_eaches do |ff| %>
-      <div class="new_rule_each">
+    <%= f.fields_for rule do |ff| %>
+      <div class="rule_each">
         <p>Participants should have at minimum <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> each <%= ff.select :time_period_id, TimePeriod.all.collect { |p| [p.name, p.id]}, include_blank: true %>. <span><%= link_to "Delete", rule_each_path(rule.id), method: "delete", confirm: "Are you sure?" %></span></p>
       </div>
+    <% end %>
     <% end %>
   </div>
   
   <div class="actions">
-    <%= f.submit nil, class="btn btn-default" %>
+    <%= f.submit nil, class: "btn btn-default" %>
   </div>
 <% end %>
