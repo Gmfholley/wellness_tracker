@@ -20,7 +20,7 @@ class FriendsController < ApplicationController
   end
   
   def index
-    @users = @user.friends
+    @users = @user.friends.paginate(:page => params[:page])
     @message = "These are your friends."
   end
   
@@ -31,15 +31,6 @@ class FriendsController < ApplicationController
       redirect_to friends_path, notice: "Something happened.  You did not delete #{@friend.first_name} from your contacts."
     end
   end
-  
-  def edit
-    redirect_to friends_path, notice: "Oops!  You were directed to the wrong place. If you keep getting this message, contact the web master."
-  end
-  
-  def update
-    redirect_to friends_path, notice: "Oops!  You were directed to the wrong place. If you keep getting this message, contact the web master."
-  end
-  
   
   private
   def set_friend
