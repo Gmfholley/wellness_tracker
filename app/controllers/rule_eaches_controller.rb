@@ -34,7 +34,7 @@ class RuleEachesController < ApplicationController
   private
   def set_rule
     @rule = RuleEach.find(params["id"])
-    @challenge = @rule.challenge.includes(:organization, :rule_eaches, :rule_totals, :rule_qualifies)
+    @challenge = @rule.challenge
     @organization = @challenge.organization
   end
   
