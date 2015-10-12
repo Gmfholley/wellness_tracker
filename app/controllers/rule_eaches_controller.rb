@@ -1,4 +1,6 @@
 class RuleEachesController < ApplicationController
+  before_action :set_rule, only: [:show, :edit, :destroy, :update]
+  
   def index
   end
   
@@ -20,4 +22,8 @@ class RuleEachesController < ApplicationController
   def new
   end
   
+  private
+  def set_rule
+    @rule = RuleEach.find(params["id"])
+  end
 end

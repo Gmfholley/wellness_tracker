@@ -1,4 +1,5 @@
 class RuleQualifiesController < ApplicationController
+  before_action :set_rule, only: [:show, :edit, :update, :destroy]
   
   def index
   end
@@ -21,4 +22,8 @@ class RuleQualifiesController < ApplicationController
   def new
   end
   
+  private
+  def set_rule
+    @rule = RuleQualify.find(params["id"])
+  end
 end

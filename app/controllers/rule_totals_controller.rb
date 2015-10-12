@@ -1,4 +1,6 @@
 class RuleTotalsController < ApplicationController
+  before_action :set_rule, only: [:show, :edit, :destroy, :update]
+  
   def index
   end
   
@@ -18,5 +20,10 @@ class RuleTotalsController < ApplicationController
   end
   
   def new
+  end
+  
+  private
+  def set_rule
+    @rule = RuleTotal.find(params["id"])
   end
 end
