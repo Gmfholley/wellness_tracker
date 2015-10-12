@@ -26,7 +26,7 @@ class ChallengesController < ApplicationController
   end
 
   # POST /challenges
-  # POST /challenges.json
+  # POST /challenges.json 
   def create
     @challenge = @organization.challenges.build(challenge_params)
 
