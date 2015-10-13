@@ -43,14 +43,14 @@
   <div class="rule_qualifies">
     <%= f.fields_for :rule_qualifies do |ff| %>
       <div class="rule_qualify">
-        <p>To count towards the total, each day must have at least <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %>. <span><%= link_to "Delete", rule_qualifies_path, method: "delete", confirm: "Are you sure?" %></span></p>
+        <p>To count towards the total, each day must have at least <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %>.</p>
       </div>
     <% end %>
   </div>
   <div class="rule_totals">
     <%= f.fields_for :rule_totals do |ff| %>
       <div class="rule_total">
-        <p>Users must have at least <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> in <%= ff.number_field :num_time_periods %> <%= ff.select :time_period_id, TimePeriod.all.collect { |p| [p.name, p.id]}, include_blank: true %>.  <span><%= link_to "Delete", "/", method: "delete", confirm: "Are you sure?" %></span></p>
+        <p>Users must have at least <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> in <%= ff.number_field :num_time_periods %> <%= ff.select :time_period_id, TimePeriod.all.collect { |p| [p.name, p.id]}, include_blank: true %>.</p>
       </div>
     <% end %>
   </div>
@@ -58,7 +58,7 @@
   <div class="rule_eaches">
     <%= f.fields_for :rule_eaches do |ff| %>
       <div class="rule_each">
-        <p>Participants should have at minimum <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> each <%= ff.select :time_period_id, TimePeriod.all.collect { |p| [p.name, p.id]}, include_blank: true %>. <span><%= link_to "Delete", "/", method: "delete", confirm: "Are you sure?" %></span></p>
+        <p>Participants should have at minimum <%= ff.number_field :num_exercise_units, placeholder: "x" %> <%= ff.select :exercise_unit_id, ExerciseUnit.all.collect { |p| [p.name, p.id ]}, include_blank: true %> each <%= ff.select :time_period_id, TimePeriod.all.collect { |p| [p.name, p.id]}, include_blank: true %>.</p>
       </div>
     <% end %>
   </div>
