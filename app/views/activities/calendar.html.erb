@@ -5,7 +5,7 @@
   <% activities.each do |activity| %>
     <div>
       <a href="<%= activity_path(activity.id) %>">
-        <img src="<%= "/assets/wellness/#{exercise_svg(activity.exercise_type.name)}" %>" alt="<%= activity.exercise_type.name %>"class="noun-sm" />
+        <img src="<%= "/assets/wellness/#{exercise_svg(activity.exercise_type.name)}" %>" alt="<%= activity.exercise_type.name %>"class="noun-sm svg no-dark-hover" />
       </a>
     </div>
   <% end %>
