@@ -6,4 +6,35 @@
 <p class="text-center"><a href="<%= "/activities/graph?start_date=#{@start_date.at_beginning_of_month - 1.day}" %>">Previous</a>
 <a href="<%= "/activities/graph?start_date=#{@start_date.at_end_of_month + 1.day}" %>">Next</a></p>
 
-<%= line_chart @activities.group(:date).sum(:num_units) %>
+<%
+
+@library_options = {
+  hAxis: {
+    'minValue': 1,
+    'maxValue': 31,
+    'format': 'short',
+      'gridlines': {
+            'color': 'red'
+            }
+          }
+
+  # to_a because I don't know if Range is acceptable input
+}
+# This does not work
+# THe line chart assumes a time, even when it is not there.  It sizes the horizontal axis automatically to the data range.  It does not allow you to set the min or max value
+# it does not allow you to resize
+# A calendar chart might work but is not supported by chart kick
+# you might be able to use an interval chart but that would require that I change the data to fit that implementation
+@data = @activities.group("date(date)").sum(:num_units)
+
+@day_data = {}
+@data.each do |k, v|
+  @day_data[k.to_date.day.to_s] = v
+end
+
+ %>
+
+<%= calendar_chart @data, library: @library_options %>
+
+Start: <%= @start_date.beginning_of_month.to_datetime %>
+End:<%= @start_date.end_of_month.to_datetime %>
