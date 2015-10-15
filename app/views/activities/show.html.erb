@@ -16,7 +16,7 @@
               <% if @activity.user_has_cheered?(@user) %>
                  <%= link_to '<img src="/assets/noun_bull_horn.svg" class="noun-sm svg no-dark-hover">Cheered'.html_safe, activity_cheers_path(@activity.id), method: "delete", class: "pull-right small no-dark-hover" %>
                <% else %>
-                 <%= link_to '<img src="/assets/noun_bull_horn.svg no-dark-hover" alt="cheer" class="noun-sm svg">Cheer'.html_safe, activity_cheers_path(@activity.id), method: "post", class: "pull-right small no-dark-hover" %>
+                 <%= link_to '<img src="/assets/noun_bull_horn.svg" class="noun-sm svg no-dark-hover" alt="cheer" class="noun-sm svg">Cheer'.html_safe, activity_cheers_path(@activity.id), method: "post", class: "pull-right small no-dark-hover" %>
                <% end %>
             </span>
          </div>
