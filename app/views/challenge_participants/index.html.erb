@@ -22,7 +22,7 @@
           <td><%= challenge_participant.team_id.nil? ? "" : challenge_participant.team.name %></td>
           <td><%= challenge_participant.meets_challenge? %></td>
           <td><%= link_to 'Show', user_path(challenge_participant.user.username) %></td>
-          <td><%= link_to 'Remove from Challenge', challenge_participant, method: :delete, data: { confirm: "This will not delete the participant's account, but you cannot undo.  Are you sure?" } %></td>
+          <td><%= link_to 'Remove from Challenge', challenge_participants_path(@challenge.token, challenge_participant.user.username), method: :delete, data: { confirm: "This will not delete the participant's account, but you cannot undo.  Are you sure?" } %></td>
         </tr>
       <% end %>
    
