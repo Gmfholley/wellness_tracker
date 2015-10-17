@@ -24,4 +24,9 @@ class ChallengeParticipant < ActiveRecord::Base
   
   # Cannot accept nested attributes for user at this stage or it will REQUIRE a password
   # FYI
+  
+  #TODO - some logic needed here to determine if they meet the challenge
+  def meets_challenge?
+    true
+  end
 end
