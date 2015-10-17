@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h4>Listing Challenge Participants</h4>
+<h4><%= @challenge.name %> Participants</h4>
 <% if !@challenge_participants.nil? %>
   <table class="table table-bordered table-hover table-condensed table-responsive">
     <thead>
       <tr>
-        <th>Challenge</th>
-        <th>User</th>
-        <th>Team</th>
+        <th>Participant</th>
+        <th>Participant Email</th>
+        <th>Team (if applicable)</th>
+        <th>Meets Challenge?</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -16,12 +17,12 @@
     
       <% @challenge_participants.each do |challenge_participant| %>
         <tr>
-          <td><%= challenge_participant.challenge_id %></td>
-          <td><%= challenge_participant.user_id %></td>
-          <td><%= challenge_participant.team_id %></td>
-          <td><%= link_to 'Show', challenge_participant %></td>
-          <td><%= link_to 'Edit', edit_challenge_participant_path(challenge_participant) %></td>
-          <td><%= link_to 'Destroy', challenge_participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= challenge_participant.user.username %></td>
+          <td><%= challenge_participant.user.email %></td>
+          <td><%= challenge_participant.team_id.nil? ? "" : challenge_participant.team.name %></td>
+          <td><%= challenge_participant.meets_challenge? %></td>
+          <td><%= link_to 'Show', user_path(challenge_participant.user.username) %></td>
+          <td><%= link_to 'Remove from Challenge', challenge_participant, method: :delete, data: { confirm: "This will not delete the participant's account, but you cannot undo.  Are you sure?" } %></td>
         </tr>
       <% end %>
    
