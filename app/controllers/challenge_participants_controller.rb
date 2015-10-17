@@ -47,7 +47,7 @@ class ChallengeParticipantsController < ApplicationController
   def destroy
     @challenge_participant.destroy
     respond_to do |format|
-      format.html { redirect_to challenge_participants_url, notice: 'Challenge participant was successfully destroyed.' }
+      format.html { redirect_to action: "index", id: @challenge.token, notice: 'Challenge participant was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
