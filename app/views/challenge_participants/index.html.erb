@@ -13,6 +13,7 @@
   </thead>
 
   <tbody>
+    <% if !@challenge_participants.nil? %>
     <% @challenge_participants.each do |challenge_participant| %>
       <tr>
         <td><%= challenge_participant.challenge_id %></td>
@@ -23,9 +24,10 @@
         <td><%= link_to 'Destroy', challenge_participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Challenge participant', new_challenge_participant_path %>
+<%= link_to 'New Challenge participant', challenge_sign_up_path %>
