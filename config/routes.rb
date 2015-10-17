@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'challenges' => 'challenges#index', as: :challenges
   get 'challenges/:token_id/sign_up' => 'challenge_participants#new', as: :challenge_sign_up
   post 'challenges/:token_id/participants' => 'challenge_participants#create'
-  delete 'challenges/:token_id/participants' => 'challenge_participants#destroy', as: :challenge_participants
+  delete 'challenges/:token_id/participants/:user_id' => 'challenge_participants#destroy', as: :challenge_participants
   get 'challenges/:token_id/participants' => 'challenge_participants#index'
   get 'challenges/:token_id' => 'challenge_participants#show', as: :challenge_not_found
   get 'teams/:token_id' => 'challenge_participants#team', as: :team_sign_up
