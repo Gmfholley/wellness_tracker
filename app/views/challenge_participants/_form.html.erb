@@ -20,17 +20,29 @@
     <div class="row">
       <% if @user.blank? || @user.id.blank? %>
       <div class="col col-sm-12 col-md-6">
-        <div class="panel panel-default-panel">
-        <p class="center-align">Sign up for an account.</p>
+        <div class="panel panel-default">
+        <p class="center-align panel-title">Sign up for an account.</p>
           <%= fields_for :user do |ff| %>
-            <div class="field input-field">
-               <%= ff.text_field :email, class: "validate", placeholder: "julie@example.com" %>
-               <%= ff.text_field :username, class: "validate", placeholder: "username" %>
-               <%= ff.text_field :first_name, class: "validate", placeholder: "first name" %>
-               <%= ff.text_field :last_name, class: "validate", placeholder: "last name" %>
-               <%= ff.password_field :password, class: "validate", placeholder: "password" %>
-               <%= ff.password_field :password_confirmation, placeholder: "confirm your password" %>
+          <div class="form form-horizontal panel-content">            
+            <div class="form-group">               
+              <%= ff.text_field :email, class: "form-control", placeholder: "julie@example.com" %>
             </div>
+            <div class="form-group">
+              <%= ff.text_field :username, class: "form-control", placeholder: "username" %>
+            </div>
+            <div class="form-group">
+              <%= ff.text_field :first_name, class: "form-control", placeholder: "first name" %>
+            </div>
+            <div class="form-group">
+              <%= ff.text_field :last_name, class: "form-control", placeholder: "last name" %>
+            </div>
+            <div class="form-group">
+              <%= ff.password_field :password, class: "form-control", placeholder: "password" %>
+            </div>
+            <div class="form-group">
+              <%= ff.password_field :password_confirmation, placeholder: "confirm your password" %>
+            </div>
+          </div>
           <% end %>
           <div class="actions center-align">
             <%= f.submit "Sign me up!", class: "center-align btn grey darken-2" %>
