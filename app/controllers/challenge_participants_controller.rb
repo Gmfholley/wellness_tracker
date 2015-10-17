@@ -63,7 +63,8 @@ class ChallengeParticipantsController < ApplicationController
     
     #sets the participant from params
     def set_challenge_participant
-      @challenge_participant = User.find_by(username: params["user_id"])
+      @user = User.find_by(username: params["user_id"])
+      @challenge_participant = ChallengeParticipant.find_by(user_id: @user.id, challenge: @challenge.id)
     end
     
     # Never trust parameters from the scary internet, only allow the white list through.
