@@ -4,11 +4,12 @@ class ChallengeParticipantsController < ApplicationController
   
   skip_before_action :require_login, only: [:new, :create]
   before_action :set_challenge
+  before_action :set_challenge_participant, only: [:destroy]
 
   # GET /challenge_participants
   # GET /challenge_participants.json
   def index
-    @participants = @challenge.users.order(:team)
+    @challenge_participants = @challenge.challenge_participants.includes(:team, :user)
   end
 
   # GET /challenge_participants/new
@@ -55,8 +56,16 @@ class ChallengeParticipantsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_challenge
       @challenge = Challenge.find_by(token: params[:token_id])
-      redirect_to challenge_not_found_path, notice: "Sorry.  That challenge was not found or is no longer available for sign up. Please check the url and try again." if @challenge.id.blank?
+      if @challenge.id.blank?
+        redirect_to challenge_not_found_path, notice: "Sorry.  That challenge was not found or is no longer available for sign up. Please check the url and try again." 
+      end
     end
+    
+    #sets the participant from params
+    def set_challenge_participant
+      @challenge_participant = User.find_by(username: params["user_id"])
+    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_participant_params
       params.require(:challenge_participant).permit(:challenge_id, :user_id, :team_id)
