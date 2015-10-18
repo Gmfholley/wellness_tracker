@@ -14,7 +14,22 @@
  *= require_self
  */
 
-body { padding-top: 70px; }
+body { 
+  padding-top: 70px; 
+  font-family: 'Open Sans', sans-serif;
+  
+  strong {
+    font-weight: 600;
+  }
+  em {
+    font-weight: 300;
+  }
+}
+
+.font-title {
+  font-family: 'Raleway', sans-serif;
+}
+
 .hidden {
   display: none;
 }
