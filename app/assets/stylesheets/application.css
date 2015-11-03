@@ -17,13 +17,16 @@
 body { 
   padding-top: 70px; 
   font-family: 'Open Sans', sans-serif;
-  
-  strong {
+}
+
+strong {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-  }
-  em {
+}
+  
+em {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-  }
 }
 
 .font-title {
